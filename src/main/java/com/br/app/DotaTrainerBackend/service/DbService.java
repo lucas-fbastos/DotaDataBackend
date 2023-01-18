@@ -8,13 +8,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Set;
+
 
 @Service
-public class DbService {
+public class DbService extends BaseService{
 
     @Autowired
     private HeroRepository heroRepository;
@@ -26,24 +26,19 @@ public class DbService {
 
     public void instantiateTestDatabase(){
         seedHeroRoles();
-        getHeroesFromApi();
+        saveHeroesFromApi();
     }
 
-    private void seedHeroRoles(){
-        for (String role : ROLES) roleRepository.save(new Role(role));
-    }
+    private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
 
-    private void getHeroesFromApi(){
-
-        RestTemplate restTemplate = new RestTemplate();
-        String uri = "https://api.opendota.com/api/constants/heroes";
-        String jsonString = restTemplate.getForObject(uri, String.class);
-        JSONObject obj = new JSONObject(jsonString);
-        Set<String> keys = obj.keySet();
+    private void saveHeroesFromApi(){
+        String heroesFromAPI = this.getFromApi(this.apiUrl+"constants/heroes");
+        JSONObject heroesObj = new JSONObject(heroesFromAPI);
+        Set<String> keys = heroesObj.keySet();
         for( String key : keys){
-            JSONObject jsonHero = obj.getJSONObject(String.valueOf(key));
+            JSONObject jsonHero = heroesObj.getJSONObject(String.valueOf(key));
             Hero hero = new Hero(jsonHero);
-            JSONArray rolesJson = obj.getJSONObject(String.valueOf(key)).getJSONArray("roles");
+            JSONArray rolesJson = jsonHero.getJSONArray("roles");
             List<String > rolesList = rolesJson.toList().stream().map(Object::toString).toList();
             List<Role> roles = roleRepository.findByDescriptionIn(rolesList);
             hero.setRoles(roles);

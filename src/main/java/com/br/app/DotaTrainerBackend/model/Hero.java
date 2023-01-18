@@ -51,13 +51,13 @@ public class Hero {
     }
 
     public Hero(JSONObject obj){
-        this.id = (Integer) obj.get("id");
-        this.name = obj.get("name").toString();
-        this.localizedName = obj.get("localized_name").toString();
-        this.primaryAttribute =  obj.get("primary_attr").toString();
-        this.attackType = obj.get("attack_type").toString();
-        this.image = obj.get("img").toString();
-        this.icon = obj.get("icon").toString();
+        this.id =  obj.getInt("id");
+        this.name = obj.getString("name");
+        this.localizedName = obj.getString("localized_name");
+        this.primaryAttribute =  obj.getString("primary_attr");
+        this.attackType = obj.getString("attack_type");
+        this.image = obj.getString("img");
+        this.icon = obj.getString("icon");
     }
 
     public Hero() {  }
