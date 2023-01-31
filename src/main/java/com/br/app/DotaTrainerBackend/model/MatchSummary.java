@@ -1,5 +1,6 @@
 package com.br.app.DotaTrainerBackend.model;
 
+import com.br.app.DotaTrainerBackend.model.Enums.GameMode;
 import org.json.JSONObject;
 
 import java.time.Duration;
@@ -9,10 +10,10 @@ import java.time.ZoneOffset;
 public class MatchSummary {
                                                 
     private Long matchId;
-    private boolean isRadiant;
+    private String faction;
     private boolean playerWon;
     private java.time.Duration Duration;
-    private Integer gameMode;
+    private String gameMode;
     private Integer lobbyType;
     private Hero hero;
     private LocalDateTime matchStart;
@@ -60,14 +61,15 @@ public class MatchSummary {
         this.partySize = match.optInt("party_size");
         this.lobbyType = match.optInt("lobby_type");
         this.version = match.optInt("version");
+        setGameMode(match.getInt("game_mode"));
         determineWin(match);
     }
 
     private void determineWin(JSONObject match){
         int slot = match.optInt("player_slot");
         // players occupying slots from 0 to 127 are radiant, from 128 to 255 are dire.
-        this.isRadiant = slot <= 127;
-        this.playerWon = this.isRadiant && match.optBoolean("radiant_win");
+        this.faction = slot <= 127 ? "Radiant" : "Dire";
+        this.playerWon = this.faction.equals("Radiant") && match.optBoolean("radiant_win");
     }
 
     public Long getMatchId() {
@@ -86,12 +88,12 @@ public class MatchSummary {
         Duration = duration;
     }
 
-    public Integer getGameMode() {
+    public String getGameMode() {
         return gameMode;
     }
 
     public void setGameMode(Integer gameMode) {
-        this.gameMode = gameMode;
+        this.gameMode = GameMode.values()[gameMode].getDescription();
     }
 
     public Integer getLobbyType() {
@@ -236,6 +238,22 @@ public class MatchSummary {
 
     public void setCluster(Integer cluster) {
         this.cluster = cluster;
+    }
+
+    public String getFaction() {
+        return faction;
+    }
+
+    public void setFaction(String faction) {
+        this.faction = faction;
+    }
+
+    public boolean isPlayerWon() {
+        return playerWon;
+    }
+
+    public void setPlayerWon(boolean playerWon) {
+        this.playerWon = playerWon;
     }
 
     public String getLeaverStatus() {
