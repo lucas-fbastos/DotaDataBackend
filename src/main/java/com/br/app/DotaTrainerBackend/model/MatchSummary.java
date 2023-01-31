@@ -38,36 +38,36 @@ public class MatchSummary {
     public MatchSummary() { }
 
     public MatchSummary(JSONObject match){
-        this.matchId    = match.getLong("match_id");
-        this.assists    = match.getInt("assists");
-        this.deaths     = match.getInt("deaths");
-        this.kills      = match.getInt("kills");
-        this.skill      = match.getInt("skill");
-        this.Duration   = java.time.Duration.ofSeconds(match.getLong("duration"));
-        this.matchStart = LocalDateTime.ofEpochSecond(match.getLong("start_time"),
+        this.matchId    = match.optLong("match_id");
+        this.assists    = match.optInt("assists");
+        this.deaths     = match.optInt("deaths");
+        this.kills      = match.optInt("kills");
+        this.skill      = match.optInt("skill");
+        this.Duration   = java.time.Duration.ofSeconds(match.optLong("duration"));
+        this.matchStart = LocalDateTime.ofEpochSecond(match.optLong("start_time"),
                 0, ZoneOffset.UTC);
-        this.cluster     = match.getInt("cluster");
-        this.averageRank = match.getInt("average_rank");
-        this.xpPerMinute = match.getInt("xp_per_min");
-        this.goldPerMinute = match.getInt("gold_per_min");
-        this.heroDamage = match.getInt("hero_damage");
-        this.heroHealing = match.getInt("hero_healing");
-        this.lastHits = match.getInt("last_hits");
-        this.lane = match.getInt("lane");
-        this.laneRole = match.getInt("lane_role");
-        this.isRoaming = match.getBoolean("is_roaming");
-        this.leaverStatus = match.getInt("leaver_status");
-        this.partySize = match.getInt("party_size");
-        this.lobbyType = match.getInt("lobby_type");
-        this.version = match.getInt("version");
+        this.cluster     = match.optInt("cluster");
+        this.averageRank = match.optInt("average_rank");
+        this.xpPerMinute = match.optInt("xp_per_min");
+        this.goldPerMinute = match.optInt("gold_per_min");
+        this.heroDamage = match.optInt("hero_damage");
+        this.heroHealing = match.optInt("hero_healing");
+        this.lastHits = match.optInt("last_hits");
+        this.lane = match.optInt("lane");
+        this.laneRole = match.optInt("lane_role");
+        this.isRoaming = match.optBoolean("is_roaming");
+        this.leaverStatus = match.optInt("leaver_status");
+        this.partySize = match.optInt("party_size");
+        this.lobbyType = match.optInt("lobby_type");
+        this.version = match.optInt("version");
         determineWin(match);
     }
 
     private void determineWin(JSONObject match){
-        int slot = match.getInt("player_slot");
+        int slot = match.optInt("player_slot");
         // players occupying slots from 0 to 127 are radiant, from 128 to 255 are dire.
         this.isRadiant = slot <= 127;
-        this.playerWon = this.isRadiant && match.getBoolean("radiant_win");
+        this.playerWon = this.isRadiant && match.optBoolean("radiant_win");
     }
 
     public Long getMatchId() {

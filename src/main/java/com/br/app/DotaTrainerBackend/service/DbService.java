@@ -7,10 +7,13 @@ import com.br.app.DotaTrainerBackend.repository.RoleRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 
 @Service
@@ -22,6 +25,8 @@ public class DbService extends BaseService{
     @Autowired
     private RoleRepository roleRepository;
 
+    private final Logger LOGGER = Logger.getLogger(DbService.class.getName());
+
     private final String[] ROLES = {"Carry","Nuker","Initiator","Disabler","Support","Escape","Durable","Pusher"};
 
     public void instantiateTestDatabase(){
@@ -32,8 +37,14 @@ public class DbService extends BaseService{
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
 
     private void saveHeroesFromApi(){
-        String heroesFromAPI = this.getFromApi(this.apiUrl+"constants/heroes");
-        JSONObject heroesObj = new JSONObject(heroesFromAPI);
+        ResponseEntity<String> heroesFromAPI = this.getFromApi(this.apiUrl + "constants/heroes");
+        int httpStatus =  heroesFromAPI.getStatusCode().value();
+        if(httpStatus != 200){
+            LOGGER.warning("API RETURNED "+httpStatus);
+            return;
+        }
+
+        JSONObject heroesObj = new JSONObject(heroesFromAPI.getBody());
         Set<String> keys = heroesObj.keySet();
         for( String key : keys){
             JSONObject jsonHero = heroesObj.getJSONObject(String.valueOf(key));
