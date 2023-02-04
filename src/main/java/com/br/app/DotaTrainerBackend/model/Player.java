@@ -1,8 +1,10 @@
 package com.br.app.DotaTrainerBackend.model;
 
 import jakarta.persistence.*;
+import org.json.JSONObject;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name="player")
 public class Player {
     @Id
@@ -10,12 +12,13 @@ public class Player {
     private Long accountId;
     private Integer soloRank;
     private Integer rankTier;
+    private Integer competitiveRank;
     private Integer leaderboardRank;
     private Integer mmrEstimate;
     private String personName;
     private String name;
     private boolean plus;
-    private Integer chesse;
+    private Integer cheese;
 
     private Long steamId;
 
@@ -27,7 +30,7 @@ public class Player {
 
     private String profileURL;
 
-    private String LastLogin;
+    private String lastLogin;
 
     private String locCountryCode;
 
@@ -99,12 +102,12 @@ public class Player {
         this.plus = plus;
     }
 
-    public Integer getChesse() {
-        return chesse;
+    public Integer getCheese() {
+        return cheese;
     }
 
-    public void setChesse(Integer chesse) {
-        this.chesse = chesse;
+    public void setCheese(Integer cheese) {
+        this.cheese = cheese;
     }
 
     public Long getSteamId() {
@@ -148,11 +151,11 @@ public class Player {
     }
 
     public String getLastLogin() {
-        return LastLogin;
+        return lastLogin;
     }
 
     public void setLastLogin(String lastLogin) {
-        LastLogin = lastLogin;
+        this.lastLogin = lastLogin;
     }
 
     public String getLocCountryCode() {
@@ -179,7 +182,41 @@ public class Player {
         this.subscriber = subscriber;
     }
 
+    public void setCompetitiveRank(Integer competitiveRank){
+        this.competitiveRank = competitiveRank;
+    }
+
+    public Integer getCompetitiveRank(){
+        return this.competitiveRank;
+    }
+
     public Player(){ }
+
+    public Player(JSONObject playerJSON){
+        this.soloRank = playerJSON.optInt("solo_competitive_rank");
+        this.leaderboardRank = playerJSON.optInt("leaderboard_rank");
+        this.rankTier = playerJSON.optInt("rank_tier");
+        this.competitiveRank = playerJSON.optInt("competitive_rank");
+
+        JSONObject mmrEstimate = playerJSON.getJSONObject("mmr_estimate");
+        this.mmrEstimate = mmrEstimate.optInt("estimate");
+
+        JSONObject profile = playerJSON.getJSONObject("profile");
+        this.accountId = profile.optLong("account_id");
+        this.personName = profile.optString("personname");
+        this.name = profile.optString("name");
+        this.plus = profile.optBoolean("plus");
+        this.cheese = profile.optInt("cheese");
+        this.steamId = profile.optLong("steamid");
+        this.avatarImage = profile.optString("avatar");
+        this.avatarImageMedium = profile.optString("avatarmedium");
+        this.avatarImageFull = profile.optString("avatarfull");
+        this.profileURL = profile.optString("profileurl");
+        this.lastLogin = profile.optString("last_login");
+        this.locCountryCode = profile.optString("loccountrycode");
+        this.contributor = profile.optBoolean("is_contributor");
+        this.subscriber = profile.optBoolean("is_subscriber");
+    }
 
     public Player(long accountId, Integer soloRank, Integer rankTier, Integer leaderboardRank, Integer mmrEstimate, String personName, String name, boolean plus, Integer chesse, Long steamId, String avatarImage, String avatarImageMedium, String avatarImageFull, String profileURL, String lastLogin, String locCountryCode, Boolean contributor, Boolean subscriber) {
         this.accountId = accountId;
@@ -190,13 +227,13 @@ public class Player {
         this.personName = personName;
         this.name = name;
         this.plus = plus;
-        this.chesse = chesse;
+        this.cheese = chesse;
         this.steamId = steamId;
         this.avatarImage = avatarImage;
         this.avatarImageMedium = avatarImageMedium;
         this.avatarImageFull = avatarImageFull;
         this.profileURL = profileURL;
-        LastLogin = lastLogin;
+        this.lastLogin = lastLogin;
         this.locCountryCode = locCountryCode;
         this.contributor = contributor;
         this.subscriber = subscriber;
