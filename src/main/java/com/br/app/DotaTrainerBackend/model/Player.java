@@ -7,8 +7,8 @@ import org.json.JSONObject;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name="player")
 public class Player {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long accountId;
     private Integer soloRank;
     private Integer rankTier;
@@ -198,24 +198,33 @@ public class Player {
         this.rankTier = playerJSON.optInt("rank_tier");
         this.competitiveRank = playerJSON.optInt("competitive_rank");
 
-        JSONObject mmrEstimate = playerJSON.getJSONObject("mmr_estimate");
-        this.mmrEstimate = mmrEstimate.optInt("estimate");
+        JSONObject mmrEstimate = playerJSON.optJSONObject("mmr_estimate");
+        if(mmrEstimate!=null)
+            this.mmrEstimate = mmrEstimate.optInt("estimate");
 
-        JSONObject profile = playerJSON.getJSONObject("profile");
-        this.accountId = profile.optLong("account_id");
-        this.personName = profile.optString("personname");
-        this.name = profile.optString("name");
-        this.plus = profile.optBoolean("plus");
-        this.cheese = profile.optInt("cheese");
-        this.steamId = profile.optLong("steamid");
-        this.avatarImage = profile.optString("avatar");
-        this.avatarImageMedium = profile.optString("avatarmedium");
-        this.avatarImageFull = profile.optString("avatarfull");
-        this.profileURL = profile.optString("profileurl");
-        this.lastLogin = profile.optString("last_login");
-        this.locCountryCode = profile.optString("loccountrycode");
-        this.contributor = profile.optBoolean("is_contributor");
-        this.subscriber = profile.optBoolean("is_subscriber");
+        JSONObject profile = playerJSON.optJSONObject("profile");
+        if(profile!=null){
+            this.accountId = profile.optLong("account_id");
+            this.personName = profile.optString("personname");
+            this.name = profile.optString("name");
+            this.plus = profile.optBoolean("plus");
+            this.cheese = profile.optInt("cheese");
+            this.steamId = profile.optLong("steamid");
+            this.avatarImage = profile.optString("avatar");
+            this.avatarImageMedium = profile.optString("avatarmedium");
+            this.avatarImageFull = profile.optString("avatarfull");
+            this.profileURL = profile.optString("profileurl");
+            this.lastLogin = profile.optString("last_login");
+            this.locCountryCode = profile.optString("loccountrycode");
+            this.contributor = profile.optBoolean("is_contributor");
+            this.subscriber = profile.optBoolean("is_subscriber");
+        }else{
+            this.lastLogin = profile.optString("last_login");
+            this.accountId = playerJSON.getLong("account_id");
+            this.profileURL = playerJSON.optString("profileurl");
+            this.locCountryCode = playerJSON.optString("loccountrycode");
+        }
+
     }
 
     public Player(long accountId, Integer soloRank, Integer rankTier, Integer leaderboardRank, Integer mmrEstimate, String personName, String name, boolean plus, Integer chesse, Long steamId, String avatarImage, String avatarImageMedium, String avatarImageFull, String profileURL, String lastLogin, String locCountryCode, Boolean contributor, Boolean subscriber) {

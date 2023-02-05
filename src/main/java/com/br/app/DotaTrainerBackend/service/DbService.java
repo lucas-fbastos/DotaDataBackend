@@ -38,12 +38,12 @@ public class DbService extends BaseService{
     public void instantiateTestDatabase(){
         seedHeroRoles();
         saveHeroesFromApi();
-        seedProPlayers();
+        //seedProPlayers();
     }
 
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
 
-    private void seedProPlayers(){
+    public void seedProPlayers(){
         ResponseEntity<String> proPlayersFromAPI = this.getFromApi(this.apiUrl+ "proPlayers");
         int httpStatus = proPlayersFromAPI.getStatusCode().value();
         if(httpStatus!=200){

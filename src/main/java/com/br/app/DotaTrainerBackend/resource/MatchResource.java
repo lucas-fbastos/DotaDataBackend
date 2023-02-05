@@ -1,6 +1,7 @@
 package com.br.app.DotaTrainerBackend.resource;
 
 import com.br.app.DotaTrainerBackend.model.MatchSummary;
+import com.br.app.DotaTrainerBackend.service.DbService;
 import com.br.app.DotaTrainerBackend.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,17 @@ public class MatchResource {
     @Autowired
     private MatchService matchService;
 
+    @Autowired
+    private DbService dbService;
+
     @GetMapping("/{playerId}/recent")
     public List<MatchSummary> getRecentMatchesByPlayer(@PathVariable long playerId){
         return this.matchService.getRecentMatches(playerId);
+    }
+
+    @GetMapping("/test")
+    public void testDbService(){
+        this.dbService.seedProPlayers();
     }
 
 }
