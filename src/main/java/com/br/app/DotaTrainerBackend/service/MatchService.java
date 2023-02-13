@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 @Service
@@ -23,11 +25,10 @@ public class MatchService extends BaseService {
 
     public List<MatchSummary> getRecentMatches(Long playerId){
         String uri = this.apiUrl+"players/"+playerId+"/recentMatches";
-        LOGGER.warning("URI: "+uri);
         ResponseEntity<String> matchesFromAPI = this.getFromApi(uri);
         int statusCode = matchesFromAPI.getStatusCode().value();
         if(statusCode!=200){
-            LOGGER.warning("API RETURNED "+statusCode);
+            LOGGER.warning("URI: "+uri+" RETURNED: "+statusCode);
             return new ArrayList<>();
         }
         JSONArray matchesOBJ = new JSONArray(matchesFromAPI.getBody());
@@ -41,5 +42,20 @@ public class MatchService extends BaseService {
         return recentMatches;
     }
 
+
+    public Map<String,Integer> getWinLose(Long playerId){
+        Map<String,Integer> result = new HashMap<>();
+        String uri = this.apiUrl+"players/"+playerId+"/wl";
+        ResponseEntity<String> totalWL = this.getFromApi(uri);
+        int statusCode = totalWL.getStatusCode().value();
+        if(statusCode!=200){
+            LOGGER.warning("URI: "+uri+" RETURNED: "+statusCode);
+            return null;
+        }
+        JSONObject wl = new JSONObject(totalWL.getBody());
+        result.put("win",wl.getInt("win"));
+        result.put("lose",wl.getInt("lose"));
+        return result;
+    }
 
 }

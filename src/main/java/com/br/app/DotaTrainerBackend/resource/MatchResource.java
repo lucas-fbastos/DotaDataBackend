@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/matches")
@@ -30,6 +31,11 @@ public class MatchResource {
     @GetMapping("/test")
     public void testDbService(){
         this.dbService.seedProPlayers();
+    }
+
+    @GetMapping("/{playerId}/winLose")
+    public Map<String,Integer> getTotalWinLoseByPlayer(@PathVariable long playerId){
+        return this.matchService.getWinLose(playerId);
     }
 
 }

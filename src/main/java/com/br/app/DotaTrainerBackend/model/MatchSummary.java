@@ -69,7 +69,11 @@ public class MatchSummary {
         int slot = match.optInt("player_slot");
         // players occupying slots from 0 to 127 are radiant, from 128 to 255 are dire.
         this.faction = slot <= 127 ? "Radiant" : "Dire";
-        this.playerWon = this.faction.equals("Radiant") && match.optBoolean("radiant_win");
+        if(this.faction.equals("Radiant"))
+            this.playerWon = match.optBoolean("radiant_win");
+        else
+            this.playerWon = !match.optBoolean("radiant_win");
+
     }
 
     public Long getMatchId() {

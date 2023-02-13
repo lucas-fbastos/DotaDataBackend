@@ -219,7 +219,7 @@ public class Player {
             this.contributor = profile.optBoolean("is_contributor");
             this.subscriber = profile.optBoolean("is_subscriber");
         }else{
-            this.lastLogin = profile.optString("last_login");
+            this.lastLogin = playerJSON.optString("last_login");
             this.accountId = playerJSON.getLong("account_id");
             this.profileURL = playerJSON.optString("profileurl");
             this.locCountryCode = playerJSON.optString("loccountrycode");
