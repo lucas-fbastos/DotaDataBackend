@@ -218,11 +218,6 @@ public class Player {
             this.locCountryCode = profile.optString("loccountrycode");
             this.contributor = profile.optBoolean("is_contributor");
             this.subscriber = profile.optBoolean("is_subscriber");
-        }else{
-            this.lastLogin = playerJSON.optString("last_login");
-            this.accountId = playerJSON.getLong("account_id");
-            this.profileURL = playerJSON.optString("profileurl");
-            this.locCountryCode = playerJSON.optString("loccountrycode");
         }
 
     }

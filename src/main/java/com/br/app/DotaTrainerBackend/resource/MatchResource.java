@@ -28,11 +28,6 @@ public class MatchResource {
         return this.matchService.getRecentMatches(playerId);
     }
 
-    @GetMapping("/test")
-    public void testDbService(){
-        this.dbService.seedProPlayers();
-    }
-
     @GetMapping("/{playerId}/winLose")
     public Map<String,Integer> getTotalWinLoseByPlayer(@PathVariable long playerId){
         return this.matchService.getWinLose(playerId);

@@ -69,6 +69,16 @@ public class ProPlayer extends Player{
 
     public ProPlayer(JSONObject p){
         super(p);
+        this.setAvatarImage(p.optString("avatar"));
+        this.setAvatarImageMedium(p.optString("avatarmedium"));
+        this.setAvatarImageFull(p.optString("avatarfull"));
+        this.setLastLogin(p.optString("last_login"));
+        this.setAccountId(p.getLong("account_id"));
+        this.setProfileURL(p.optString("profileurl"));
+        this.setLocCountryCode(p.optString("loccountrycode"));
+        this.setPersonName(p.optString("personname"));
+        this.setName(p.optString("name"));
+        this.setCheese(p.optInt("cheese"));
         this.playerRole = p.optInt("fantasy_role");
         this.lockedUntil = p.optLong("locked_until");
         this.teamName = p.optString("team_name");

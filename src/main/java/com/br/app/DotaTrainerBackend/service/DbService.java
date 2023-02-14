@@ -38,7 +38,7 @@ public class DbService extends BaseService{
     public void instantiateTestDatabase(){
         seedHeroRoles();
         saveHeroesFromApi();
-        //seedProPlayers();
+        seedProPlayers();
     }
 
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
