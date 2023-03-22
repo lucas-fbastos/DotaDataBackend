@@ -1,0 +1,4 @@
+CREATE DATABASE dotacodex;
+CREATE USER dotaapp WITH PASSWORD 'dotaapppass123QWEASD';
+GRANT ALL ON ALL TABLES IN SCHEMA public TO dotaapp;
+GRANT ALL ON DATABASE dotacodex TO dotaapp;

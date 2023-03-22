@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name="player")
+@Table(name="player", schema ="codex_public")
 public class Player {
 
     @Id

@@ -1,12 +1,7 @@
 package com.br.app.DotaTrainerBackend.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.json.JSONObject;
@@ -17,7 +12,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "hero")
+@Table(name = "hero", schema ="codex_public")
 public class Hero {
 
     @Id
@@ -36,6 +31,7 @@ public class Hero {
 
     @ManyToMany
     @Fetch(FetchMode.SUBSELECT)
+    @JoinTable(schema = "codex_public")
     private List<Role> roles;
 
     public Hero(Integer id, String name, String localizedName, String primaryAttribute, String attackType,

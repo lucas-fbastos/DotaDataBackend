@@ -5,7 +5,7 @@ import jakarta.persistence.Table;
 import org.json.JSONObject;
 
 @Entity
-@Table(schema = "public",name = "pro_player")
+@Table( schema ="codex_public",name = "pro_player")
 public class ProPlayer extends Player{
 
     private String teamName;
