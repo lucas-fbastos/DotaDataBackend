@@ -6,13 +6,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "hero", schema ="codex_public")
+@Table(name = "hero", schema ="public")
 public class Hero {
 
     @Id
@@ -31,7 +29,7 @@ public class Hero {
 
     @ManyToMany
     @Fetch(FetchMode.SUBSELECT)
-    @JoinTable(schema = "codex_public")
+    @JoinTable(schema = "public")
     private List<Role> roles;
 
     public Hero(Integer id, String name, String localizedName, String primaryAttribute, String attackType,

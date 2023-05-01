@@ -9,23 +9,36 @@ services:
     depends_on:
       - db
       - redis
+    networks:
+      - my_network
+    restart: unless-stopped
   db:
     image: postgres
+    container_name: appdb
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-appdb}
     ports:
       - "5432:5432"
     volumes:
-      - my_pgsql_volume:/var/lib/postgresql/data/
+      - db_data:/var/lib/postgresql/data/
       - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql
     command: [ "sh", "-c", "chown -R postgres:postgres /docker-entrypoint-initdb.d/ && chmod -R 755 /docker-entrypoint-initdb.d/ && docker-entrypoint.sh postgres" ]
+    networks:
+      - my_network
+    restart: unless-stopped
   redis:
+    container_name: appcache
     image: redis
     environment:
-      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-password}
+    networks:
+      - my_network
+    restart: unless-stopped
+
+networks:
+  my_network:
 
 volumes:
-  my_pgsql_volume:
-    name: db_volume
+  db_data:

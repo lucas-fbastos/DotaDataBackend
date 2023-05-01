@@ -261,7 +261,7 @@ public class MatchSummary {
     }
 
     public String getLeaverStatus() {
-       return  switch(this.leaverStatus){
+       return switch(this.leaverStatus){
            case 0: yield "Didn't leave";
            case 1: yield "Left safely";
            case 2: yield "Abandoned";

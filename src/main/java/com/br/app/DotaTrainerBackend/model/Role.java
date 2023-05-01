@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 
 @Entity
-@Table(name = "role", schema ="codex_public")
+@Table(name = "role", schema ="public")
 public class Role {
 
     @Id
