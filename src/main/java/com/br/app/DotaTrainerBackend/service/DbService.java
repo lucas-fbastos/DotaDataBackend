@@ -76,4 +76,14 @@ public class DbService extends BaseService{
             heroRepository.save(hero);
         }
     }
+
+    private void seedItems(){
+        ResponseEntity<String> itemsFromApi = this.getFromApi(this.apiUrl + "constants/items");
+        int httpStatus =  itemsFromApi.getStatusCode().value();
+        if(httpStatus != 200){
+            LOGGER.warning("API RETURNED "+httpStatus);
+            return;
+        }
+
+    }
 }
