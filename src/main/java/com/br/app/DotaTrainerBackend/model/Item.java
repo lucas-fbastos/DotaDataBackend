@@ -3,6 +3,7 @@ package com.br.app.DotaTrainerBackend.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,8 @@ public class Item {
     private Integer cd;
     private Integer charges;
     private boolean created;
-    @OneToMany
+    @OneToMany(mappedBy="item")
     @Fetch(FetchMode.SUBSELECT)
-    @JoinTable(schema = "public")
     private List<ItemAttribute> attributes = new ArrayList<>();
     private String quality;
     private String notes;
@@ -160,6 +160,24 @@ public class Item {
         this.components = components;
         this.composes = composes;
         this.lore = lore;
+    }
+
+
+    public Item(JSONObject json){
+        this.name = json.optString("dname");
+        this.lore = json.optString("lore");
+        this.cost = json.optInt("cost");
+        String charges = json.get("charges").toString();
+        if(!charges.equals("false")){
+            this.charges = Integer.parseInt(charges);
+        }else{
+            this.charges = 0;
+        }
+        this.created = json.optBoolean("created");
+        this.cd = json.optInt("cd");
+        this.image = json.optString("img");
+        this.notes = json.optString("notes");
+        this.quality = json.optString("qual");
     }
 
     @Override

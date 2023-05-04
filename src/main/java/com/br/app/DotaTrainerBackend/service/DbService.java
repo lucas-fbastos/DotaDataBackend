@@ -1,11 +1,7 @@
 package com.br.app.DotaTrainerBackend.service;
 
-import com.br.app.DotaTrainerBackend.model.Hero;
-import com.br.app.DotaTrainerBackend.model.ProPlayer;
-import com.br.app.DotaTrainerBackend.model.Role;
-import com.br.app.DotaTrainerBackend.repository.HeroRepository;
-import com.br.app.DotaTrainerBackend.repository.ProPlayerRepository;
-import com.br.app.DotaTrainerBackend.repository.RoleRepository;
+import com.br.app.DotaTrainerBackend.model.*;
+import com.br.app.DotaTrainerBackend.repository.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -30,6 +27,12 @@ public class DbService extends BaseService{
 
     @Autowired
     private ProPlayerRepository proPlayerRepository;
+
+    @Autowired
+    private ItemAttributeRepository itemAttributeRepository;
+
+    @Autowired
+    private ItemRepository itemRepository;
 
     private final Logger LOGGER = Logger.getLogger(DbService.class.getName());
 
@@ -84,6 +87,23 @@ public class DbService extends BaseService{
             LOGGER.warning("API RETURNED "+httpStatus);
             return;
         }
+        JSONObject itemsObj = new JSONObject(itemsFromApi.getBody());
+        Set<String> keys = itemsObj.keySet();
+        for( String key : keys){
+            JSONObject jsonItem = itemsObj.getJSONObject(String.valueOf(key));
+            Item item = new Item(jsonItem);
+            JSONArray attributes = jsonItem.getJSONArray("attrib");
+            List<ItemAttribute> attributeList = new LinkedList<>();
+            for (int i = 0; i < attributes.length() ; i++) {
+                JSONObject attribute = attributes.getJSONObject(i);
+                attributeList.add(new ItemAttribute(attribute));
+            }
 
+            if(!attributeList.isEmpty())
+              attributeList =  this.itemAttributeRepository.saveAll(attributeList);
+
+            item.setAttributes(attributeList);
+            itemRepository.save(item);
+        }
     }
 }

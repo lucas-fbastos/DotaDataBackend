@@ -1,10 +1,10 @@
 package com.br.app.DotaTrainerBackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.json.JSONObject;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 @Table(name="item_attribute",schema = "public")
@@ -15,6 +15,9 @@ public class ItemAttribute {
     private String header;
     private String value;
     private String footer;
+    @ManyToOne
+    @JoinColumn(name="id", nullable=false)
+    private Item item;
 
     public Long getId() {
         return Id;
@@ -62,6 +65,13 @@ public class ItemAttribute {
         this.header = header;
         this.value = value;
         this.footer = footer;
+    }
+
+    public ItemAttribute(JSONObject json){
+        this.key = json.optString("key");
+        this.header = json.optString("header");
+        this.value = json.optString("value");
+        this.footer = json.optString("footer");
     }
 
     @Override
