@@ -4,19 +4,19 @@ import jakarta.persistence.*;
 import org.json.JSONObject;
 
 import java.util.Objects;
-import java.util.Optional;
 
 @Entity
 @Table(name="item_attribute",schema = "public")
 public class ItemAttribute {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long Id;
     private String key;
     private String header;
     private String value;
     private String footer;
     @ManyToOne
-    @JoinColumn(name="id", nullable=false)
+    @JoinColumn(name="itemId", nullable=false)
     private Item item;
 
     public Long getId() {
@@ -59,19 +59,29 @@ public class ItemAttribute {
         this.footer = footer;
     }
 
-    public ItemAttribute(Long id, String key, String header, String value, String footer) {
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public ItemAttribute(Long id, String key, String header, String value, String footer, Item item) {
         Id = id;
         this.key = key;
         this.header = header;
         this.value = value;
         this.footer = footer;
+        this.item = item;
     }
 
-    public ItemAttribute(JSONObject json){
+    public ItemAttribute(JSONObject json, Item item){
         this.key = json.optString("key");
         this.header = json.optString("header");
         this.value = json.optString("value");
         this.footer = json.optString("footer");
+        this.item = item;
     }
 
     @Override

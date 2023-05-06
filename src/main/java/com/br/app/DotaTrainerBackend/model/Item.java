@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Item {
 
     @Id
-    private Long id;
+    private Long itemId;
     private String name;
     private Integer cost;
     private String image;
@@ -25,11 +25,9 @@ public class Item {
     @Fetch(FetchMode.SUBSELECT)
     private List<ItemAttribute> attributes = new ArrayList<>();
     private String quality;
+    @Column(columnDefinition="TEXT")
     private String notes;
     @ManyToMany(mappedBy = "composes",cascade = CascadeType.ALL)
-    @JoinTable(name="item_composition",
-    joinColumns = {@JoinColumn(name="parentId")},
-    inverseJoinColumns = {@JoinColumn(name = "id")})
     private List<Item> components = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -38,6 +36,7 @@ public class Item {
             inverseJoinColumns = {@JoinColumn(name = "parentId")})
     private List<Item> composes = new ArrayList<>();
 
+    @Column(columnDefinition="TEXT")
     private String lore;
 
     public String getName() {
@@ -64,12 +63,12 @@ public class Item {
         this.image = image;
     }
 
-    public Long getId() {
-        return id;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public Integer getCd() {
@@ -147,7 +146,7 @@ public class Item {
     public Item(){   }
 
     public Item(Long id, String name, Integer cost, String image, Integer cd, Integer charges, boolean created, List<ItemAttribute> attributes, String quality, String notes, List<Item> components, List<Item> composes, String lore) {
-        this.id = id;
+        this.itemId = id;
         this.name = name;
         this.cost = cost;
         this.image = image;
@@ -164,11 +163,12 @@ public class Item {
 
 
     public Item(JSONObject json){
-        this.name = json.optString("dname");
+        this.itemId = json.getLong("id");
+        this.name = json.optString("name");
         this.lore = json.optString("lore");
         this.cost = json.optInt("cost");
-        String charges = json.get("charges").toString();
-        if(!charges.equals("false")){
+        String charges = json.optString("charges");
+        if(charges != null && !charges.isBlank() && !"false".equals(charges)){
             this.charges = Integer.parseInt(charges);
         }else{
             this.charges = 0;
@@ -186,7 +186,7 @@ public class Item {
         if (!(o instanceof Item item)) return false;
 
         if (created != item.created) return false;
-        if (!Objects.equals(id, item.id)) return false;
+        if (!Objects.equals(itemId, item.itemId)) return false;
         if (!Objects.equals(name, item.name)) return false;
         if (!Objects.equals(cost, item.cost)) return false;
         if (!Objects.equals(image, item.image)) return false;
@@ -202,7 +202,7 @@ public class Item {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = itemId != null ? itemId.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (cost != null ? cost.hashCode() : 0);
         result = 31 * result + (image != null ? image.hashCode() : 0);

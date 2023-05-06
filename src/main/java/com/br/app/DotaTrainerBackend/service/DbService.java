@@ -5,7 +5,6 @@ import com.br.app.DotaTrainerBackend.repository.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +41,7 @@ public class DbService extends BaseService{
         seedHeroRoles();
         saveHeroesFromApi();
         seedProPlayers();
+        seedItems();
     }
 
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
@@ -92,18 +92,16 @@ public class DbService extends BaseService{
         for( String key : keys){
             JSONObject jsonItem = itemsObj.getJSONObject(String.valueOf(key));
             Item item = new Item(jsonItem);
+            item = itemRepository.save(item);
             JSONArray attributes = jsonItem.getJSONArray("attrib");
             List<ItemAttribute> attributeList = new LinkedList<>();
             for (int i = 0; i < attributes.length() ; i++) {
                 JSONObject attribute = attributes.getJSONObject(i);
-                attributeList.add(new ItemAttribute(attribute));
+                attributeList.add(new ItemAttribute(attribute,item));
             }
 
             if(!attributeList.isEmpty())
-              attributeList =  this.itemAttributeRepository.saveAll(attributeList);
-
-            item.setAttributes(attributeList);
-            itemRepository.save(item);
+                this.itemAttributeRepository.saveAll(attributeList);
         }
     }
 }

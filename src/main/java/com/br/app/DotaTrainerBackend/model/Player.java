@@ -38,7 +38,7 @@ public class Player {
 
     private Boolean subscriber;
 
-    public long getAccountId() {
+    public Long getAccountId() {
         return accountId;
     }
 
