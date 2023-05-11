@@ -24,6 +24,5 @@ public class PlayerResource {
         }else{
             return ResponseEntity.notFound().build();
         }
-
     }
 }

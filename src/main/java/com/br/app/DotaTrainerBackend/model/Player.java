@@ -197,13 +197,15 @@ public class Player {
         this.leaderboardRank = playerJSON.optInt("leaderboard_rank");
         this.rankTier = playerJSON.optInt("rank_tier");
         this.competitiveRank = playerJSON.optInt("competitive_rank");
+        this.name = playerJSON.optString("name");
+        this.personName = playerJSON.optString("personName");
 
         JSONObject mmrEstimate = playerJSON.optJSONObject("mmr_estimate");
         if(mmrEstimate!=null)
             this.mmrEstimate = mmrEstimate.optInt("estimate");
 
-        JSONObject profile = playerJSON.optJSONObject("profile");
-        if(profile!=null){
+        if(playerJSON.has("profile")){
+            JSONObject profile = playerJSON.optJSONObject("profile");
             this.accountId = profile.optLong("account_id");
             this.personName = profile.optString("personname");
             this.name = profile.optString("name");

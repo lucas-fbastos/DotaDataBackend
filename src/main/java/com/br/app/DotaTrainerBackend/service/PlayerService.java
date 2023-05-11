@@ -21,7 +21,8 @@ public class PlayerService extends BaseService {
             LOGGER.warning("URI: "+uri+" RETURNED: "+statusCode);
             return null;
         }
-        JSONObject playerJson = new JSONObject(playerFromApi);
+        LOGGER.info("return from "+ uri+": "+playerFromApi.getBody());
+        JSONObject playerJson = new JSONObject(playerFromApi.getBody());
         return new Player(playerJson);
     }
 }
