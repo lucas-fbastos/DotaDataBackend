@@ -15,7 +15,7 @@ public class Player {
     private Integer competitiveRank;
     private Integer leaderboardRank;
     private Integer mmrEstimate;
-    private String personName;
+    private String personaName;
     private String name;
     private boolean plus;
     private Integer cheese;
@@ -78,12 +78,12 @@ public class Player {
         this.mmrEstimate = mmrEstimate;
     }
 
-    public String getPersonName() {
-        return personName;
+    public String getPersonaName() {
+        return personaName;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public void setPersonaName(String personaName) {
+        this.personaName = personaName;
     }
 
     public String getName() {
@@ -197,8 +197,6 @@ public class Player {
         this.leaderboardRank = playerJSON.optInt("leaderboard_rank");
         this.rankTier = playerJSON.optInt("rank_tier");
         this.competitiveRank = playerJSON.optInt("competitive_rank");
-        this.name = playerJSON.optString("name");
-        this.personName = playerJSON.optString("personName");
 
         JSONObject mmrEstimate = playerJSON.optJSONObject("mmr_estimate");
         if(mmrEstimate!=null)
@@ -207,7 +205,7 @@ public class Player {
         if(playerJSON.has("profile")){
             JSONObject profile = playerJSON.optJSONObject("profile");
             this.accountId = profile.optLong("account_id");
-            this.personName = profile.optString("personname");
+            this.personaName = profile.optString("personaname");
             this.name = profile.optString("name");
             this.plus = profile.optBoolean("plus");
             this.cheese = profile.optInt("cheese");
@@ -230,7 +228,7 @@ public class Player {
         this.rankTier = rankTier;
         this.leaderboardRank = leaderboardRank;
         this.mmrEstimate = mmrEstimate;
-        this.personName = personName;
+        this.personaName = personName;
         this.name = name;
         this.plus = plus;
         this.cheese = chesse;

@@ -76,7 +76,7 @@ public class ProPlayer extends Player{
         this.setAccountId(p.getLong("account_id"));
         this.setProfileURL(p.optString("profileurl"));
         this.setLocCountryCode(p.optString("loccountrycode"));
-        this.setPersonName(p.optString("personname"));
+        this.setPersonaName(p.optString("personaname"));
         this.setName(p.optString("name"));
         this.setCheese(p.optInt("cheese"));
         this.playerRole = p.optInt("fantasy_role");
