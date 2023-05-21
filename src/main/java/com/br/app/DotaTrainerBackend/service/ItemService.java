@@ -12,6 +12,6 @@ public class ItemService extends BaseService {
     private ItemRepository itemRepository;
 
     public Item getById(Long itemId){
-        return this.itemRepository.getReferenceById(itemId);
+         return this.itemRepository.findById(itemId).orElseThrow();
     }
 }

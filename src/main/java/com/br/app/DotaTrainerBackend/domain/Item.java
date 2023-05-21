@@ -14,6 +14,7 @@ import java.util.Objects;
 public class Item {
 
     @Id
+    @Column(name="item_id")
     private Long itemId;
     private String name;
     private Integer cost;
@@ -27,14 +28,6 @@ public class Item {
     private String quality;
     @Column(columnDefinition="TEXT")
     private String notes;
-    @ManyToMany(mappedBy = "composes",cascade = CascadeType.ALL)
-    private List<Item> components = new ArrayList<>();
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="item_composition",
-            joinColumns = {@JoinColumn(name="id")},
-            inverseJoinColumns = {@JoinColumn(name = "parentId")})
-    private List<Item> composes = new ArrayList<>();
 
     @Column(columnDefinition="TEXT")
     private String lore;
@@ -119,14 +112,6 @@ public class Item {
         this.notes = notes;
     }
 
-    public List<Item> getComponents() {
-        return components;
-    }
-
-    public void setComponents(List<Item> components) {
-        this.components = components;
-    }
-
     public String getLore() {
         return lore;
     }
@@ -135,17 +120,10 @@ public class Item {
         this.lore = lore;
     }
 
-    public List<Item> getComposes() {
-        return composes;
-    }
-
-    public void setComposes(List<Item> composes) {
-        this.composes = composes;
-    }
-
     public Item(){   }
 
-    public Item(Long id, String name, Integer cost, String image, Integer cd, Integer charges, boolean created, List<ItemAttribute> attributes, String quality, String notes, List<Item> components, List<Item> composes, String lore) {
+    public Item(Long id, String name, Integer cost, String image, Integer cd, Integer charges, boolean created,
+                List<ItemAttribute> attributes, String quality, String notes, String lore) {
         this.itemId = id;
         this.name = name;
         this.cost = cost;
@@ -156,15 +134,13 @@ public class Item {
         this.attributes = attributes;
         this.quality = quality;
         this.notes = notes;
-        this.components = components;
-        this.composes = composes;
         this.lore = lore;
     }
 
 
     public Item(JSONObject json){
         this.itemId = json.getLong("id");
-        this.name = json.optString("name");
+        this.name = json.optString("dname");
         this.lore = json.optString("lore");
         this.cost = json.optInt("cost");
         String charges = json.optString("charges");
@@ -195,8 +171,6 @@ public class Item {
         if (!Objects.equals(attributes, item.attributes)) return false;
         if (!Objects.equals(quality, item.quality)) return false;
         if (!Objects.equals(notes, item.notes)) return false;
-        if (!Objects.equals(components, item.components)) return false;
-        if (!Objects.equals(composes, item.composes)) return false;
         return Objects.equals(lore, item.lore);
     }
 
@@ -212,8 +186,6 @@ public class Item {
         result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
         result = 31 * result + (quality != null ? quality.hashCode() : 0);
         result = 31 * result + (notes != null ? notes.hashCode() : 0);
-        result = 31 * result + (components != null ? components.hashCode() : 0);
-        result = 31 * result + (composes != null ? composes.hashCode() : 0);
         result = 31 * result + (lore != null ? lore.hashCode() : 0);
         return result;
     }

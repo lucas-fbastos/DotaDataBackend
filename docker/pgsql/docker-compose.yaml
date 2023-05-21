@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    container_name: pgsqldb
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data/
+      - ../../init_db.sql:/docker-entrypoint-initdb.d/init.sql
+    command: [ "sh", "-c", "chown -R postgres:postgres /docker-entrypoint-initdb.d/ && chmod -R 755 /docker-entrypoint-initdb.d/ && docker-entrypoint.sh postgres" ]
+    restart: unless-stopped
+volumes:
+  pgsql_data:

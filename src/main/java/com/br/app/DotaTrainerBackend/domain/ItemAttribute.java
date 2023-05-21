@@ -1,5 +1,6 @@
 package com.br.app.DotaTrainerBackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.json.JSONObject;
 
@@ -17,6 +18,7 @@ public class ItemAttribute {
     private String footer;
     @ManyToOne
     @JoinColumn(name="itemId", nullable=false)
+    @JsonIgnore
     private Item item;
 
     public Long getId() {
@@ -66,6 +68,8 @@ public class ItemAttribute {
     public void setItem(Item item) {
         this.item = item;
     }
+
+    public ItemAttribute(){}
 
     public ItemAttribute(Long id, String key, String header, String value, String footer, Item item) {
         Id = id;
