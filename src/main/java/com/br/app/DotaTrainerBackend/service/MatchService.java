@@ -58,4 +58,18 @@ public class MatchService extends BaseService {
         return result;
     }
 
+    public MatchSummary getMatchDetails(Long matchId){
+        String uri = this.apiUrl+"matches/"+matchId;
+        ResponseEntity<String> matchFromApi = this.getFromApi(uri);
+        int statusCode = matchFromApi.getStatusCode().value();
+        if(statusCode!=200){
+            LOGGER.warning("URI: "+uri+" RETURNED: "+statusCode);
+            return null;
+        }
+        JSONObject matchObj = new JSONObject(matchFromApi.getBody());
+        MatchSummary summary = new MatchSummary(matchObj);
+        summary.setHero( heroService.getHeroById(matchObj.getInt("hero_id")));
+        return summary;
+    }
+
 }

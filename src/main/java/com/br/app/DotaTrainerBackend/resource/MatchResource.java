@@ -4,6 +4,7 @@ import com.br.app.DotaTrainerBackend.model.MatchSummary;
 import com.br.app.DotaTrainerBackend.service.DbService;
 import com.br.app.DotaTrainerBackend.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,4 +34,12 @@ public class MatchResource {
         return this.matchService.getWinLose(playerId);
     }
 
+    @GetMapping("details/{matchId}")
+    public ResponseEntity<MatchSummary> getMatchDetails(@PathVariable long matchId){
+       MatchSummary match = this.matchService.getMatchDetails(matchId);
+       if(match!=null)
+           return ResponseEntity.ok(match);
+       else
+           return ResponseEntity.notFound().build();
+    }
 }
