@@ -1,4 +1,8 @@
-package com.br.app.DotaTrainerBackend.model.Enums;
+package com.br.app.DotaTrainerBackend.domain.Enums;
+
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
 
 public enum GameMode {
 
@@ -38,5 +42,11 @@ public enum GameMode {
     final String description;
     public String getDescription(){
         return this.description;
+    }
+
+    public static Optional<GameMode> getById(Integer id){
+        return Arrays.stream(GameMode.values()).filter( gameMode ->
+                Objects.equals(gameMode.id, id)
+        ).findFirst();
     }
 }

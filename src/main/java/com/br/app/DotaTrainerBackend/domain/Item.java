@@ -1,4 +1,4 @@
-package com.br.app.DotaTrainerBackend.model;
+package com.br.app.DotaTrainerBackend.domain;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Fetch;

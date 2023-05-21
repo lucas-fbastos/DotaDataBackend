@@ -1,7 +1,7 @@
 package com.br.app.DotaTrainerBackend.service;
 
 
-import com.br.app.DotaTrainerBackend.model.Player;
+import com.br.app.DotaTrainerBackend.domain.Player;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,11 +16,6 @@ public class PlayerService extends BaseService {
     public Player getPlayerById(Long playerId){
         String uri = this.apiUrl+"players/"+playerId;
         ResponseEntity<String> playerFromApi = this.getFromApi(uri);
-        int statusCode = playerFromApi.getStatusCode().value();
-        if(statusCode!=200){
-            LOGGER.warning("URI: "+uri+" RETURNED: "+statusCode);
-            return null;
-        }
         LOGGER.info("return from "+ uri+": "+playerFromApi.getBody());
         JSONObject playerJson = new JSONObject(playerFromApi.getBody());
         return new Player(playerJson);

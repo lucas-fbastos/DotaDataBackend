@@ -1,5 +1,6 @@
 package com.br.app.DotaTrainerBackend.service;
 
+import com.br.app.DotaTrainerBackend.exception.ExternalApiException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,6 +15,11 @@ public abstract class BaseService {
     protected ResponseEntity<String> getFromApi(String uri){
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<?> entity = new HttpEntity<>(new HttpHeaders());
-        return restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
+        int statusCode = response.getStatusCode().value();
+        if(statusCode!=200){
+            throw new ExternalApiException("URI: "+uri+" returned code: "+statusCode);
+        }
+        return response;
     }
 }

@@ -1,6 +1,6 @@
 package com.br.app.DotaTrainerBackend.repository;
 
-import com.br.app.DotaTrainerBackend.model.ItemAttribute;
+import com.br.app.DotaTrainerBackend.domain.ItemAttribute;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

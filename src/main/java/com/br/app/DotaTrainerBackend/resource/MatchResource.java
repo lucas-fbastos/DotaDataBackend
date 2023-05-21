@@ -1,6 +1,7 @@
 package com.br.app.DotaTrainerBackend.resource;
 
-import com.br.app.DotaTrainerBackend.model.MatchSummary;
+import com.br.app.DotaTrainerBackend.domain.Match;
+import com.br.app.DotaTrainerBackend.domain.MatchSummary;
 import com.br.app.DotaTrainerBackend.service.DbService;
 import com.br.app.DotaTrainerBackend.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class MatchResource {
     }
 
     @GetMapping("details/{matchId}")
-    public ResponseEntity<MatchSummary> getMatchDetails(@PathVariable long matchId){
-       MatchSummary match = this.matchService.getMatchDetails(matchId);
+    public ResponseEntity<Match> getMatchDetails(@PathVariable long matchId){
+        Match match = this.matchService.getMatchDetails(matchId);
        if(match!=null)
            return ResponseEntity.ok(match);
        else

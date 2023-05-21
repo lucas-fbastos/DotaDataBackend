@@ -1,6 +1,6 @@
 package com.br.app.DotaTrainerBackend.service;
 
-import com.br.app.DotaTrainerBackend.model.Hero;
+import com.br.app.DotaTrainerBackend.domain.Hero;
 import com.br.app.DotaTrainerBackend.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

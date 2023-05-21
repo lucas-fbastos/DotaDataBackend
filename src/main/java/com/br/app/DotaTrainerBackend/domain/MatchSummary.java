@@ -1,6 +1,6 @@
-package com.br.app.DotaTrainerBackend.model;
+package com.br.app.DotaTrainerBackend.domain;
 
-import com.br.app.DotaTrainerBackend.model.Enums.GameMode;
+import com.br.app.DotaTrainerBackend.domain.Enums.GameMode;
 import org.json.JSONObject;
 
 import java.time.Duration;

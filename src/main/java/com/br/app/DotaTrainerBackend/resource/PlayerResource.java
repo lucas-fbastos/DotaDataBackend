@@ -1,6 +1,6 @@
 package com.br.app.DotaTrainerBackend.resource;
 
-import com.br.app.DotaTrainerBackend.model.Player;
+import com.br.app.DotaTrainerBackend.domain.Player;
 import com.br.app.DotaTrainerBackend.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

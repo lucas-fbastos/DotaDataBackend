@@ -1,4 +1,4 @@
-package com.br.app.DotaTrainerBackend.model;
+package com.br.app.DotaTrainerBackend.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

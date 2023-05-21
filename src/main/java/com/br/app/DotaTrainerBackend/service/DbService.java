@@ -1,6 +1,6 @@
 package com.br.app.DotaTrainerBackend.service;
 
-import com.br.app.DotaTrainerBackend.model.*;
+import com.br.app.DotaTrainerBackend.domain.*;
 import com.br.app.DotaTrainerBackend.repository.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -48,11 +48,6 @@ public class DbService extends BaseService{
 
     public void seedProPlayers(){
         ResponseEntity<String> proPlayersFromAPI = this.getFromApi(this.apiUrl+ "proPlayers");
-        int httpStatus = proPlayersFromAPI.getStatusCode().value();
-        if(httpStatus!=200){
-            LOGGER.warning("API RETURNED "+httpStatus);
-            return;
-        }
         JSONArray proObj = new JSONArray(proPlayersFromAPI.getBody());
         List<ProPlayer> proPlayersToPersist = new ArrayList<>();
         proObj.forEach(p -> proPlayersToPersist.add(new ProPlayer((JSONObject) p)));
@@ -61,12 +56,6 @@ public class DbService extends BaseService{
 
     private void saveHeroesFromApi(){
         ResponseEntity<String> heroesFromAPI = this.getFromApi(this.apiUrl + "constants/heroes");
-        int httpStatus =  heroesFromAPI.getStatusCode().value();
-        if(httpStatus != 200){
-            LOGGER.warning("API RETURNED "+httpStatus);
-            return;
-        }
-
         JSONObject heroesObj = new JSONObject(heroesFromAPI.getBody());
         Set<String> keys = heroesObj.keySet();
         for( String key : keys){
@@ -82,11 +71,6 @@ public class DbService extends BaseService{
 
     private void seedItems(){
         ResponseEntity<String> itemsFromApi = this.getFromApi(this.apiUrl + "constants/items");
-        int httpStatus =  itemsFromApi.getStatusCode().value();
-        if(httpStatus != 200){
-            LOGGER.warning("API RETURNED "+httpStatus);
-            return;
-        }
         JSONObject itemsObj = new JSONObject(itemsFromApi.getBody());
         Set<String> keys = itemsObj.keySet();
         for( String key : keys){

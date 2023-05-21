@@ -1,4 +1,4 @@
-package com.br.app.DotaTrainerBackend.model;
+package com.br.app.DotaTrainerBackend.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
