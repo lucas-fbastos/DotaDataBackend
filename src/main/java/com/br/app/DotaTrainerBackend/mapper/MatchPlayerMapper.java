@@ -35,12 +35,14 @@ public class MatchPlayerMapper implements Mapper<MatchPlayer> {
         Hero hero = heroService.getHeroById(json.getInt("hero_id"));
         matchPlayer.setHero(hero);
         matchPlayer.setItems(processItems(json));
-        matchPlayer.setWon(json.getBoolean("radiant_win"));
         boolean isRadiant = json.getBoolean("isRadiant");
+        boolean radiantWin = json.getBoolean("radiant_win");
         if (isRadiant) {
             matchPlayer.setTeam("Radiant");
+            matchPlayer.setWon(radiantWin);
         } else {
             matchPlayer.setTeam("Dire");
+            matchPlayer.setWon(!radiantWin);
         }
         matchPlayer.setHeroHeal(json.getInt("hero_healing"));
         matchPlayer.setHeroDamage(json.getInt("hero_damage"));
