@@ -33,13 +33,18 @@ public class MatchDetailsMapper implements Mapper<Match> {
         match.setRadiantScore(json.getInt("radiant_score"));
         match.setRadiantWin(json.getBoolean("radiant_win"));
         JSONArray playersJson = json.getJSONArray("players");
-        Set<MatchPlayer> matchPlayerSet = new HashSet<>();
+        Set<MatchPlayer> radiantPlayers = new HashSet<>();
+        Set<MatchPlayer> direPlayers = new HashSet<>();
         playersJson.forEach(pJson -> {
             JSONObject obj = (JSONObject) pJson;
             MatchPlayer matchPlayer = matchPlayerMapper.convert(obj);
-            matchPlayerSet.add(matchPlayer);
+            if(matchPlayer.getTeam().equals("Radiant"))
+                radiantPlayers.add(matchPlayer);
+            else
+                direPlayers.add(matchPlayer);
         });
-        match.setPlayers(matchPlayerSet);
+        match.setRadiantTeam(radiantPlayers);
+        match.setDireTeam(direPlayers);
         return match;
     }
 }

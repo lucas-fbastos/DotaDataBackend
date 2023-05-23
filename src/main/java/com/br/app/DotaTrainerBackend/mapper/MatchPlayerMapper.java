@@ -35,6 +35,9 @@ public class MatchPlayerMapper implements Mapper<MatchPlayer> {
         Hero hero = heroService.getHeroById(json.getInt("hero_id"));
         matchPlayer.setHero(hero);
         matchPlayer.setItems(processItems(json));
+        matchPlayer.setName(json.optString("name"));
+        matchPlayer.setLevel(json.getInt("level"));
+        matchPlayer.setPersonaName(json.optString("personaname"));
         boolean isRadiant = json.getBoolean("isRadiant");
         boolean radiantWin = json.getBoolean("radiant_win");
         if (isRadiant) {

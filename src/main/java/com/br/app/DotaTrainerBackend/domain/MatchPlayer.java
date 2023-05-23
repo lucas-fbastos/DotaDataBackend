@@ -31,7 +31,7 @@ public class MatchPlayer {
     private Integer heroHeal;
     private Hero hero;
     private String name;
-    private String personName;
+    private String personaName;
     private boolean won;
     private String rank;
     private List<Item> items = new ArrayList<>();
@@ -76,7 +76,7 @@ public class MatchPlayer {
         this.heroHeal = heroHeal;
         this.hero = hero;
         this.name = name;
-        this.personName = personName;
+        this.personaName = personName;
         this.won = won;
         this.rank = rank;
         this.items = items;
@@ -287,12 +287,12 @@ public class MatchPlayer {
         this.name = name;
     }
 
-    public String getPersonName() {
-        return personName;
+    public String getPersonaName() {
+        return personaName;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public void setPersonaName(String personaName) {
+        this.personaName = personaName;
     }
 
     public boolean isWon() {

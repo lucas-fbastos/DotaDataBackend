@@ -14,13 +14,15 @@ public class Match {
     private Integer radiantScore;
     private Duration duration;
     private boolean radiantWin;
-    private Set<MatchPlayer> players;
+    private Set<MatchPlayer> radiantTeam;
+    private Set<MatchPlayer> direTeam;
     private String replayUrl;
 
     public Match() {    }
 
     public Match(long matchId, int cluster, GameMode gameMode, Integer direScore, Integer radiantScore,
-                 Duration duration, boolean radiantWin, Set<MatchPlayer> players, String replayUrl) {
+                 Duration duration, boolean radiantWin, Set<MatchPlayer> radiantTeam, Set<MatchPlayer> direTeam,
+                 String replayUrl) {
         this.matchId = matchId;
         this.cluster = cluster;
         this.gameMode = gameMode;
@@ -28,7 +30,8 @@ public class Match {
         this.radiantScore = radiantScore;
         this.duration = duration;
         this.radiantWin = radiantWin;
-        this.players = players;
+        this.radiantTeam = radiantTeam;
+        this.direTeam = direTeam;
         this.replayUrl = replayUrl;
     }
 
@@ -88,12 +91,20 @@ public class Match {
         this.radiantWin = radiantWin;
     }
 
-    public Set<MatchPlayer> getPlayers() {
-        return players;
+    public Set<MatchPlayer> getRadiantTeam() {
+        return radiantTeam;
     }
 
-    public void setPlayers(Set<MatchPlayer> players) {
-        this.players = players;
+    public void setRadiantTeam(Set<MatchPlayer> radiantTeam) {
+        this.radiantTeam = radiantTeam;
+    }
+
+    public Set<MatchPlayer> getDireTeam() {
+        return direTeam;
+    }
+
+    public void setDireTeam(Set<MatchPlayer> direTeam) {
+        this.direTeam = direTeam;
     }
 
     public String getReplayUrl() {
