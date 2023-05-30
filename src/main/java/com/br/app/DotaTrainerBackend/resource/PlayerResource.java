@@ -25,4 +25,11 @@ public class PlayerResource {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/{playerId}/heroes")
+    public ResponseEntity<?> getPlayerHeroStatus(@PathVariable Long playerId){
+        playerService.getPlayerHeroStatus(playerId);
+        return ResponseEntity.ok(null);
+
+    }
 }
