@@ -1,5 +1,6 @@
 package com.br.app.DotaTrainerBackend.resource;
 
+import com.br.app.DotaTrainerBackend.domain.HeroStats;
 import com.br.app.DotaTrainerBackend.domain.Player;
 import com.br.app.DotaTrainerBackend.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/player")
@@ -27,9 +30,12 @@ public class PlayerResource {
     }
 
     @GetMapping("/{playerId}/heroes")
-    public ResponseEntity<?> getPlayerHeroStatus(@PathVariable Long playerId){
-        playerService.getPlayerHeroStatus(playerId);
-        return ResponseEntity.ok(null);
+    public ResponseEntity<List<HeroStats>> getPlayerHeroStatus(@PathVariable Long playerId){
+        List<HeroStats> list = playerService.getPlayerHeroStatus(playerId);
+        if(!list.isEmpty())
+            return ResponseEntity.ok(list);
+        else
+            return ResponseEntity.notFound().build();
 
     }
 }

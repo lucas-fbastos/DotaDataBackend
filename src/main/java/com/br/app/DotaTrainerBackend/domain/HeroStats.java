@@ -6,8 +6,9 @@ public class HeroStats {
     private Integer games;
     private Integer win;
     private Integer withGames;
+    private Integer withWin;
     private Integer againstGames;
-    private Integer againstWins;
+    private Integer againstWin;
 
     public Hero getHero() {
         return hero;
@@ -49,22 +50,31 @@ public class HeroStats {
         this.againstGames = againstGames;
     }
 
-    public Integer getAgainstWins() {
-        return againstWins;
+    public Integer getAgainstWin() {
+        return againstWin;
     }
 
-    public void setAgainstWins(Integer againstWins) {
-        this.againstWins = againstWins;
+    public void setAgainstWin(Integer againstWin) {
+        this.againstWin = againstWin;
+    }
+
+    public Integer getWithWin() {
+        return withWin;
+    }
+
+    public void setWithWin(Integer withWin) {
+        this.withWin = withWin;
     }
 
     public HeroStats() { }
 
-    public HeroStats(Hero hero, Integer games, Integer win, Integer withGames, Integer againstGames, Integer againstWins) {
+    public HeroStats(Hero hero, Integer games, Integer win, Integer withGames, Integer withWin ,Integer againstGames, Integer againstWin) {
         this.hero = hero;
         this.games = games;
         this.win = win;
         this.withGames = withGames;
+        this.withWin = withWin;
         this.againstGames = againstGames;
-        this.againstWins = againstWins;
+        this.againstWin = againstWin;
     }
 }
