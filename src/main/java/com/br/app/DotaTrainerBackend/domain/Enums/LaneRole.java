@@ -9,8 +9,7 @@ public enum LaneRole {
     DURABLE(5),
     ESCAPE(6),
     SUPPORT(7),
-    PUSHER(8),
-    JUNGLER(9);
+    PUSHER(8);
 
     final int id;
 

@@ -1,7 +1,10 @@
 package com.br.app.DotaTrainerBackend.domain;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.json.JSONObject;
@@ -123,7 +126,7 @@ public class Hero {
 
         Hero hero = (Hero) o;
 
-        if (id != hero.id) return false;
+        if (!Objects.equals(id, hero.id)) return false;
         if (!Objects.equals(name, hero.name)) return false;
         if (!Objects.equals(localizedName, hero.localizedName))
             return false;
@@ -135,13 +138,6 @@ public class Hero {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (localizedName != null ? localizedName.hashCode() : 0);
-        result = 31 * result + (primaryAttribute != null ? primaryAttribute.hashCode() : 0);
-        result = 31 * result + (attackType != null ? attackType.hashCode() : 0);
-        result = 31 * result + (roles != null ? roles.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, localizedName, primaryAttribute, attackType, image, icon, roles);
     }
-
 }
