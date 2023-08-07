@@ -4,7 +4,6 @@ package com.br.app.DotaTrainerBackend.service;
 import com.br.app.DotaTrainerBackend.domain.Hero;
 import com.br.app.DotaTrainerBackend.domain.HeroStats;
 import com.br.app.DotaTrainerBackend.domain.Player;
-import org.hibernate.cfg.NotYetImplementedException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,6 @@ package com.br.app.DotaTrainerBackend.service;
 
 import com.br.app.DotaTrainerBackend.domain.Match;
 import com.br.app.DotaTrainerBackend.domain.MatchSummary;
-
 import com.br.app.DotaTrainerBackend.mapper.MatchDetailsMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 @Service
 public class MatchService extends BaseService {
@@ -24,7 +22,6 @@ public class MatchService extends BaseService {
     @Autowired
     private MatchDetailsMapper matchDetailsMapper;
 
-    private final Logger LOGGER = Logger.getLogger(MatchService.class.getName());
 
     public List<MatchSummary> getRecentMatches(Long playerId){
         String uri = this.apiUrl+"players/"+playerId+"/recentMatches";
