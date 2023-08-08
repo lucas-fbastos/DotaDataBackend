@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -30,12 +31,15 @@ public class PlayerResource {
     }
 
     @GetMapping("/{playerId}/heroes")
-    public ResponseEntity<List<HeroStats>> getPlayerHeroStatus(@PathVariable Long playerId){
-        List<HeroStats> list = playerService.getPlayerHeroStatus(playerId);
+    public ResponseEntity<List<HeroStats>> getPlayerHeroStatus(@PathVariable Long playerId,
+                                                               @RequestParam(defaultValue = "3") Integer limit,
+                                                               @RequestParam(defaultValue = "0") Integer offset){
+        List<HeroStats> list = playerService.getPlayerHeroStatus(playerId,limit,offset);
         if(!list.isEmpty())
             return ResponseEntity.ok(list);
         else
             return ResponseEntity.notFound().build();
 
     }
+
 }

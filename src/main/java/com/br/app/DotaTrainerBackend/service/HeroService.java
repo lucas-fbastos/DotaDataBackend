@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class HeroService extends BaseService{
@@ -27,4 +28,9 @@ public class HeroService extends BaseService{
     public List<Hero> getAll(){
         return heroRepository.findAll();
     }
+
+    public List<Hero> getAllById(Set<Integer> ids){
+        return heroRepository.findAllById(ids);
+    }
+
 }

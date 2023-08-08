@@ -21,7 +21,9 @@ public abstract class BaseService {
         HttpEntity<?> entity = new HttpEntity<>(new HttpHeaders());
         ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
         int statusCode = response.getStatusCode().value();
-        if(statusCode!=200){
+        if(statusCode==200){
+            LOGGER.info("return from "+ uri+": "+response.getBody());
+        }else{
             LOGGER.error("Error while trying to get data from opendota api,uri ${}, status code: ${}, body: ${}",uri,
                     statusCode,response.getBody());
             throw new ExternalApiException("URI: "+uri+" returned code: "+statusCode);
