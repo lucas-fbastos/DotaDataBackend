@@ -33,6 +33,9 @@ public class DbService extends BaseService{
     @Autowired
     private ItemRepository itemRepository;
 
+    @Autowired
+    private PatchRepository patchRepository;
+
     private final Logger LOGGER = Logger.getLogger(DbService.class.getName());
 
     private final String[] ROLES = {"Carry","Nuker","Initiator","Disabler","Support","Escape","Durable","Pusher"};
@@ -42,6 +45,7 @@ public class DbService extends BaseService{
         saveHeroesFromApi();
         seedProPlayers();
         seedItems();
+        seedPatch();
     }
 
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
@@ -87,5 +91,13 @@ public class DbService extends BaseService{
             if(!attributeList.isEmpty())
                 this.itemAttributeRepository.saveAll(attributeList);
         }
+    }
+
+    private void seedPatch(){
+        ResponseEntity<String> patchesFromApiResponse = this.getFromApi(this.apiUrl + "constants/patch");
+        JSONArray patchesObj = new JSONArray(patchesFromApiResponse.getBody());
+        List<Patch> patchesToPersist = new ArrayList<>();
+        patchesObj.forEach(p -> patchesToPersist.add(new Patch((JSONObject) p)));
+        this.patchRepository.saveAll(patchesToPersist);
     }
 }
