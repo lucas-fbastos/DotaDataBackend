@@ -1,0 +1,39 @@
+package io.luck.DotaTrainerBackend.config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.web.client.RestClient;
+
+import java.util.logging.Logger;
+
+@Configuration
+public class WebClientConfig {
+
+    @Value("${external-api.url}")
+    protected String apiUrl;
+
+    @Bean
+    public RestClient restClient() {
+        return RestClient.builder()
+                .baseUrl(apiUrl)
+                .defaultStatusHandler(HttpStatusCode::is4xxClientError, (request, response) -> {
+                    Logger.getLogger(WebClientConfig.class.getName())
+                            .warning("Client error - URL: " + request.getURI() +
+                                    " - Status: " + response.getStatusCode());
+                    throw new RuntimeException(
+                            "Client error calling: " + request.getURI());
+                })
+                .defaultStatusHandler(HttpStatusCode::is5xxServerError, (request, response) -> {
+                    Logger.getLogger(WebClientConfig.class.getName())
+                            .severe("Server error - URL: " + request.getURI() +
+                                    " - Status: " + response.getStatusCode());
+                    throw new RuntimeException(
+                            "Server error calling: " + request.getURI()
+                    );
+                })
+                .build();
+    }
+
+}
