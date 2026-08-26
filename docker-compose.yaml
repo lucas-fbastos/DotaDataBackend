@@ -7,7 +7,6 @@ services:
       - .env
     depends_on:
       - db
-      - redis
     networks:
       - my_network
     restart: unless-stopped
@@ -26,14 +25,6 @@ services:
       - postgres_data:/var/lib/postgresql
       - ./init_db.sql:/docker-entrypoint-initdb.d/init.sql
     command: [ "sh", "-c", "chown -R postgres:postgres /docker-entrypoint-initdb.d/ && chmod -R 755 /docker-entrypoint-initdb.d/ && docker-entrypoint.sh postgres" ]
-    networks:
-      - my_network
-    restart: unless-stopped
-  redis:
-    container_name: appcache
-    image: redis
-    environment:
-      REDIS_PASSWORD: ${REDIS_PASSWORD:-password}
     networks:
       - my_network
     restart: unless-stopped

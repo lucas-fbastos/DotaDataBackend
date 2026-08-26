@@ -4,71 +4,70 @@ import io.luck.DotaTrainerBackend.model.entity.Hero;
 import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchSummary;
 import io.luck.DotaTrainerBackend.mapper.MatchDetailsMapper;
-import org.json.JSONArray;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerMatch;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.luck.DotaTrainerBackend.providers.opendota.service.OpenDotaPlayerMatchDataService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import tools.jackson.databind.ObjectMapper;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
 public class MatchService extends BaseService {
 
-    @Autowired
-    private HeroService heroService;
-    @Autowired
-    private MatchDetailsMapper matchDetailsMapper;
+    private final HeroService heroService;
+    private final MatchDetailsMapper matchDetailsMapper;
+    private final OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService;
 
-
-    public List<MatchSummary> getRecentMatches(Long playerId){
-        String uri = this.apiUrl+"players/"+playerId+"/recentMatches";
-        ResponseEntity<String> matchesFromAPI = this.getFromApi(uri);
-        JSONArray matchesOBJ = new JSONArray(matchesFromAPI.getBody());
-        List<MatchSummary> recentMatches = new ArrayList<>();
-        Set<Integer> heroesId = matchesOBJ.toList().stream().map(match -> {
-            try {
-                JSONObject matchObj = new JSONObject(new ObjectMapper().writeValueAsString(match));
-                return matchObj.getInt("hero_id");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }).collect(Collectors.toSet());
-
-        List<Hero> heroes = heroService.getAllById(heroesId);
-        Map<Integer,Hero> heroMap = new HashMap<>();
-        heroes.forEach(hero ->{
-            heroMap.put(hero.getId(),hero);
-        });
-
-        matchesOBJ.forEach(match ->{
-            JSONObject matchJson = (JSONObject) match;
-            MatchSummary summary = new MatchSummary(matchJson);
-            summary.setHero( heroMap.get(matchJson.getInt("hero_id")));
-            recentMatches.add(summary);
-        });
-        return recentMatches;
+    public MatchService(HeroService heroService, MatchDetailsMapper matchDetailsMapper, OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService) {
+        this.heroService = heroService;
+        this.matchDetailsMapper = matchDetailsMapper;
+        this.openDotaPlayerMatchDataService = openDotaPlayerMatchDataService;
     }
 
+    public List<MatchSummary> getRecentMatches(Long playerId) {
 
-    public Map<String,Integer> getWinLose(Long playerId){
-        Map<String,Integer> result = new HashMap<>();
-        String uri = this.apiUrl+"players/"+playerId+"/wl";
+        var recentMatches = openDotaPlayerMatchDataService.getPlayerRecentMatches(playerId);
+
+        if (recentMatches == null || recentMatches.isEmpty())
+            return Collections.emptyList();
+
+        var heroesIds = recentMatches.stream()
+                .map(OpenDotaPlayerMatch::heroId)
+                .collect(Collectors.toSet());
+
+        List<Hero> heroes = heroService.getAllById(heroesIds);
+        Map<Integer, Hero> heroMap = heroes.stream()
+                .collect(Collectors.toMap(
+                        Hero::getId,
+                        Function.identity()
+                ));
+
+        return recentMatches.stream()
+                .map(match -> MatchSummary.from(
+                        match,
+                        heroMap.get(match.heroId())
+                ))
+                .toList();
+    }
+
+    public Map<String, Integer> getWinLose(Long playerId) {
+        Map<String, Integer> result = new HashMap<>();
+        String uri = this.apiUrl + "players/" + playerId + "/wl";
         ResponseEntity<String> totalWL = this.getFromApi(uri);
         JSONObject wl = new JSONObject(totalWL.getBody());
-        result.put("win",wl.getInt("win"));
-        result.put("lose",wl.getInt("lose"));
+        result.put("win", wl.getInt("win"));
+        result.put("lose", wl.getInt("lose"));
         return result;
     }
 
-    public Match getMatchDetails(Long matchId){
-        String uri = this.apiUrl+"matches/"+matchId;
+    public Match getMatchDetails(Long matchId) {
+        String uri = this.apiUrl + "matches/" + matchId;
         ResponseEntity<String> matchFromApi = this.getFromApi(uri);
         JSONObject matchObj = new JSONObject(matchFromApi.getBody());
         return matchDetailsMapper.convert(matchObj);

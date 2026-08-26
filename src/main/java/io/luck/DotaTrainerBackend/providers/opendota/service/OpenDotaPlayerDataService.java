@@ -1,6 +1,5 @@
 package io.luck.DotaTrainerBackend.providers.opendota.service;
 
-import io.luck.DotaTrainerBackend.model.HeroStats;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaHeroStats;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayer;
 import org.jspecify.annotations.NonNull;
@@ -10,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 import java.util.List;
-
-import static java.lang.IO.print;
 
 @Service
 public class OpenDotaPlayerDataService {
