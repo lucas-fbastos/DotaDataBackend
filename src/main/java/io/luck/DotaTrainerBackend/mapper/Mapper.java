@@ -1,13 +1,12 @@
 package io.luck.DotaTrainerBackend.mapper;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Collection;
 
-import java.util.List;
+public interface Mapper<T,R> {
 
-public interface Mapper<T> {
+     T convert(R item);
 
-    public T convert(JSONObject json);
+    Collection<T> convert(Collection<R> items);
 
-    public List<T> convert(JSONArray jsonArray);
+
 }

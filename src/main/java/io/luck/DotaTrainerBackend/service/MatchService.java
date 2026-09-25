@@ -5,13 +5,11 @@ import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchSummary;
 import io.luck.DotaTrainerBackend.mapper.MatchDetailsMapper;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerMatch;
-import org.json.JSONObject;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerRatio;
 import io.luck.DotaTrainerBackend.providers.opendota.service.OpenDotaPlayerMatchDataService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -56,21 +54,16 @@ public class MatchService extends BaseService {
                 .toList();
     }
 
-    public Map<String, Integer> getWinLose(Long playerId) {
-        Map<String, Integer> result = new HashMap<>();
-        String uri = this.apiUrl + "players/" + playerId + "/wl";
-        ResponseEntity<String> totalWL = this.getFromApi(uri);
-        JSONObject wl = new JSONObject(totalWL.getBody());
-        result.put("win", wl.getInt("win"));
-        result.put("lose", wl.getInt("lose"));
-        return result;
+    public OpenDotaPlayerRatio getWinLose(Long playerId) {
+        var openDotaPlayerRatio = openDotaPlayerMatchDataService.getPlayerRatio(playerId);
+        if(openDotaPlayerRatio == null)
+            return OpenDotaPlayerRatio.DEFAULT;
+        return openDotaPlayerRatio;
     }
 
     public Match getMatchDetails(Long matchId) {
-        String uri = this.apiUrl + "matches/" + matchId;
-        ResponseEntity<String> matchFromApi = this.getFromApi(uri);
-        JSONObject matchObj = new JSONObject(matchFromApi.getBody());
-        return matchDetailsMapper.convert(matchObj);
+        var openDotaMatchDetails = openDotaPlayerMatchDataService.getMatchDetails(matchId);
+        return matchDetailsMapper.convert(openDotaMatchDetails);
     }
 
 }

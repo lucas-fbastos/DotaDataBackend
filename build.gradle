@@ -22,7 +22,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation("org.jspecify:jspecify:1.0.0")
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	implementation 'org.json:json:20230227'
 	implementation 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'com.h2database:h2'

@@ -2,6 +2,7 @@ package io.luck.DotaTrainerBackend.resource;
 
 import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchSummary;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerRatio;
 import io.luck.DotaTrainerBackend.service.DbService;
 import io.luck.DotaTrainerBackend.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class MatchResource {
     }
 
     @GetMapping("/{playerId}/winLose")
-    public Map<String,Integer> getTotalWinLoseByPlayer(@PathVariable long playerId){
+    public OpenDotaPlayerRatio getTotalWinLoseByPlayer(@PathVariable long playerId){
         return this.matchService.getWinLose(playerId);
     }
 

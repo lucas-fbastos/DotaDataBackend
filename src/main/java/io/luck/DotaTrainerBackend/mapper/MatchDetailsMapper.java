@@ -3,25 +3,23 @@ package io.luck.DotaTrainerBackend.mapper;
 import io.luck.DotaTrainerBackend.model.Enums.GameMode;
 import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchPlayer;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerMatchDetails;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Component
-public class MatchDetailsMapper implements Mapper<Match> {
+public class MatchDetailsMapper implements Mapper<Match, OpenDotaPlayerMatchDetails> {
 
     @Autowired
     private MatchPlayerMapper matchPlayerMapper;
 
     @Override
-    public Match convert(JSONObject json) {
+    public Match convert(OpenDotaPlayerMatchDetails openDotaMatchDetails) {
         Match match = new Match();
         match.setMatchId(json.getLong("match_id"));
         match.setCluster(json.getInt("cluster"));
@@ -49,7 +47,8 @@ public class MatchDetailsMapper implements Mapper<Match> {
     }
 
     @Override
-    public List<Match> convert(JSONArray jsonArray) {
-        return null;
+    public Collection<Match> convert(Collection<OpenDotaPlayerMatchDetails> items) {
+        return List.of();
     }
+
 }
