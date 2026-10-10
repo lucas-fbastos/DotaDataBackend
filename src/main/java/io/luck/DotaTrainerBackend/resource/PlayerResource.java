@@ -4,7 +4,6 @@ import io.luck.DotaTrainerBackend.model.HeroStats;
 import io.luck.DotaTrainerBackend.model.entity.Player;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaHeroStats;
 import io.luck.DotaTrainerBackend.service.PlayerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +17,11 @@ import java.util.List;
 @RequestMapping("/player")
 public class PlayerResource {
 
-    @Autowired
-    private PlayerService playerService;
+    private final PlayerService playerService;
+
+    public PlayerResource(PlayerService playerService) {
+        this.playerService = playerService;
+    }
 
     @GetMapping("/{playerId}")
     public ResponseEntity<Player> getPlayerById(@PathVariable Long playerId){

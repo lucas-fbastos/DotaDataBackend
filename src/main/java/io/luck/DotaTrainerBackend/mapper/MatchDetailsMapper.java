@@ -5,19 +5,20 @@ import io.luck.DotaTrainerBackend.model.Enums.GameMode;
 import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchPlayer;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerMatchDetails;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.*;
 
 @Component
-public class MatchDetailsMapper implements Mapper<Match, OpenDotaPlayerMatchDetails> {
+public class MatchDetailsMapper {
 
-    @Autowired
-    private MatchPlayerMapper matchPlayerMapper;
+    private final MatchPlayerMapper matchPlayerMapper;
 
-    @Override
+    public MatchDetailsMapper(MatchPlayerMapper matchPlayerMapper) {
+        this.matchPlayerMapper = matchPlayerMapper;
+    }
+
     public Match convert(OpenDotaPlayerMatchDetails openDotaMatchDetails) {
         Match match = new Match();
         match.setMatchId(openDotaMatchDetails.matchId());
@@ -42,11 +43,6 @@ public class MatchDetailsMapper implements Mapper<Match, OpenDotaPlayerMatchDeta
         match.setRadiantTeam(radiantPlayers);
         match.setDireTeam(direPlayers);
         return match;
-    }
-
-    @Override
-    public Collection<Match> convert(Collection<OpenDotaPlayerMatchDetails> items) {
-        return List.of();
     }
 
 }

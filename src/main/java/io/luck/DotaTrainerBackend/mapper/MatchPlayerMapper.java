@@ -7,7 +7,6 @@ import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.DotaTrainerBackend.service.HeroService;
 import io.luck.DotaTrainerBackend.service.ItemService;
 import lombok.val;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -16,10 +15,13 @@ import java.util.stream.Collectors;
 @Component
 public class MatchPlayerMapper{
 
-    @Autowired
-    private HeroService heroService;
-    @Autowired
-    private ItemService itemService;
+    private final HeroService heroService;
+    private final ItemService itemService;
+
+    public MatchPlayerMapper(HeroService heroService, ItemService itemService) {
+        this.heroService = heroService;
+        this.itemService = itemService;
+    }
 
     public Set<MatchPlayer> convert(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers) {
         Set<MatchPlayer> players = new HashSet<>();

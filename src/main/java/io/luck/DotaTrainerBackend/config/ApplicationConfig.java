@@ -1,7 +1,6 @@
 package io.luck.DotaTrainerBackend.config;
 
 import io.luck.DotaTrainerBackend.service.DbService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,11 +11,16 @@ import java.text.ParseException;
 @Configuration
 @Profile({"prod","dev","local"})
 public class ApplicationConfig {
-    @Autowired
-    private DbService dbService;
+    private final DbService dbService;
+    private final String strategy;
 
-    @Value("${spring.jpa.hibernate.ddl-auto}")
-    private String strategy;
+    public ApplicationConfig(
+            DbService dbService,
+            @Value("${spring.jpa.hibernate.ddl-auto}") String strategy
+    ) {
+        this.dbService = dbService;
+        this.strategy = strategy;
+    }
 
     @Bean
     public boolean instantiateDatabase() throws ParseException {

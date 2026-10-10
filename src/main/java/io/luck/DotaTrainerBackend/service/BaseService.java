@@ -3,7 +3,6 @@ package io.luck.DotaTrainerBackend.service;
 import io.luck.DotaTrainerBackend.exception.ExternalApiException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,10 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 public abstract class BaseService {
-    @Value("${external-api.url}")
-    protected String apiUrl;
+    protected final String apiUrl;
 
     private final Logger LOGGER = LoggerFactory.getLogger(BaseService.class);
+
+    protected BaseService(String apiUrl) {
+        this.apiUrl = apiUrl;
+    }
 
     protected ResponseEntity<String> getFromApi(String uri){
         RestTemplate restTemplate = new RestTemplate();

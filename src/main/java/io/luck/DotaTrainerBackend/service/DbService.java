@@ -2,7 +2,9 @@ package io.luck.DotaTrainerBackend.service;
 
 import io.luck.DotaTrainerBackend.model.entity.*;
 import io.luck.DotaTrainerBackend.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaProPlayer;
+import io.luck.DotaTrainerBackend.providers.opendota.service.OpenDotaProPlayerDataService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -16,27 +18,37 @@ import java.util.logging.Logger;
 @Service
 public class DbService extends BaseService{
 
-    @Autowired
-    private HeroRepository heroRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
-    private ProPlayerRepository proPlayerRepository;
-
-    @Autowired
-    private ItemAttributeRepository itemAttributeRepository;
-
-    @Autowired
-    private ItemRepository itemRepository;
-
-    @Autowired
-    private PatchRepository patchRepository;
+    private final HeroRepository heroRepository;
+    private final RoleRepository roleRepository;
+    private final ProPlayerRepository proPlayerRepository;
+    private final OpenDotaProPlayerDataService openDotaProPlayerDataService;
+    private final ItemAttributeRepository itemAttributeRepository;
+    private final ItemRepository itemRepository;
+    private final PatchRepository patchRepository;
 
     private final Logger LOGGER = Logger.getLogger(DbService.class.getName());
 
-    private final String[] ROLES = {"Carry","Nuker","Initiator","Disabler","Support","Escape","Durable","Pusher"};
+    private static final String[] ROLES = {"Carry","Nuker","Initiator","Disabler","Support","Escape","Durable","Pusher"};
+
+    public DbService(
+            HeroRepository heroRepository,
+            RoleRepository roleRepository,
+            ProPlayerRepository proPlayerRepository,
+            OpenDotaProPlayerDataService openDotaProPlayerDataService,
+            ItemAttributeRepository itemAttributeRepository,
+            ItemRepository itemRepository,
+            PatchRepository patchRepository,
+            @Value("${external-api.url}") String apiUrl
+    ) {
+        super(apiUrl);
+        this.heroRepository = heroRepository;
+        this.roleRepository = roleRepository;
+        this.proPlayerRepository = proPlayerRepository;
+        this.openDotaProPlayerDataService = openDotaProPlayerDataService;
+        this.itemAttributeRepository = itemAttributeRepository;
+        this.itemRepository = itemRepository;
+        this.patchRepository = patchRepository;
+    }
 
     public void instantiateTestDatabase(){
         seedHeroRoles();
@@ -49,11 +61,36 @@ public class DbService extends BaseService{
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
 
     public void seedProPlayers(){
-        ResponseEntity<String> proPlayersFromAPI = this.getFromApi(this.apiUrl+ "proPlayers");
-        JSONArray proObj = new JSONArray(proPlayersFromAPI.getBody());
-        List<ProPlayer> proPlayersToPersist = new ArrayList<>();
-        proObj.forEach(p -> proPlayersToPersist.add(new ProPlayer((JSONObject) p)));
+        List<ProPlayer> proPlayersToPersist = openDotaProPlayerDataService.getProPlayers().stream()
+                .map(this::toProPlayerEntity)
+                .toList();
         this.proPlayerRepository.saveAll(proPlayersToPersist);
+    }
+
+    private ProPlayer toProPlayerEntity(OpenDotaProPlayer player) {
+        ProPlayer proPlayer = new ProPlayer(
+                player.teamName(),
+                player.teamTag(),
+                player.fantasyRole(),
+                player.teamId(),
+                player.isLocked(),
+                player.lockedUntil()
+        );
+
+        proPlayer.setAccountId(player.accountId());
+        proPlayer.setMmrEstimate(player.computedMmr());
+        proPlayer.setPersonaName(player.personaName());
+        proPlayer.setName(player.name());
+        proPlayer.setCheese(player.cheese());
+        proPlayer.setSteamId(player.steamId());
+        proPlayer.setAvatarImage(player.avatar());
+        proPlayer.setAvatarImageMedium(player.avatarMedium());
+        proPlayer.setAvatarImageFull(player.avatarFull());
+        proPlayer.setProfileURL(player.profileUrl());
+        proPlayer.setLastLogin(player.lastLogin());
+        proPlayer.setLocCountryCode(player.locCountryCode());
+
+        return proPlayer;
     }
 
     private void saveHeroesFromApi(){

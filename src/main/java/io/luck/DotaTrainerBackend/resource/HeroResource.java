@@ -2,7 +2,6 @@ package io.luck.DotaTrainerBackend.resource;
 
 import io.luck.DotaTrainerBackend.model.entity.Hero;
 import io.luck.DotaTrainerBackend.service.HeroService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,8 +14,11 @@ import java.util.List;
 @RequestMapping("/heroes")
 public class HeroResource {
 
-    @Autowired
-    private HeroService heroService;
+    private final HeroService heroService;
+
+    public HeroResource(HeroService heroService) {
+        this.heroService = heroService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Hero>> getAll(){

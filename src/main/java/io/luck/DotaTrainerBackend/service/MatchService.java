@@ -16,7 +16,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-public class MatchService extends BaseService {
+public class MatchService {
 
     private final HeroService heroService;
     private final MatchDetailsMapper matchDetailsMapper;

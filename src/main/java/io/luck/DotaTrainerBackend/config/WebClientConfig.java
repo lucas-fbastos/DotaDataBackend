@@ -11,8 +11,11 @@ import java.util.logging.Logger;
 @Configuration
 public class WebClientConfig {
 
-    @Value("${external-api.url}")
-    protected String apiUrl;
+    private final String apiUrl;
+
+    public WebClientConfig(@Value("${external-api.url}") String apiUrl) {
+        this.apiUrl = apiUrl;
+    }
 
     @Bean
     public RestClient restClient() {

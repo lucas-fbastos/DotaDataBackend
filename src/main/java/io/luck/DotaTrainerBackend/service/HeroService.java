@@ -2,7 +2,6 @@ package io.luck.DotaTrainerBackend.service;
 
 import io.luck.DotaTrainerBackend.model.entity.Hero;
 import io.luck.DotaTrainerBackend.repository.HeroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,10 +10,13 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class HeroService extends BaseService{
+public class HeroService {
 
-    @Autowired
-    private HeroRepository heroRepository;
+    private final HeroRepository heroRepository;
+
+    public HeroService(HeroRepository heroRepository) {
+        this.heroRepository = heroRepository;
+    }
 
     // TODO get hero from cache (seed cache if empty)
     public Hero getHeroById(Long id){
