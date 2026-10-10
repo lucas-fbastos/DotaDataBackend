@@ -2,10 +2,7 @@ package io.luck.DotaTrainerBackend.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 @Setter
@@ -14,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Table(name="item_attribute",schema = "public")
+@NoArgsConstructor
 public class ItemAttribute {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

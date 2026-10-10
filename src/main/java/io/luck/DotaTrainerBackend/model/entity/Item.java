@@ -1,10 +1,7 @@
 package io.luck.DotaTrainerBackend.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Entity
 @Table(name="item",schema = "public")
+@NoArgsConstructor
 public class Item {
     @Id
     @Column(name="item_id")

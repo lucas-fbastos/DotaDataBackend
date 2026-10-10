@@ -5,10 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -20,6 +17,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Entity
 @Table(name = "hero", schema ="public")
+@NoArgsConstructor
 public class Hero {
 
     @Id

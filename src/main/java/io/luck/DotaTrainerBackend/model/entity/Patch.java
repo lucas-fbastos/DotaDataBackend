@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
@@ -14,6 +15,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @Entity
 @Table(name="patch",schema = "public")
+@NoArgsConstructor
 public class Patch {
     @Id
     private Integer id;

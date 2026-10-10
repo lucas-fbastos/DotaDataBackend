@@ -1,9 +1,7 @@
 package io.luck.DotaTrainerBackend.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +10,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name="user", schema ="public")
+@NoArgsConstructor
+@EqualsAndHashCode
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
