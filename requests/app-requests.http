@@ -1,0 +1,7 @@
+### Get player by ID
+GET {{baseUrl}}/player/{{playerId}}
+Accept: application/json
+
+### Get player heroes
+GET {{baseUrl}}/player/{{playerId}}/heroes
+Accept: application/json
