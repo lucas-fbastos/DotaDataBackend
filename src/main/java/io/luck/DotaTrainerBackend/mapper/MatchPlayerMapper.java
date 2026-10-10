@@ -4,32 +4,20 @@ import io.luck.DotaTrainerBackend.model.entity.Hero;
 import io.luck.DotaTrainerBackend.model.entity.Item;
 import io.luck.DotaTrainerBackend.model.MatchPlayer;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaMatchPlayer;
-import io.luck.DotaTrainerBackend.service.HeroService;
-import io.luck.DotaTrainerBackend.service.ItemService;
-import lombok.val;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-public class MatchPlayerMapper{
+public class MatchPlayerMapper {
 
-    private final HeroService heroService;
-    private final ItemService itemService;
-
-    public MatchPlayerMapper(HeroService heroService, ItemService itemService) {
-        this.heroService = heroService;
-        this.itemService = itemService;
-    }
-
-    public Set<MatchPlayer> convert(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers) {
+    public Set<MatchPlayer> convert(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers,
+                                    Map<Long, Hero> heroesById,
+                                    Map<Long, Item> itemsById) {
         Set<MatchPlayer> players = new HashSet<>();
-
-        Map<Long, Hero> heroesMap = getHeroesMap(openDotaMatchPlayers);
-        Map<Long, Item> itemsMap = getItemsMap(openDotaMatchPlayers);
-        openDotaMatchPlayers.forEach(openDotaMatchPlayer ->{
-            Hero hero = heroesMap.get(openDotaMatchPlayer.heroId());
+        openDotaMatchPlayers.forEach(openDotaMatchPlayer -> {
+            Hero hero = heroesById.get(openDotaMatchPlayer.heroId());
             MatchPlayer matchPlayer = MatchPlayer.builder()
                     .kills(openDotaMatchPlayer.kills())
                     .assists(openDotaMatchPlayer.assists())
@@ -41,7 +29,7 @@ public class MatchPlayerMapper{
                     .goldPerMin(openDotaMatchPlayer.goldPerMin())
                     .xpPerMin(openDotaMatchPlayer.xpPerMin())
                     .hero(hero)
-                    .items(processItems(openDotaMatchPlayer,itemsMap))
+                    .items(processItems(openDotaMatchPlayer, itemsById))
                     .name(openDotaMatchPlayer.name())
                     .level(openDotaMatchPlayer.level())
                     .personaName(openDotaMatchPlayer.personaName())
@@ -55,32 +43,10 @@ public class MatchPlayerMapper{
         return players;
     }
 
-    private Map<Long, Hero> getHeroesMap(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers){
-        val heroesIds = openDotaMatchPlayers.stream()
-                .map(OpenDotaMatchPlayer::heroId)
-                .collect(Collectors.toSet());
-
-        List<Hero> heroes = heroService.getAllById(heroesIds);
-        Map<Long,Hero> heroesMap = new HashMap<>();
-        heroes.forEach(hero -> heroesMap.put(hero.getId(),hero));
-        return heroesMap;
-    }
-
-    private Map<Long, Item> getItemsMap(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers){
-        Set<Long> itemIds = openDotaMatchPlayers.stream()
-                .flatMap(player -> player.getItems().stream())
-                        .collect(Collectors.toSet());
-
-        List<Item> items = itemService.getAllById(itemIds);
-        Map<Long,Item> itemsMap = new HashMap<>();
-        items.forEach(item -> itemsMap.put(item.getItemId(),item));
-        return itemsMap;
-    }
-
-    private List<Item> processItems(OpenDotaMatchPlayer openDotaMatchPlayer ,Map<Long,Item> itemsMap) {
+    private List<Item> processItems(OpenDotaMatchPlayer openDotaMatchPlayer, Map<Long, Item> itemsById) {
         return openDotaMatchPlayer.getItems()
                 .stream()
-                .map(itemId -> itemsMap.getOrDefault(itemId,null))
+                .map(itemsById::get)
                 .collect(Collectors.toList());
     }
 }

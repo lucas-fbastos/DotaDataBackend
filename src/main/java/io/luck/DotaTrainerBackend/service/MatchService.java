@@ -1,9 +1,11 @@
 package io.luck.DotaTrainerBackend.service;
 
 import io.luck.DotaTrainerBackend.model.entity.Hero;
+import io.luck.DotaTrainerBackend.model.entity.Item;
 import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchSummary;
 import io.luck.DotaTrainerBackend.mapper.MatchDetailsMapper;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerMatch;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerRatio;
 import io.luck.DotaTrainerBackend.providers.opendota.service.OpenDotaPlayerMatchDataService;
@@ -19,11 +21,14 @@ import java.util.stream.Collectors;
 public class MatchService {
 
     private final HeroService heroService;
+    private final ItemService itemService;
     private final MatchDetailsMapper matchDetailsMapper;
     private final OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService;
 
-    public MatchService(HeroService heroService, MatchDetailsMapper matchDetailsMapper, OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService) {
+    public MatchService(HeroService heroService, ItemService itemService, MatchDetailsMapper matchDetailsMapper,
+                        OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService) {
         this.heroService = heroService;
+        this.itemService = itemService;
         this.matchDetailsMapper = matchDetailsMapper;
         this.openDotaPlayerMatchDataService = openDotaPlayerMatchDataService;
     }
@@ -63,7 +68,21 @@ public class MatchService {
 
     public Match getMatchDetails(Long matchId) {
         var openDotaMatchDetails = openDotaPlayerMatchDataService.getMatchDetails(matchId);
-        return matchDetailsMapper.convert(openDotaMatchDetails);
+        var players = openDotaMatchDetails.players();
+
+        var heroIds = players.stream()
+                .map(OpenDotaMatchPlayer::heroId)
+                .collect(Collectors.toSet());
+        Map<Long, Hero> heroesById = heroService.getAllById(heroIds).stream()
+                .collect(Collectors.toMap(Hero::getId, Function.identity()));
+
+        var itemIds = players.stream()
+                .flatMap(player -> player.getItems().stream())
+                .collect(Collectors.toSet());
+        Map<Long, Item> itemsById = itemService.getAllById(itemIds).stream()
+                .collect(Collectors.toMap(Item::getItemId, Function.identity()));
+
+        return matchDetailsMapper.convert(openDotaMatchDetails, heroesById, itemsById);
     }
 
 }
