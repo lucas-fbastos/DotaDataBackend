@@ -6,26 +6,25 @@ import io.luck.DotaTrainerBackend.model.entity.Player;
 public class PlayerMapper {
 
     public static Player toPlayer(OpenDotaPlayer openDotaPlayer){
-        return  new Player(
-                openDotaPlayer.profile().accountId(),
-                openDotaPlayer.rankTier(),
-                openDotaPlayer.leaderboardRank(),
-                openDotaPlayer.computedMmr(),
-                openDotaPlayer.profile().personaName(),
-                openDotaPlayer.profile().name(),
-                openDotaPlayer.profile().plus(),
-                openDotaPlayer.profile().cheese(),
-                openDotaPlayer.profile().steamId(),
-                openDotaPlayer.profile().avatar(),
-                openDotaPlayer.profile().avatarMedium(),
-                openDotaPlayer.profile().avatarFull(),
-                openDotaPlayer.profile().profileUrl(),
-                openDotaPlayer.profile().lastLogin(),
-                openDotaPlayer.profile().locCountryCode(),
-                openDotaPlayer.profile().isContributor(),
-                openDotaPlayer.profile().isSubscriber()
-        );
-
+        return Player.builder()
+                .accountId(openDotaPlayer.profile().accountId())
+                .rankTier(openDotaPlayer.rankTier())
+                .leaderboardRank(openDotaPlayer.leaderboardRank())
+                .mmrEstimate(openDotaPlayer.computedMmr())
+                .avatarImage(openDotaPlayer.profile().avatar())
+                .avatarImageMedium(openDotaPlayer.profile().avatarMedium())
+                .avatarImageFull(openDotaPlayer.profile().avatarFull())
+                .lastLogin(openDotaPlayer.profile().lastLogin())
+                .cheese(openDotaPlayer.profile().cheese())
+                .name(openDotaPlayer.profile().name())
+                .personaName(openDotaPlayer.profile().personaName())
+                .plus(openDotaPlayer.profile().plus())
+                .steamId(openDotaPlayer.profile().steamId())
+                .profileURL(openDotaPlayer.profile().profileUrl())
+                .locCountryCode(openDotaPlayer.profile().locCountryCode())
+                .contributor(openDotaPlayer.profile().isContributor())
+                .subscriber(openDotaPlayer.profile().isSubscriber())
+                .build();
     }
 
 }

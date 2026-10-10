@@ -1,11 +1,10 @@
 package io.luck.DotaTrainerBackend.mapper;
 
+import io.luck.DotaTrainerBackend.model.Enums.Faction;
 import io.luck.DotaTrainerBackend.model.Enums.GameMode;
 import io.luck.DotaTrainerBackend.model.Match;
 import io.luck.DotaTrainerBackend.model.MatchPlayer;
 import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaPlayerMatchDetails;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,22 +20,21 @@ public class MatchDetailsMapper implements Mapper<Match, OpenDotaPlayerMatchDeta
     @Override
     public Match convert(OpenDotaPlayerMatchDetails openDotaMatchDetails) {
         Match match = new Match();
-        match.setMatchId(json.getLong("match_id"));
-        match.setCluster(json.getInt("cluster"));
-        long seconds = json.getLong("duration");
+        match.setMatchId(openDotaMatchDetails.matchId());
+        match.setCluster(openDotaMatchDetails.cluster());
+        long seconds = openDotaMatchDetails.duration();
         Duration duration = Duration.ofSeconds(seconds);
         match.setDuration(duration);
-        Optional<GameMode> optionalGameMode = GameMode.getById(json.getInt("game_mode"));
+        Optional<GameMode> optionalGameMode = GameMode.getById(openDotaMatchDetails.gameMode());
         optionalGameMode.ifPresent(match::setGameMode);
-        match.setDireScore(json.getInt("dire_score"));
-        match.setRadiantScore(json.getInt("radiant_score"));
-        match.setRadiantWin(json.getBoolean("radiant_win"));
-        JSONArray playersJson = json.getJSONArray("players");
+        match.setDireScore(openDotaMatchDetails.direScore());
+        match.setRadiantScore(openDotaMatchDetails.radiantScore());
+        match.setRadiantWin(openDotaMatchDetails.radianWin());
         Set<MatchPlayer> radiantPlayers = new HashSet<>();
         Set<MatchPlayer> direPlayers = new HashSet<>();
-        List<MatchPlayer> players = matchPlayerMapper.convert(playersJson);
+        Set<MatchPlayer> players = matchPlayerMapper.convert(openDotaMatchDetails.players());
         players.forEach(player -> {
-            if(player.getTeam().equals("Radiant"))
+            if(player.team().equals(Faction.RADIANT.name()))
                 radiantPlayers.add(player);
             else
                 direPlayers.add(player);

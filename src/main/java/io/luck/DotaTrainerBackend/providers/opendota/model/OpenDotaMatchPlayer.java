@@ -1,8 +1,11 @@
 package io.luck.DotaTrainerBackend.providers.opendota.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.luck.DotaTrainerBackend.model.Enums.Faction;
 
-public record OpendotaMatchPlayer(
+import java.util.List;
+
+public record OpenDotaMatchPlayer(
         Integer kills,
         Integer assists,
         Integer deaths,
@@ -13,9 +16,9 @@ public record OpendotaMatchPlayer(
         @JsonProperty("gold_spent")
         Long goldSpent,
         @JsonProperty("gold_per_min")
-        Long goldPerMin,
+        Integer goldPerMin,
         @JsonProperty("xp_per_min")
-        Long xpPerMin,
+        Integer xpPerMin,
         @JsonProperty("hero_id")
         Long heroId,
         String name,
@@ -26,17 +29,34 @@ public record OpendotaMatchPlayer(
         @JsonProperty("radiant_win")
         Boolean radiantWin,
         @JsonProperty("item_1")
-        Integer item1,
+        Long item1,
         @JsonProperty("item_2")
-        Integer item2,
+        Long item2,
         @JsonProperty("item_3")
-        Integer item3,
+        Long item3,
         @JsonProperty("item_4")
-        Integer item4,
+        Long item4,
         @JsonProperty("item_5")
-        Integer item5,
+        Long item5,
         @JsonProperty("item_6")
-        Integer item6
-){
+        Long item6,
+        @JsonProperty("hero_heal")
+        Long heroHeal,
+        @JsonProperty("hero_damage")
+        Long heroDamage
+        ){
 
+        public List<Long> getItems(){
+                return List.of(item1, item2, item3, item4, item5, item6);
+        }
+
+        public Faction getTeam(){
+                if(isRadiant) return Faction.RADIANT;
+                else return Faction.DIRE;
+        }
+
+        public Boolean playerWon(){
+                var team = getTeam();
+                return team.won(radiantWin);
+        }
 }

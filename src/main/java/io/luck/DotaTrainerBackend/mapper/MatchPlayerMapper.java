@@ -3,103 +3,71 @@ package io.luck.DotaTrainerBackend.mapper;
 import io.luck.DotaTrainerBackend.model.entity.Hero;
 import io.luck.DotaTrainerBackend.model.entity.Item;
 import io.luck.DotaTrainerBackend.model.MatchPlayer;
+import io.luck.DotaTrainerBackend.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.DotaTrainerBackend.service.HeroService;
 import io.luck.DotaTrainerBackend.service.ItemService;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import tools.jackson.databind.ObjectMapper;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-public class MatchPlayerMapper implements Mapper<MatchPlayer> {
+public class MatchPlayerMapper{
 
     @Autowired
     private HeroService heroService;
     @Autowired
     private ItemService itemService;
 
-    @Override
-    public MatchPlayer convert(JSONObject json) {
-        return null;
-    }
+    public Set<MatchPlayer> convert(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers) {
+        Set<MatchPlayer> players = new HashSet<>();
 
-    @Override
-    public List<MatchPlayer> convert(JSONArray jsonArray) {
-        List<MatchPlayer> players = new ArrayList<>();
-
-
-        Map<Integer, Hero> heroesMap = getHeroesMap(jsonArray);
-        Map<Long, Item> itemsMap = getItemsMap(jsonArray);
-
-        jsonArray.forEach(obj ->{
-            JSONObject json = (JSONObject) obj;
-            MatchPlayer matchPlayer = new MatchPlayer();
-            matchPlayer.setKills(json.getInt("kills"));
-            matchPlayer.setAssists(json.getInt("assists"));
-            matchPlayer.setDeaths(json.getInt("deaths"));
-            matchPlayer.setDenies(json.getInt("denies"));
-            matchPlayer.setLastHits(json.getInt("last_hits"));
-            matchPlayer.setGold(json.optLong("gold"));
-            matchPlayer.setGoldSpent(json.optLong("gold_spent"));
-            matchPlayer.setGoldPerMin(json.getInt("gold_per_min"));
-            matchPlayer.setXpPerMin(json.getInt("xp_per_min"));
-            Hero hero = heroesMap.get(json.getInt("hero_id"));
-            matchPlayer.setHero(hero);
-            matchPlayer.setItems(processItems(json,itemsMap));
-            matchPlayer.setName(json.optString("name"));
-            matchPlayer.setLevel(json.getInt("level"));
-            matchPlayer.setPersonaName(json.optString("personaname"));
-            boolean isRadiant = json.getBoolean("isRadiant");
-            boolean radiantWin = json.getBoolean("radiant_win");
-            if (isRadiant) {
-                matchPlayer.setTeam("Radiant");
-                matchPlayer.setWon(radiantWin);
-            } else {
-                matchPlayer.setTeam("Dire");
-                matchPlayer.setWon(!radiantWin);
-            }
-            matchPlayer.setHeroHeal(json.optInt("hero_healing"));
-            matchPlayer.setHeroDamage(json.optInt("hero_damage"));
+        Map<Long, Hero> heroesMap = getHeroesMap(openDotaMatchPlayers);
+        Map<Long, Item> itemsMap = getItemsMap(openDotaMatchPlayers);
+        openDotaMatchPlayers.forEach(openDotaMatchPlayer ->{
+            Hero hero = heroesMap.get(openDotaMatchPlayer.heroId());
+            MatchPlayer matchPlayer = MatchPlayer.builder()
+                    .kills(openDotaMatchPlayer.kills())
+                    .assists(openDotaMatchPlayer.assists())
+                    .deaths(openDotaMatchPlayer.deaths())
+                    .denies(openDotaMatchPlayer.denies())
+                    .lastHits(openDotaMatchPlayer.lastHits())
+                    .gold(openDotaMatchPlayer.gold())
+                    .goldSpent(openDotaMatchPlayer.goldSpent())
+                    .goldPerMin(openDotaMatchPlayer.goldPerMin())
+                    .xpPerMin(openDotaMatchPlayer.xpPerMin())
+                    .hero(hero)
+                    .items(processItems(openDotaMatchPlayer,itemsMap))
+                    .name(openDotaMatchPlayer.name())
+                    .level(openDotaMatchPlayer.level())
+                    .personaName(openDotaMatchPlayer.personaName())
+                    .team(openDotaMatchPlayer.getTeam().name())
+                    .won(openDotaMatchPlayer.playerWon())
+                    .heroHeal(openDotaMatchPlayer.heroHeal())
+                    .heroDamage(openDotaMatchPlayer.heroDamage())
+            .build();
             players.add(matchPlayer);
         });
         return players;
     }
 
-    private Map<Integer, Hero> getHeroesMap(JSONArray jsonArray){
-        Set<Integer> heroesId = jsonArray.toList().stream().map(obj -> {
-            try {
-                JSONObject json = new JSONObject(new ObjectMapper().writeValueAsString(obj));
-                return json.getInt("hero_id");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+    private Map<Long, Hero> getHeroesMap(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers){
+        val heroesIds = openDotaMatchPlayers.stream()
+                .map(OpenDotaMatchPlayer::heroId)
+                .collect(Collectors.toSet());
 
-        }).collect(Collectors.toSet());
-
-        List<Hero> heroes = heroService.getAllById(heroesId);
-        Map<Integer,Hero> heroesMap = new HashMap<>();
+        List<Hero> heroes = heroService.getAllById(heroesIds);
+        Map<Long,Hero> heroesMap = new HashMap<>();
         heroes.forEach(hero -> heroesMap.put(hero.getId(),hero));
         return heroesMap;
     }
 
-    private Map<Long, Item> getItemsMap(JSONArray jsonArray){
-        Set<Long> itemIds = new HashSet<>();
-        jsonArray.forEach(obj ->{
-            JSONObject json = (JSONObject) obj;
-            for (int i = 0; i < 6; i++) {
-                long id = json.getLong("item_"+i);
-                itemIds.add(id);
-            }
-        });
+    private Map<Long, Item> getItemsMap(Collection<OpenDotaMatchPlayer> openDotaMatchPlayers){
+        Set<Long> itemIds = openDotaMatchPlayers.stream()
+                .flatMap(player -> player.getItems().stream())
+                        .collect(Collectors.toSet());
 
         List<Item> items = itemService.getAllById(itemIds);
         Map<Long,Item> itemsMap = new HashMap<>();
@@ -107,17 +75,10 @@ public class MatchPlayerMapper implements Mapper<MatchPlayer> {
         return itemsMap;
     }
 
-    private List<Item> processItems(JSONObject json,Map<Long,Item> itemsMap) {
-        List<Item> items = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
-            long id = json.getLong("item_"+i);
-            if(id>0){
-                Item item = itemsMap.get(id);
-                items.add(item);
-            }else {
-                items.add(null);
-            }
-        }
-        return items;
+    private List<Item> processItems(OpenDotaMatchPlayer openDotaMatchPlayer ,Map<Long,Item> itemsMap) {
+        return openDotaMatchPlayer.getItems()
+                .stream()
+                .map(itemId -> itemsMap.getOrDefault(itemId,null))
+                .collect(Collectors.toList());
     }
 }

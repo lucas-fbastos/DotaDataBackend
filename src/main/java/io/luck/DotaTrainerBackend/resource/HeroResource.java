@@ -28,7 +28,7 @@ public class HeroResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Hero> getById(@PathVariable Integer id){
+    public ResponseEntity<Hero> getById(@PathVariable Long id){
         Hero hero = heroService.getHeroById(id);
         if(hero!=null)
             return ResponseEntity.ok(hero);

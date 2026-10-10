@@ -18,7 +18,7 @@ public record OpenDotaPlayerMatchDetails(
         Integer radiantScore,
         @JsonProperty("radiant_win")
         Boolean radianWin,
-        Set<OpendotaMatchPlayer> players
+        Set<OpenDotaMatchPlayer> players
 ) {
 
 

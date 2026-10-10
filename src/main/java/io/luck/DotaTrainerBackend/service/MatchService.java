@@ -40,7 +40,7 @@ public class MatchService extends BaseService {
                 .collect(Collectors.toSet());
 
         List<Hero> heroes = heroService.getAllById(heroesIds);
-        Map<Integer, Hero> heroMap = heroes.stream()
+        Map<Long, Hero> heroMap = heroes.stream()
                 .collect(Collectors.toMap(
                         Hero::getId,
                         Function.identity()

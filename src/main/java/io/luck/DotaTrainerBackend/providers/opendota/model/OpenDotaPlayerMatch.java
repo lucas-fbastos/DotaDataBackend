@@ -21,7 +21,7 @@ public record OpenDotaPlayerMatch(
         Integer lobbyType,
 
         @JsonProperty("hero_id")
-        Integer heroId,
+        Long heroId,
 
         @JsonProperty("start_time")
         Long startTime,

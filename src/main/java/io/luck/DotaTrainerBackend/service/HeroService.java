@@ -17,7 +17,7 @@ public class HeroService extends BaseService{
     private HeroRepository heroRepository;
 
     // TODO get hero from cache (seed cache if empty)
-    public Hero getHeroById(Integer id){
+    public Hero getHeroById(Long id){
         return heroRepository.findById(id).orElse(null);
     }
 
@@ -29,7 +29,7 @@ public class HeroService extends BaseService{
         return heroRepository.findAll();
     }
 
-    public List<Hero> getAllById(Set<Integer> ids){
+    public List<Hero> getAllById(Set<Long> ids){
         return heroRepository.findAllById(ids);
     }
 
