@@ -64,7 +64,7 @@ public class PlayerService {
                 .map(OpenDotaHeroStats::heroId)
                 .collect(Collectors.toSet());
 
-        Map<Integer, Hero> heroMap = heroService.getAllById(heroIds)
+        Map<Long, Hero> heroMap = heroService.getAllById(heroIds)
                 .stream()
                 .collect(Collectors.toMap(Hero::getId, Function.identity()));
 

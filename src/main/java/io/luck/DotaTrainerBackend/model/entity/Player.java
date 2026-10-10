@@ -7,6 +7,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @EqualsAndHashCode
+@NoArgsConstructor
 @Entity
 @Builder
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

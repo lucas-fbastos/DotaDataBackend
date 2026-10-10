@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record OpenDotaHeroStats(
         @JsonProperty("hero_id")
-        Integer heroId,
+        Long heroId,
 
         @JsonProperty("last_played")
         Long lastPlayed,
