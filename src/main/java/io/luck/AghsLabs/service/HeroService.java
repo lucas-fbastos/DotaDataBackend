@@ -18,7 +18,6 @@ public class HeroService {
         this.heroRepository = heroRepository;
     }
 
-    // TODO get hero from cache (seed cache if empty)
     public Hero getHeroById(Long id){
         return heroRepository.findById(id).orElse(null);
     }

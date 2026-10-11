@@ -1,117 +1,72 @@
 package io.luck.AghsLabs.model;
 
 import io.luck.AghsLabs.model.Enums.GameMode;
-
+import io.luck.AghsLabs.model.MatchDetailsData.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
 import java.time.Duration;
 import java.util.Set;
+import java.util.List;
+import java.math.BigInteger;
+import tools.jackson.databind.JsonNode;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class Match {
-
-    private long matchId;
-    private int cluster;
-    private GameMode gameMode;
-    private Integer direScore;
-    private Integer radiantScore;
+    private Integer version;
+    private Long matchId;
+    private List<Teamfight> teamfights;
+    private List<Pause> pauses;
+    private List<Objective> objectives;
+    private List<Long> radiantGoldAdv;
+    private List<Long> radiantXpAdv;
+    private List<DraftTiming> draftTimings;
+    private List<MatchPlayer> players;
+    private Long leagueId;
+    private Long startTime;
     private Duration duration;
-    private boolean radiantWin;
+    private Long seriesId;
+    private Integer seriesType;
+    private Integer cluster;
+    private Long replaySalt;
+    private Boolean radiantWin;
+    private Integer preGameDuration;
+    private Long matchSeqNum;
+    private Integer towerStatusRadiant;
+    private Integer towerStatusDire;
+    private Integer barracksStatusRadiant;
+    private Integer barracksStatusDire;
+    private Integer firstBloodTime;
+    private Integer lobbyType;
+    private Integer humanPlayers;
+    private GameMode gameMode;
+    private Integer flags;
+    private Integer engine;
+    private Integer radiantScore;
+    private Integer direScore;
+    private Long radiantTeamId;
+    private String radiantName;
+    private BigInteger radiantLogo;
+    private Integer radiantTeamComplete;
+    private Long direTeamId;
+    private String direName;
+    private BigInteger direLogo;
+    private Integer direTeamComplete;
+    private Long radiantCaptain;
+    private Long direCaptain;
+    private List<PickBan> picksBans;
+    private OdData odData;
+    private League league;
+    private TeamInfo radiantTeamInfo;
+    private TeamInfo direTeamInfo;
+    private JsonNode metadata;
+    private String replayUrl;
+    private Integer patch;
+    private Integer region;
+    private Integer throwAmount;
+    private Integer loss;
     private Set<MatchPlayer> radiantTeam;
     private Set<MatchPlayer> direTeam;
-    private String replayUrl;
-
-    public Match() {    }
-
-    public Match(long matchId, int cluster, GameMode gameMode, Integer direScore, Integer radiantScore,
-                 Duration duration, boolean radiantWin, Set<MatchPlayer> radiantTeam, Set<MatchPlayer> direTeam,
-                 String replayUrl) {
-        this.matchId = matchId;
-        this.cluster = cluster;
-        this.gameMode = gameMode;
-        this.direScore = direScore;
-        this.radiantScore = radiantScore;
-        this.duration = duration;
-        this.radiantWin = radiantWin;
-        this.radiantTeam = radiantTeam;
-        this.direTeam = direTeam;
-        this.replayUrl = replayUrl;
-    }
-
-    public long getMatchId() {
-        return matchId;
-    }
-
-    public void setMatchId(long matchId) {
-        this.matchId = matchId;
-    }
-
-    public int getCluster() {
-        return cluster;
-    }
-
-    public void setCluster(int cluster) {
-        this.cluster = cluster;
-    }
-
-    public GameMode getGameMode() {
-        return gameMode;
-    }
-
-    public void setGameMode(GameMode gameMode) {
-        this.gameMode = gameMode;
-    }
-
-    public Integer getDireScore() {
-        return direScore;
-    }
-
-    public void setDireScore(Integer direScore) {
-        this.direScore = direScore;
-    }
-
-    public Integer getRadiantScore() {
-        return radiantScore;
-    }
-
-    public void setRadiantScore(Integer radiantScore) {
-        this.radiantScore = radiantScore;
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
-    public boolean isRadiantWin() {
-        return radiantWin;
-    }
-
-    public void setRadiantWin(boolean radiantWin) {
-        this.radiantWin = radiantWin;
-    }
-
-    public Set<MatchPlayer> getRadiantTeam() {
-        return radiantTeam;
-    }
-
-    public void setRadiantTeam(Set<MatchPlayer> radiantTeam) {
-        this.radiantTeam = radiantTeam;
-    }
-
-    public Set<MatchPlayer> getDireTeam() {
-        return direTeam;
-    }
-
-    public void setDireTeam(Set<MatchPlayer> direTeam) {
-        this.direTeam = direTeam;
-    }
-
-    public String getReplayUrl() {
-        return replayUrl;
-    }
-
-    public void setReplayUrl(String replayUrl) {
-        this.replayUrl = replayUrl;
-    }
 }

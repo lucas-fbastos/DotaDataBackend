@@ -2,61 +2,180 @@ package io.luck.AghsLabs.providers.opendota.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.luck.AghsLabs.model.Enums.Faction;
-
+import lombok.Builder;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import tools.jackson.databind.JsonNode;
+import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchDetailsData.*;
 
+@Builder
 public record OpenDotaMatchPlayer(
+        @JsonProperty("player_slot") Integer playerSlot,
+        @JsonProperty("obs_placed") Integer obsPlaced,
+        @JsonProperty("sen_placed") Integer senPlaced,
+        @JsonProperty("creeps_stacked") Integer creepsStacked,
+        @JsonProperty("camps_stacked") Integer campsStacked,
+        @JsonProperty("rune_pickups") Integer runePickups,
+        @JsonProperty("firstblood_claimed") Integer firstBloodClaimed,
+        @JsonProperty("teamfight_participation") Double teamfightParticipation,
+        @JsonProperty("towers_killed") Integer towersKilled,
+        @JsonProperty("roshans_killed") Integer roshansKilled,
+        @JsonProperty("observers_placed") Integer observersPlaced,
+        Double stuns,
+        @JsonProperty("max_hero_hit") MaxHeroHit maxHeroHit,
+        List<Integer> times,
+        @JsonProperty("gold_t") List<Long> goldT,
+        @JsonProperty("lh_t") List<Long> lhT,
+        @JsonProperty("dn_t") List<Long> dnT,
+        @JsonProperty("xp_t") List<Long> xpT,
+        @JsonProperty("networth_t") List<Long> netWorthT,
+        @JsonProperty("camps_stacked_t") List<Long> campsStackedT,
+        @JsonProperty("tower_damage_t") List<Long> towerDamageT,
+        @JsonProperty("hero_damage_t") List<Long> heroDamageT,
+        @JsonProperty("hero_healing_t") List<Long> heroHealingT,
+        @JsonProperty("obs_log") List<WardLog> obsLog,
+        @JsonProperty("sen_log") List<WardLog> senLog,
+        @JsonProperty("obs_left_log") List<WardLog> obsLeftLog,
+        @JsonProperty("sen_left_log") List<WardLog> senLeftLog,
+        @JsonProperty("purchase_log") List<PurchaseLog> purchaseLog,
+        @JsonProperty("kills_log") List<KillLog> killsLog,
+        @JsonProperty("deaths_log") List<DeathLog> deathsLog,
+        @JsonProperty("buyback_log") List<BuybackLog> buybackLog,
+        @JsonProperty("runes_log") List<RuneLog> runesLog,
+        @JsonProperty("connection_log") List<ConnectionLog> connectionLog,
+        @JsonProperty("lane_pos") Map<String, Map<String, Long>> lanePos,
+        Map<String, Map<String, Long>> obs,
+        Map<String, Map<String, Long>> sen,
+        Map<String, Long> actions,
+        Integer pings,
+        Map<String, Long> purchase,
+        @JsonProperty("gold_reasons") Map<String, Long> goldReasons,
+        @JsonProperty("xp_reasons") Map<String, Long> xpReasons,
+        Map<String, Long> killed,
+        @JsonProperty("item_uses") Map<String, Long> itemUses,
+        @JsonProperty("ability_uses") Map<String, Long> abilityUses,
+        @JsonProperty("ability_targets") Map<String, Map<String, Long>> abilityTargets,
+        @JsonProperty("damage_targets") Map<String, Map<String, Long>> damageTargets,
+        @JsonProperty("hero_hits") Map<String, Long> heroHits,
+        Map<String, Long> damage,
+        @JsonProperty("damage_taken") Map<String, Long> damageTaken,
+        @JsonProperty("damage_inflictor") Map<String, Long> damageInflictor,
+        Map<String, Long> runes,
+        @JsonProperty("killed_by") Map<String, Long> killedBy,
+        @JsonProperty("kill_streaks") Map<String, Long> killStreaks,
+        @JsonProperty("multi_kills") Map<String, Long> multiKills,
+        @JsonProperty("life_state") Map<String, Long> lifeState,
+        Map<String, Long> healing,
+        @JsonProperty("damage_inflictor_received") Map<String, Long> damageInflictorReceived,
+        Boolean randomed,
+        @JsonProperty("pred_vict") Boolean predVict,
+        @JsonProperty("neutral_tokens_log") List<NeutralTokenLog> neutralTokensLog,
+        @JsonProperty("neutral_item_history") List<NeutralItemHistory> neutralItemHistory,
+        @JsonProperty("account_id") Long accountId,
+        @JsonProperty("party_id") Integer partyId,
+        @JsonProperty("permanent_buffs") List<PermanentBuff> permanentBuffs,
+        @JsonProperty("party_size") Integer partySize,
+        @JsonProperty("team_number") Integer teamNumber,
+        @JsonProperty("team_slot") Integer teamSlot,
+        @JsonProperty("hero_id") Long heroId,
+        @JsonProperty("hero_variant") Integer heroVariant,
+        @JsonProperty("item_0") Long item0,
+        @JsonProperty("item_1") Long item1,
+        @JsonProperty("item_2") Long item2,
+        @JsonProperty("item_3") Long item3,
+        @JsonProperty("item_4") Long item4,
+        @JsonProperty("item_5") Long item5,
+        @JsonProperty("backpack_0") Long backpack0,
+        @JsonProperty("backpack_1") Long backpack1,
+        @JsonProperty("backpack_2") Long backpack2,
+        @JsonProperty("item_neutral") Long itemNeutral,
+        @JsonProperty("item_neutral2") Long itemNeutral2,
         Integer kills,
-        Integer assists,
         Integer deaths,
+        Integer assists,
+        @JsonProperty("leaver_status") Integer leaverStatus,
+        @JsonProperty("last_hits") Integer lastHits,
         Integer denies,
-        @JsonProperty("last_hits")
-        Integer lastHits,
-        Long gold,
-        @JsonProperty("gold_spent")
-        Long goldSpent,
-        @JsonProperty("gold_per_min")
-        Integer goldPerMin,
-        @JsonProperty("xp_per_min")
-        Integer xpPerMin,
-        @JsonProperty("hero_id")
-        Long heroId,
-        String name,
+        @JsonProperty("gold_per_min") Integer goldPerMin,
+        @JsonProperty("xp_per_min") Integer xpPerMin,
         Integer level,
-        @JsonProperty("personaname")
-        String personaName,
+        @JsonProperty("net_worth") Long netWorth,
+        @JsonProperty("aghanims_scepter") Integer aghanimsScepter,
+        @JsonProperty("aghanims_shard") Integer aghanimsShard,
+        Integer moonshard,
+        @JsonProperty("hero_damage") Long heroDamage,
+        @JsonProperty("tower_damage") Long towerDamage,
+        @JsonProperty("hero_healing") Long heroHealing,
+        Long gold,
+        @JsonProperty("gold_spent") Long goldSpent,
+        @JsonProperty("ability_upgrades_arr") List<Integer> abilityUpgradesArr,
+        @JsonProperty("personaname") String personaName,
+        String name,
+        @JsonProperty("last_login") String lastLogin,
+        @JsonProperty("rank_tier") Integer rankTier,
+        @JsonProperty("computed_mmr") Integer computedMmr,
+        @JsonProperty("is_subscriber") Boolean isSubscriber,
+        @JsonProperty("radiant_win") Boolean radiantWin,
+        @JsonProperty("start_time") Long startTime,
+        Long duration,
+        Integer cluster,
+        @JsonProperty("lobby_type") Integer lobbyType,
+        @JsonProperty("game_mode") Integer gameMode,
+        @JsonProperty("is_contributor") Boolean isContributor,
+        Integer patch,
+        Integer region,
         Boolean isRadiant,
-        @JsonProperty("radiant_win")
-        Boolean radiantWin,
-        @JsonProperty("item_1")
-        Long item1,
-        @JsonProperty("item_2")
-        Long item2,
-        @JsonProperty("item_3")
-        Long item3,
-        @JsonProperty("item_4")
-        Long item4,
-        @JsonProperty("item_5")
-        Long item5,
-        @JsonProperty("item_6")
-        Long item6,
-        @JsonProperty("hero_heal")
-        Long heroHeal,
-        @JsonProperty("hero_damage")
-        Long heroDamage
-        ){
+        Integer win,
+        Integer lose,
+        @JsonProperty("total_gold") Long totalGold,
+        @JsonProperty("total_xp") Long totalXp,
+        @JsonProperty("kills_per_min") Double killsPerMin,
+        Double kda,
+        Integer abandons,
+        @JsonProperty("neutral_kills") Integer neutralKills,
+        @JsonProperty("tower_kills") Integer towerKills,
+        @JsonProperty("courier_kills") Integer courierKills,
+        @JsonProperty("lane_kills") Integer laneKills,
+        @JsonProperty("hero_kills") Integer heroKills,
+        @JsonProperty("observer_kills") Integer observerKills,
+        @JsonProperty("sentry_kills") Integer sentryKills,
+        @JsonProperty("roshan_kills") Integer roshanKills,
+        @JsonProperty("necronomicon_kills") Integer necronomiconKills,
+        @JsonProperty("ancient_kills") Integer ancientKills,
+        @JsonProperty("buyback_count") Integer buybackCount,
+        @JsonProperty("observer_uses") Integer observerUses,
+        @JsonProperty("sentry_uses") Integer sentryUses,
+        @JsonProperty("lane_efficiency") Double laneEfficiency,
+        @JsonProperty("lane_efficiency_pct") Integer laneEfficiencyPct,
+        Integer lane,
+        @JsonProperty("lane_role") Integer laneRole,
+        @JsonProperty("is_roaming") Boolean isRoaming,
+        @JsonProperty("purchase_time") Map<String, Long> purchaseTime,
+        @JsonProperty("first_purchase_time") Map<String, Long> firstPurchaseTime,
+        @JsonProperty("item_win") Map<String, Long> itemWin,
+        @JsonProperty("item_usage") Map<String, Long> itemUsage,
+        @JsonProperty("purchase_tpscroll") Integer purchaseTpscroll,
+        @JsonProperty("actions_per_min") Integer actionsPerMin,
+        @JsonProperty("life_state_dead") Integer lifeStateDead,
+        List<JsonNode> cosmetics,
+        Benchmarks benchmarks,
+        @JsonProperty("position_est") Integer positionEst,
+        @JsonProperty("purchase_ward_observer") Integer purchaseWardObserver,
+        @JsonProperty("purchase_ward_sentry") Integer purchaseWardSentry,
+        @JsonProperty("purchase_gem") Integer purchaseGem
+) {
+    public List<Long> getItems() {
+        // Preserve the six inventory positions, including empty slots.
+        return Arrays.asList(item0, item1, item2, item3, item4, item5);
+    }
 
-        public List<Long> getItems(){
-                return List.of(item1, item2, item3, item4, item5, item6);
-        }
+    public Faction getTeam() {
+        boolean radiant = isRadiant != null ? isRadiant : playerSlot != null && playerSlot < 128;
+        return radiant ? Faction.RADIANT : Faction.DIRE;
+    }
 
-        public Faction getTeam(){
-                if(isRadiant) return Faction.RADIANT;
-                else return Faction.DIRE;
-        }
-
-        public Boolean playerWon(){
-                var team = getTeam();
-                return team.won(radiantWin);
-        }
+    public Boolean playerWon() {
+        return radiantWin == null ? null : getTeam().won(radiantWin);
+    }
 }

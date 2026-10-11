@@ -5,3 +5,15 @@ Accept: application/json
 ### Get player heroes
 GET {{baseUrl}}/player/{{playerId}}/heroes
 Accept: application/json
+
+### Get match details
+GET {{baseUrl}}/matches/details/{{matchId}}
+Accept: application/json
+
+### Get match chat and word counts
+GET {{baseUrl}}/match/{{matchId}}/chat
+Accept: application/json
+
+### Get match ward logs
+GET {{baseUrl}}/match/{{matchId}}/wards
+Accept: application/json

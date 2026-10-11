@@ -3,6 +3,8 @@ package io.luck.AghsLabs.service;
 import io.luck.AghsLabs.model.entity.Hero;
 import io.luck.AghsLabs.model.entity.Item;
 import io.luck.AghsLabs.model.Match;
+import io.luck.AghsLabs.model.MatchChat;
+import io.luck.AghsLabs.model.MatchWards;
 import io.luck.AghsLabs.model.MatchSummary;
 import io.luck.AghsLabs.mapper.MatchDetailsMapper;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchPlayer;
@@ -78,11 +80,22 @@ public class MatchService {
 
         var itemIds = players.stream()
                 .flatMap(player -> player.getItems().stream())
+                .filter(id -> id != null && id > 0)
                 .collect(Collectors.toSet());
         Map<Long, Item> itemsById = itemService.getAllById(itemIds).stream()
                 .collect(Collectors.toMap(Item::getItemId, Function.identity()));
 
         return matchDetailsMapper.convert(openDotaMatchDetails, heroesById, itemsById);
+    }
+
+    public MatchChat getMatchChat(Long matchId) {
+        var details = openDotaPlayerMatchDataService.getMatchDetails(matchId);
+        return details == null ? null : matchDetailsMapper.convertChat(details);
+    }
+
+    public MatchWards getMatchWards(Long matchId) {
+        var details = openDotaPlayerMatchDataService.getMatchDetails(matchId);
+        return details == null ? null : matchDetailsMapper.convertWards(details);
     }
 
 }

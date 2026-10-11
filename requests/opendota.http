@@ -1,0 +1,40 @@
+@baseUrl = https://api.opendota.com/api
+@playerId = 94054712
+@patchId = 0
+@matchId = 9037980041
+
+### Get all heroes
+GET {{baseUrl}}/constants/heroes
+Accept: application/json
+
+### Get all items
+GET {{baseUrl}}/constants/items
+Accept: application/json
+
+### Get all patches
+GET {{baseUrl}}/constants/patch
+Accept: application/json
+
+### Get player profile
+GET {{baseUrl}}/players/{{playerId}}
+Accept: application/json
+
+### Get player hero stats for the patch
+GET {{baseUrl}}/players/{{playerId}}/heroes?significant=0&days=60&patch={{patchId}}
+Accept: application/json
+
+### Get player's recent matches
+GET {{baseUrl}}/players/{{playerId}}/recentMatches
+Accept: application/json
+
+### Get player's win/loss totals
+GET {{baseUrl}}/players/{{playerId}}/wl
+Accept: application/json
+
+### Get match details
+GET {{baseUrl}}/matches/{{matchId}}
+Accept: application/json
+
+### Get professional players
+GET {{baseUrl}}/proPlayers
+Accept: application/json

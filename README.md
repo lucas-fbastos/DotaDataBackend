@@ -26,4 +26,22 @@ Dota data uses this tech listed bellow:
    [Spring Boot]: <https://spring.io/projects/spring-boot>
    [Spring Data]: <https://spring.io/projects/spring-data>
 
+## Browse the database with pgAdmin
+
+Start either Compose setup from its directory:
+
+- Full app: run `docker compose up -d` in `AghsLabsApi`.
+- Database only: run `docker compose up -d` in `AghsLabsApi/docker/pgsql`.
+
+Open <http://localhost:5050>. Sign in with `admin@example.com` and the
+`POSTGRES_PASSWORD` from that setup's `.env` file. You can set
+`PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` in your environment to
+use different pgAdmin login credentials before the first start.
+
+In pgAdmin, register a server with host `db`, port `5432`, maintenance database
+and username from `POSTGRES_DB` and `POSTGRES_USER`, and password from
+`POSTGRES_PASSWORD`. Then select the database and open **Query Tool** to run SQL.
+pgAdmin keeps its settings in a Docker volume. Run one Compose setup at a time,
+since both use ports 5050 and 5432.
+
   

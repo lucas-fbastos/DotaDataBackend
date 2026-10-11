@@ -1,0 +1,4363 @@
+{
+  "version": 22,
+  "match_id": 9037980041,
+  "teamfights": [
+    {
+      "start": 161,
+      "end": 205,
+      "last_death": 190,
+      "deaths": 3,
+      "players": [
+        {
+          "deaths_pos": {},
+          "ability_uses": {
+            "windrunner_powershot": 3,
+            "windrunner_windrun": 2
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "magic_wand": 1
+          },
+          "killed": {
+            "npc_dota_hero_nyx_assassin": 1
+          },
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 595,
+          "healing": 392,
+          "gold_delta": 435,
+          "xp_delta": 586,
+          "xp_start": 560,
+          "xp_end": 1146
+        },
+        {
+          "deaths_pos": {},
+          "ability_uses": {},
+          "ability_targets": {},
+          "item_uses": {
+            "tango": 1
+          },
+          "killed": {},
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 409,
+          "healing": 298,
+          "gold_delta": 160,
+          "xp_delta": 243,
+          "xp_start": 1016,
+          "xp_end": 1259
+        },
+        {
+          "deaths_pos": {},
+          "ability_uses": {
+            "pangolier_swashbuckle": 1,
+            "pangolier_shield_crash": 2
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "magic_stick": 1,
+            "tango": 1
+          },
+          "killed": {},
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 528,
+          "healing": 406,
+          "gold_delta": 230,
+          "xp_delta": 217,
+          "xp_start": 677,
+          "xp_end": 894
+        },
+        {
+          "deaths_pos": {
+            "170": {
+              "87": 1
+            }
+          },
+          "ability_uses": {
+            "techies_suicide": 1,
+            "techies_reactive_tazer_stop": 1
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "tpscroll": 1,
+            "madstone_bundle": 1
+          },
+          "killed": {},
+          "deaths": 1,
+          "buybacks": 0,
+          "damage": 766,
+          "healing": 216,
+          "gold_delta": 194,
+          "xp_delta": 137,
+          "xp_start": 347,
+          "xp_end": 484
+        },
+        {
+          "deaths_pos": {},
+          "ability_uses": {
+            "shadow_demon_disruption": 2,
+            "shadow_demon_shadow_poison": 2
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "tango": 2,
+            "blood_grenade": 1
+          },
+          "killed": {
+            "npc_dota_hero_witch_doctor": 1
+          },
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 626,
+          "healing": 269,
+          "gold_delta": 229,
+          "xp_delta": 217,
+          "xp_start": 190,
+          "xp_end": 407
+        },
+        {
+          "deaths_pos": {
+            "88": {
+              "165": 1
+            }
+          },
+          "ability_uses": {
+            "witch_doctor_paralyzing_cask": 2,
+            "witch_doctor_maledict": 2
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "tpscroll": 1,
+            "tango": 1
+          },
+          "killed": {},
+          "deaths": 1,
+          "buybacks": 0,
+          "damage": 685,
+          "healing": 240,
+          "gold_delta": 4,
+          "xp_delta": 78,
+          "xp_start": 345,
+          "xp_end": 423
+        },
+        {
+          "deaths_pos": {},
+          "ability_uses": {
+            "terrorblade_conjure_image": 2
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "quelling_blade": 1,
+            "tango": 1
+          },
+          "killed": {},
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 212,
+          "healing": 362,
+          "gold_delta": 204,
+          "xp_delta": 423,
+          "xp_start": 436,
+          "xp_end": 859
+        },
+        {
+          "deaths_pos": {},
+          "ability_uses": {
+            "dragon_knight_breathe_fire": 1
+          },
+          "ability_targets": {},
+          "item_uses": {},
+          "killed": {},
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 105,
+          "healing": 82,
+          "gold_delta": 0,
+          "xp_delta": 57,
+          "xp_start": 942,
+          "xp_end": 999
+        },
+        {
+          "deaths_pos": {
+            "164": {
+              "93": 1
+            }
+          },
+          "ability_uses": {
+            "nyx_assassin_spiked_carapace": 1,
+            "nyx_assassin_impale": 1
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "tango": 1,
+            "blood_grenade": 1
+          },
+          "killed": {
+            "npc_dota_hero_techies": 1
+          },
+          "deaths": 1,
+          "buybacks": 0,
+          "damage": 402,
+          "healing": 478,
+          "gold_delta": 217,
+          "xp_delta": 98,
+          "xp_start": 302,
+          "xp_end": 400
+        },
+        {
+          "deaths_pos": {},
+          "ability_uses": {
+            "batrider_sticky_napalm": 8,
+            "batrider_flamebreak": 1
+          },
+          "ability_targets": {},
+          "item_uses": {
+            "famango": 1,
+            "faerie_fire": 1
+          },
+          "killed": {},
+          "deaths": 0,
+          "buybacks": 0,
+          "damage": 743,
+          "healing": 501,
+          "gold_delta": 100,
+          "xp_delta": 236,
+          "xp_start": 612,
+          "xp_end": 848
+        }
+      ]
+    }
+  ],
+  "pauses": [
+    {
+      "time": -88,
+      "duration": 93
+    }
+  ],
+  "objectives": [
+    {
+      "time": 51,
+      "type": "CHAT_MESSAGE_FIRSTBLOOD",
+      "key": "3",
+      "slot": 9,
+      "player_slot": 132,
+      "victim_player_slot": 3
+    },
+    {
+      "time": 579,
+      "type": "building_kill",
+      "unit": "npc_dota_hero_viper",
+      "key": "npc_dota_badguys_tower1_mid",
+      "slot": 1,
+      "player_slot": 1
+    },
+    {
+      "time": 1122,
+      "type": "CHAT_MESSAGE_ROSHAN_KILL",
+      "team": 2
+    },
+    {
+      "time": 1122,
+      "type": "CHAT_MESSAGE_AEGIS",
+      "slot": 0,
+      "player_slot": 0
+    },
+    {
+      "time": 1422,
+      "type": "CHAT_MESSAGE_COURIER_LOST",
+      "team": 3,
+      "value": 90,
+      "killer": 2
+    },
+    {
+      "time": 1906,
+      "type": "building_kill",
+      "unit": "npc_dota_goodguys_siege",
+      "key": "npc_dota_badguys_melee_rax_mid"
+    }
+  ],
+  "chat": [
+    {
+      "time": -88,
+      "type": "chatwheel",
+      "key": "49",
+      "slot": 2,
+      "player_slot": 2
+    },
+    {
+      "time": -88,
+      "type": "chat",
+      "key": "Prod pause",
+      "slot": 10
+    }
+  ],
+  "radiant_gold_adv": [
+    0,
+    33713
+  ],
+  "radiant_xp_adv": [
+    0,
+    54498
+  ],
+  "cosmetics": {},
+  "draft_timings": [],
+  "players": [
+    {
+      "player_slot": 0,
+      "obs_placed": 0,
+      "sen_placed": 0,
+      "creeps_stacked": 3,
+      "camps_stacked": 1,
+      "rune_pickups": 6,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.6938776,
+      "towers_killed": 4,
+      "roshans_killed": 1,
+      "observers_placed": 0,
+      "stuns": 36.99949,
+      "max_hero_hit": {
+        "time": 2020,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_windrunner",
+        "key": "npc_dota_hero_witch_doctor",
+        "value": 510,
+        "slot": 0,
+        "player_slot": 0,
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        25192
+      ],
+      "lh_t": [
+        0,
+        319
+      ],
+      "dn_t": [
+        0,
+        22
+      ],
+      "xp_t": [
+        0,
+        34213
+      ],
+      "networth_t": [
+        600,
+        24303
+      ],
+      "camps_stacked_t": [
+        0,
+        1
+      ],
+      "tower_damage_t": [
+        0,
+        15479
+      ],
+      "hero_damage_t": [
+        0,
+        34800
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [],
+      "sen_log": [],
+      "obs_left_log": [],
+      "sen_left_log": [],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "magic_wand"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 190,
+          "key": "npc_dota_hero_nyx_assassin"
+        },
+        {
+          "smoke": true,
+          "time": 1838,
+          "key": "npc_dota_hero_terrorblade"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 327,
+          "time": 213,
+          "gold_lost": 44,
+          "key": "npc_dota_hero_nyx_assassin",
+          "time_dead": 21
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 1,
+          "key": "5"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "73": {
+          "80": 3
+        },
+        "74": {
+          "79": 3
+        }
+      },
+      "obs": {},
+      "sen": {},
+      "actions": {
+        "1": 4293,
+        "2": 61
+      },
+      "pings": 72,
+      "purchase": {
+        "power_treads": 1,
+        "pers": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -141
+      },
+      "xp_reasons": {
+        "0": 0,
+        "1": 17535
+      },
+      "killed": {
+        "npc_dota_hero_nyx_assassin": 2,
+        "npc_dota_badguys_tower3_mid": 1
+      },
+      "item_uses": {
+        "power_treads": 479,
+        "tpscroll": 8
+      },
+      "ability_uses": {
+        "windrunner_powershot": 84,
+        "windrunner_focusfire": 15
+      },
+      "ability_targets": {
+        "windrunner_focusfire": {
+          "npc_dota_hero_terrorblade": 5,
+          "npc_dota_hero_batrider": 5
+        },
+        "windrunner_shackleshot": {
+          "npc_dota_hero_nyx_assassin": 4,
+          "npc_dota_hero_terrorblade": 2
+        }
+      },
+      "damage_targets": {
+        "windrunner_powershot": {
+          "npc_dota_hero_nyx_assassin": 2086,
+          "npc_dota_hero_witch_doctor": 1400
+        },
+        "null": {
+          "npc_dota_hero_nyx_assassin": 1917,
+          "npc_dota_hero_witch_doctor": 1280
+        }
+      },
+      "hero_hits": {
+        "null": 287,
+        "windrunner_powershot": 27
+      },
+      "damage": {
+        "npc_dota_hero_nyx_assassin": 4856,
+        "npc_dota_badguys_tower3_mid": 1336
+      },
+      "damage_taken": {
+        "npc_dota_hero_nyx_assassin": 3374,
+        "npc_dota_badguys_tower3_mid": 307
+      },
+      "damage_inflictor": {
+        "null": 25099,
+        "windrunner_powershot": 6823
+      },
+      "runes": {
+        "0": 1,
+        "3": 1
+      },
+      "killed_by": {
+        "npc_dota_hero_nyx_assassin": 1,
+        "npc_dota_hero_batrider": 1
+      },
+      "kill_streaks": {
+        "3": 1,
+        "4": 1
+      },
+      "multi_kills": {
+        "2": 3,
+        "3": 1
+      },
+      "life_state": {
+        "0": 1983,
+        "1": 14
+      },
+      "healing": {
+        "npc_dota_hero_windrunner": 19663
+      },
+      "damage_inflictor_received": {
+        "null": 2530,
+        "essence_distiller": 256
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "possessed_mask",
+          "time": 466,
+          "item_neutral_enhancement": "enhancement_mystical"
+        }
+      ],
+      "account_id": 171262902,
+      "party_id": 0,
+      "permanent_buffs": [],
+      "party_size": 10,
+      "team_number": 0,
+      "team_slot": 0,
+      "hero_id": 21,
+      "hero_variant": 0,
+      "item_0": 158,
+      "item_1": 63,
+      "item_2": 263,
+      "item_3": 141,
+      "item_4": 36,
+      "item_5": 123,
+      "backpack_0": 0,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 1873,
+      "item_neutral2": 1584,
+      "kills": 17,
+      "deaths": 2,
+      "assists": 17,
+      "leaver_status": 1,
+      "last_hits": 321,
+      "denies": 22,
+      "gold_per_min": 802,
+      "xp_per_min": 1078,
+      "level": 25,
+      "net_worth": 26348,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 0,
+      "moonshard": 0,
+      "hero_damage": 44851,
+      "tower_damage": 15763,
+      "hero_healing": 0,
+      "gold": 4338,
+      "gold_spent": 23920,
+      "ability_upgrades_arr": [
+        5131,
+        7889
+      ],
+      "personaname": "Blade of Miquella",
+      "name": "\u533b\u8005watson`",
+      "last_login": null,
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": true,
+      "win": 1,
+      "lose": 0,
+      "total_gold": 27214,
+      "total_xp": 36580,
+      "kills_per_min": 0.5009823182711199,
+      "kda": 11.33,
+      "abandons": 0,
+      "neutral_kills": 120,
+      "tower_kills": 4,
+      "courier_kills": 0,
+      "lane_kills": 201,
+      "hero_kills": 17,
+      "observer_kills": 0,
+      "sentry_kills": 0,
+      "roshan_kills": 1,
+      "necronomicon_kills": 0,
+      "ancient_kills": 21,
+      "buyback_count": 0,
+      "observer_uses": 0,
+      "sentry_uses": 0,
+      "lane_efficiency": 0.8999595796281326,
+      "lane_efficiency_pct": 89,
+      "lane": 1,
+      "lane_role": 1,
+      "is_roaming": false,
+      "purchase_time": {
+        "magic_wand": -89,
+        "faerie_fire": -178
+      },
+      "first_purchase_time": {
+        "magic_wand": -89,
+        "faerie_fire": -89
+      },
+      "item_win": {
+        "magic_wand": 1,
+        "faerie_fire": 1
+      },
+      "item_usage": {
+        "magic_wand": 1,
+        "faerie_fire": 1
+      },
+      "purchase_tpscroll": 6,
+      "actions_per_min": 192,
+      "life_state_dead": 54,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 802,
+          "pct": 0.9892857142857143
+        },
+        "xp_per_min": {
+          "raw": 1078,
+          "pct": 0.935515873015873
+        },
+        "kills_per_min": {
+          "raw": 0.5009823182711198,
+          "pct": 0.9503968253968254
+        },
+        "deaths_per_min": {
+          "raw": 0.058939096267190565,
+          "pct": 0.9363095238095238
+        },
+        "assists_per_min": {
+          "raw": 0.5009823182711198,
+          "pct": 0.8628968253968254
+        },
+        "last_hits_per_min": {
+          "raw": 9.459724950884086,
+          "pct": 0.9787698412698412
+        },
+        "denies_per_min": {
+          "raw": 0.6483300589390962,
+          "pct": 0.9833333333333333
+        },
+        "hero_damage_per_min": {
+          "raw": 1321.738703339882,
+          "pct": 0.9873015873015873
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.7982142857142858
+        },
+        "tower_damage": {
+          "raw": 15763,
+          "pct": 0.9672619047619048
+        }
+      },
+      "position_est": 1
+    },
+    {
+      "player_slot": 1,
+      "obs_placed": 2,
+      "sen_placed": 1,
+      "creeps_stacked": 3,
+      "camps_stacked": 1,
+      "rune_pickups": 5,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.5102041,
+      "towers_killed": 1,
+      "roshans_killed": 1,
+      "observers_placed": 2,
+      "stuns": 0,
+      "max_hero_hit": {
+        "time": 1988,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_viper",
+        "key": "npc_dota_hero_dragon_knight",
+        "value": 217,
+        "slot": 1,
+        "player_slot": 1,
+        "inflictor": "viper_viper_strike",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        19539
+      ],
+      "lh_t": [
+        0,
+        239
+      ],
+      "dn_t": [
+        0,
+        19
+      ],
+      "xp_t": [
+        0,
+        23127
+      ],
+      "networth_t": [
+        600,
+        19126
+      ],
+      "camps_stacked_t": [
+        0,
+        1
+      ],
+      "tower_damage_t": [
+        0,
+        3617
+      ],
+      "hero_damage_t": [
+        0,
+        17309
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [
+        {
+          "time": -19,
+          "type": "obs_log",
+          "key": "[139,125]",
+          "slot": 1,
+          "player_slot": 1,
+          "x": 139.2,
+          "y": 125.4,
+          "z": 129,
+          "entityleft": false,
+          "ehandle": 9405721
+        }
+      ],
+      "sen_log": [
+        {
+          "time": 462,
+          "type": "sen_log",
+          "key": "[122,126]",
+          "slot": 1,
+          "player_slot": 1,
+          "x": 122.4,
+          "y": 126.4,
+          "z": 128,
+          "entityleft": false,
+          "ehandle": 5670709
+        }
+      ],
+      "obs_left_log": [
+        {
+          "time": 341,
+          "type": "obs_left_log",
+          "key": "[139,125]",
+          "slot": 1,
+          "player_slot": 1,
+          "attackername": "npc_dota_hero_viper",
+          "x": 139.2,
+          "y": 125.4,
+          "z": 129,
+          "entityleft": true,
+          "ehandle": 9405721
+        }
+      ],
+      "sen_left_log": [
+        {
+          "time": 882,
+          "type": "sen_left_log",
+          "key": "[122,126]",
+          "slot": 1,
+          "player_slot": 1,
+          "attackername": "npc_dota_hero_viper",
+          "x": 122.4,
+          "y": 126.4,
+          "z": 128,
+          "entityleft": true,
+          "ehandle": 5670709
+        }
+      ],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "circlet"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 480,
+          "key": "npc_dota_hero_dragon_knight"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 324,
+          "time": 299,
+          "gold_lost": 38,
+          "key": "npc_dota_hero_dragon_knight",
+          "time_dead": 24
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 242,
+          "key": "7"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "75": {
+          "77": 1
+        },
+        "76": {
+          "76": 3,
+          "78": 1
+        }
+      },
+      "obs": {
+        "116": {
+          "126": 1
+        },
+        "139": {
+          "125": 1
+        }
+      },
+      "sen": {
+        "122": {
+          "126": 1
+        }
+      },
+      "actions": {
+        "1": 7061,
+        "2": 11
+      },
+      "pings": 16,
+      "purchase": {
+        "ward_sentry": 1,
+        "void_stone": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -38
+      },
+      "xp_reasons": {
+        "0": 67,
+        "1": 10277
+      },
+      "killed": {
+        "npc_dota_neutral_mud_golem": 8,
+        "npc_dota_hero_nyx_assassin": 2
+      },
+      "item_uses": {
+        "ward_sentry": 1,
+        "tpscroll": 12
+      },
+      "ability_uses": {
+        "viper_nethertoxin": 62,
+        "viper_viper_strike": 17
+      },
+      "ability_targets": {
+        "viper_viper_strike": {
+          "npc_dota_hero_witch_doctor": 3,
+          "npc_dota_hero_nyx_assassin": 1
+        }
+      },
+      "damage_targets": {
+        "viper_nethertoxin": {
+          "npc_dota_hero_witch_doctor": 317,
+          "npc_dota_hero_nyx_assassin": 182
+        },
+        "null": {
+          "npc_dota_hero_nyx_assassin": 826,
+          "npc_dota_hero_witch_doctor": 810
+        }
+      },
+      "hero_hits": {
+        "null": 123,
+        "viper_nethertoxin": 95
+      },
+      "damage": {
+        "npc_dota_hero_nyx_assassin": 2271,
+        "npc_dota_neutral_mud_golem": 6509
+      },
+      "damage_taken": {
+        "npc_dota_hero_nyx_assassin": 935,
+        "npc_dota_neutral_mud_golem": 295
+      },
+      "damage_inflictor": {
+        "null": 6565,
+        "viper_nethertoxin": 2184
+      },
+      "runes": {
+        "1": 1,
+        "2": 2
+      },
+      "killed_by": {
+        "npc_dota_hero_dragon_knight": 1
+      },
+      "kill_streaks": {
+        "3": 1,
+        "4": 1
+      },
+      "multi_kills": {},
+      "life_state": {
+        "0": 2013,
+        "1": 2
+      },
+      "healing": {
+        "npc_dota_hero_viper": 21128
+      },
+      "damage_inflictor_received": {
+        "null": 5727,
+        "batrider_sticky_napalm": 173
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "ash_legion_shield",
+          "time": 635,
+          "item_neutral_enhancement": "enhancement_brawny"
+        }
+      ],
+      "account_id": 312436974,
+      "party_id": 0,
+      "permanent_buffs": [
+        {
+          "permanent_buff": 12,
+          "stack_count": 0,
+          "grant_time": 2912
+        }
+      ],
+      "party_size": 10,
+      "team_number": 0,
+      "team_slot": 1,
+      "hero_id": 47,
+      "hero_variant": 0,
+      "item_0": 77,
+      "item_1": 48,
+      "item_2": 263,
+      "item_3": 123,
+      "item_4": 36,
+      "item_5": 116,
+      "backpack_0": 40,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 1873,
+      "item_neutral2": 1585,
+      "kills": 6,
+      "deaths": 1,
+      "assists": 19,
+      "leaver_status": 0,
+      "last_hits": 239,
+      "denies": 19,
+      "gold_per_min": 607,
+      "xp_per_min": 797,
+      "level": 22,
+      "net_worth": 20218,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 1,
+      "moonshard": 0,
+      "hero_damage": 22638,
+      "tower_damage": 3891,
+      "hero_healing": 0,
+      "gold": 1873,
+      "gold_spent": 20105,
+      "ability_upgrades_arr": [
+        5218,
+        6165
+      ],
+      "personaname": "CHIRA_JUNIOR",
+      "name": "CHIRA_JUNIOR",
+      "last_login": "2021-10-23T17:46:49.539Z",
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": true,
+      "win": 1,
+      "lose": 0,
+      "total_gold": 20597,
+      "total_xp": 27044,
+      "kills_per_min": 0.17681728880157171,
+      "kda": 12.5,
+      "abandons": 0,
+      "neutral_kills": 56,
+      "tower_kills": 1,
+      "courier_kills": 0,
+      "lane_kills": 195,
+      "hero_kills": 6,
+      "observer_kills": 0,
+      "sentry_kills": 1,
+      "roshan_kills": 1,
+      "necronomicon_kills": 0,
+      "ancient_kills": 12,
+      "buyback_count": 0,
+      "observer_uses": 2,
+      "sentry_uses": 1,
+      "lane_efficiency": 0.7966855295068714,
+      "lane_efficiency_pct": 79,
+      "lane": 2,
+      "lane_role": 2,
+      "is_roaming": false,
+      "purchase_time": {
+        "circlet": -89,
+        "tango": -89
+      },
+      "first_purchase_time": {
+        "circlet": -89,
+        "tango": -89
+      },
+      "item_win": {
+        "circlet": 1,
+        "tango": 1
+      },
+      "item_usage": {
+        "circlet": 1,
+        "tango": 1
+      },
+      "purchase_ward_observer": 2,
+      "purchase_ward_sentry": 1,
+      "actions_per_min": 298,
+      "life_state_dead": 24,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 607,
+          "pct": 0.8573711546144627
+        },
+        "xp_per_min": {
+          "raw": 797,
+          "pct": 0.7023571713943269
+        },
+        "kills_per_min": {
+          "raw": 0.17681728880157171,
+          "pct": 0.328006392329205
+        },
+        "deaths_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.9908110267678786
+        },
+        "assists_per_min": {
+          "raw": 0.5599214145383105,
+          "pct": 0.9344786256492209
+        },
+        "last_hits_per_min": {
+          "raw": 7.043222003929273,
+          "pct": 0.9153016380343588
+        },
+        "denies_per_min": {
+          "raw": 0.5599214145383105,
+          "pct": 0.9276867758689572
+        },
+        "hero_damage_per_min": {
+          "raw": 667.1316306483301,
+          "pct": 0.4710347582900519
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.902117459049141
+        },
+        "tower_damage": {
+          "raw": 3891,
+          "pct": 0.6352377147423093
+        }
+      },
+      "position_est": 2
+    },
+    {
+      "player_slot": 2,
+      "obs_placed": 0,
+      "sen_placed": 1,
+      "creeps_stacked": 0,
+      "camps_stacked": 0,
+      "rune_pickups": 2,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.59183675,
+      "towers_killed": 4,
+      "roshans_killed": 0,
+      "observers_placed": 0,
+      "stuns": 24.351053,
+      "max_hero_hit": {
+        "time": 2001,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_pangolier",
+        "key": "npc_dota_hero_batrider",
+        "value": 306,
+        "slot": 2,
+        "player_slot": 2,
+        "inflictor": "pangolier_gyroshell",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        25287
+      ],
+      "lh_t": [
+        0,
+        332
+      ],
+      "dn_t": [
+        0,
+        18
+      ],
+      "xp_t": [
+        0,
+        30627
+      ],
+      "networth_t": [
+        600,
+        23526
+      ],
+      "camps_stacked_t": [
+        0,
+        0
+      ],
+      "tower_damage_t": [
+        0,
+        3631
+      ],
+      "hero_damage_t": [
+        0,
+        20746
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [],
+      "sen_log": [],
+      "obs_left_log": [],
+      "sen_left_log": [],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "circlet"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 453,
+          "key": "npc_dota_hero_terrorblade"
+        },
+        {
+          "smoke": true,
+          "time": 970,
+          "key": "npc_dota_hero_dragon_knight"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 673,
+          "time": 752,
+          "gold_lost": 164,
+          "key": "npc_dota_hero_dragon_knight",
+          "time_dead": 32
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 0,
+          "key": "5"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "64": {
+          "120": 2,
+          "123": 1
+        },
+        "65": {
+          "118": 1,
+          "119": 2
+        }
+      },
+      "obs": {},
+      "sen": {},
+      "actions": {
+        "1": 8093,
+        "2": 16
+      },
+      "pings": 68,
+      "purchase": {
+        "power_treads": 1,
+        "pers": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -164
+      },
+      "xp_reasons": {
+        "0": 0,
+        "1": 11412
+      },
+      "killed": {
+        "npc_dota_hero_nyx_assassin": 6,
+        "npc_dota_neutral_mud_golem": 2
+      },
+      "item_uses": {
+        "power_treads": 336,
+        "ward_sentry": 1
+      },
+      "ability_uses": {
+        "pangolier_gyroshell_stop": 2,
+        "plus_high_five": 4
+      },
+      "ability_targets": {},
+      "damage_targets": {
+        "null": {
+          "npc_dota_hero_witch_doctor": 240,
+          "npc_dota_hero_nyx_assassin": 3318
+        },
+        "pangolier_swashbuckle": {
+          "npc_dota_hero_witch_doctor": 2013,
+          "npc_dota_hero_nyx_assassin": 3838
+        }
+      },
+      "hero_hits": {
+        "null": 84,
+        "pangolier_swashbuckle": 136
+      },
+      "damage": {
+        "npc_dota_hero_nyx_assassin": 9025,
+        "npc_dota_neutral_mud_golem": 1200
+      },
+      "damage_taken": {
+        "npc_dota_hero_nyx_assassin": 2389,
+        "npc_dota_neutral_ogre_mauler": 49
+      },
+      "damage_inflictor": {
+        "null": 7743,
+        "pangolier_swashbuckle": 9727
+      },
+      "runes": {
+        "5": 1,
+        "6": 1
+      },
+      "killed_by": {
+        "npc_dota_hero_dragon_knight": 1
+      },
+      "kill_streaks": {
+        "3": 1,
+        "4": 1
+      },
+      "multi_kills": {
+        "2": 1
+      },
+      "life_state": {
+        "0": 2005,
+        "1": 5
+      },
+      "healing": {
+        "npc_dota_hero_pangolier": 18362
+      },
+      "damage_inflictor_received": {
+        "null": 3847,
+        "batrider_sticky_napalm": 774
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "dormant_curio",
+          "time": 555,
+          "item_neutral_enhancement": "enhancement_mystical"
+        },
+        {
+          "time": 1636,
+          "item_neutral_enhancement": "enhancement_mystical"
+        }
+      ],
+      "account_id": 183719386,
+      "party_id": 0,
+      "permanent_buffs": [
+        {
+          "permanent_buff": 12,
+          "stack_count": 0,
+          "grant_time": 1991
+        }
+      ],
+      "party_size": 10,
+      "team_number": 0,
+      "team_slot": 2,
+      "hero_id": 120,
+      "hero_variant": 0,
+      "item_0": 1,
+      "item_1": 174,
+      "item_2": 208,
+      "item_3": 108,
+      "item_4": 63,
+      "item_5": 123,
+      "backpack_0": 4204,
+      "backpack_1": 0,
+      "backpack_2": 40,
+      "item_neutral": 359,
+      "item_neutral2": 1583,
+      "kills": 15,
+      "deaths": 1,
+      "assists": 14,
+      "leaver_status": 0,
+      "last_hits": 335,
+      "denies": 18,
+      "gold_per_min": 778,
+      "xp_per_min": 1008,
+      "level": 24,
+      "net_worth": 24660,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 1,
+      "moonshard": 0,
+      "hero_damage": 24876,
+      "tower_damage": 3631,
+      "hero_healing": 0,
+      "gold": 1680,
+      "gold_spent": 26300,
+      "ability_upgrades_arr": [
+        6344,
+        1694
+      ],
+      "personaname": "SMACSA-",
+      "name": "AMMAR_THE_F",
+      "last_login": "2021-05-05T15:49:21.412Z",
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": true,
+      "win": 1,
+      "lose": 0,
+      "total_gold": 26400,
+      "total_xp": 34204,
+      "kills_per_min": 0.4420432220039293,
+      "kda": 14.5,
+      "abandons": 0,
+      "neutral_kills": 102,
+      "tower_kills": 4,
+      "courier_kills": 1,
+      "lane_kills": 235,
+      "hero_kills": 15,
+      "observer_kills": 0,
+      "sentry_kills": 0,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 23,
+      "buyback_count": 0,
+      "observer_uses": 0,
+      "sentry_uses": 1,
+      "lane_efficiency": 0.8803556992724333,
+      "lane_efficiency_pct": 88,
+      "lane": 3,
+      "lane_role": 3,
+      "is_roaming": false,
+      "purchase_time": {
+        "circlet": -89,
+        "magic_stick": -89
+      },
+      "first_purchase_time": {
+        "circlet": -89,
+        "magic_stick": -89
+      },
+      "item_win": {
+        "circlet": 1,
+        "magic_stick": 1
+      },
+      "item_usage": {
+        "circlet": 1,
+        "magic_stick": 1
+      },
+      "purchase_tpscroll": 7,
+      "actions_per_min": 329,
+      "life_state_dead": 32,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 778,
+          "pct": 0.9820305480682839
+        },
+        "xp_per_min": {
+          "raw": 1008,
+          "pct": 0.8481581311769991
+        },
+        "kills_per_min": {
+          "raw": 0.4420432220039293,
+          "pct": 0.9362084456424079
+        },
+        "deaths_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.9820305480682839
+        },
+        "assists_per_min": {
+          "raw": 0.412573673870334,
+          "pct": 0.6864330637915543
+        },
+        "last_hits_per_min": {
+          "raw": 9.87229862475442,
+          "pct": 0.9730458221024259
+        },
+        "denies_per_min": {
+          "raw": 0.5304518664047151,
+          "pct": 0.9784366576819407
+        },
+        "hero_damage_per_min": {
+          "raw": 733.0844793713163,
+          "pct": 0.6900269541778976
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.8454627133872417
+        },
+        "tower_damage": {
+          "raw": 3631,
+          "pct": 0.8328840970350404
+        }
+      },
+      "position_est": 3
+    },
+    {
+      "player_slot": 3,
+      "obs_placed": 8,
+      "sen_placed": 14,
+      "creeps_stacked": 4,
+      "camps_stacked": 1,
+      "rune_pickups": 2,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.63265306,
+      "towers_killed": 0,
+      "roshans_killed": 0,
+      "observers_placed": 8,
+      "stuns": 16.666492,
+      "max_hero_hit": {
+        "time": 1637,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_techies",
+        "key": "npc_dota_hero_nyx_assassin",
+        "value": 663,
+        "slot": 3,
+        "player_slot": 3,
+        "inflictor": "techies_land_mines",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        11915
+      ],
+      "lh_t": [
+        0,
+        63
+      ],
+      "dn_t": [
+        0,
+        1
+      ],
+      "xp_t": [
+        0,
+        16624
+      ],
+      "networth_t": [
+        550,
+        10295
+      ],
+      "camps_stacked_t": [
+        0,
+        1
+      ],
+      "tower_damage_t": [
+        0,
+        316
+      ],
+      "hero_damage_t": [
+        145,
+        14352
+      ],
+      "hero_healing_t": [
+        0,
+        125
+      ],
+      "obs_log": [
+        {
+          "time": -53,
+          "type": "obs_log",
+          "key": "[177,74]",
+          "slot": 3,
+          "player_slot": 3,
+          "x": 177.3,
+          "y": 74.3,
+          "z": 129.9,
+          "entityleft": false,
+          "ehandle": 2851824
+        }
+      ],
+      "sen_log": [
+        {
+          "time": 26,
+          "type": "sen_log",
+          "key": "[168,99]",
+          "slot": 3,
+          "player_slot": 3,
+          "x": 168,
+          "y": 99.2,
+          "z": 129,
+          "entityleft": false,
+          "ehandle": 706294
+        }
+      ],
+      "obs_left_log": [
+        {
+          "time": 307,
+          "type": "obs_left_log",
+          "key": "[177,74]",
+          "slot": 3,
+          "player_slot": 3,
+          "attackername": "npc_dota_hero_techies",
+          "x": 177.3,
+          "y": 74.3,
+          "z": 129.9,
+          "entityleft": true,
+          "ehandle": 2851824
+        }
+      ],
+      "sen_left_log": [
+        {
+          "time": 243,
+          "type": "sen_left_log",
+          "key": "[168,99]",
+          "slot": 3,
+          "player_slot": 3,
+          "attackername": "npc_dota_hero_nyx_assassin",
+          "x": 168,
+          "y": 99.2,
+          "z": 129,
+          "entityleft": true,
+          "ehandle": 706294
+        }
+      ],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "branches"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 878,
+          "key": "npc_dota_hero_batrider"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 382,
+          "time": 51,
+          "gold_lost": 17,
+          "key": "npc_dota_hero_batrider",
+          "time_dead": 12
+        },
+        {
+          "gold_fed": 1194,
+          "time": 2024,
+          "gold_lost": 274,
+          "key": "npc_dota_hero_dragon_knight"
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 0,
+          "key": "5"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "74": {
+          "78": 10,
+          "79": 2
+        },
+        "75": {
+          "79": 1
+        }
+      },
+      "obs": {
+        "104": {
+          "190": 1
+        },
+        "128": {
+          "146": 1
+        }
+      },
+      "sen": {
+        "72": {
+          "162": 1
+        },
+        "79": {
+          "187": 1
+        }
+      },
+      "actions": {
+        "1": 3336,
+        "2": 69
+      },
+      "pings": 5,
+      "purchase": {
+        "ward_sentry": 14,
+        "recipe_arcane_boots": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -1175
+      },
+      "xp_reasons": {
+        "0": 67,
+        "1": 6940
+      },
+      "killed": {
+        "npc_dota_creep_badguys_melee": 35,
+        "npc_dota_creep_goodguys_melee": 1
+      },
+      "item_uses": {
+        "ward_sentry": 9,
+        "arcane_boots": 15
+      },
+      "ability_uses": {
+        "techies_suicide": 20,
+        "techies_reactive_tazer_stop": 13
+      },
+      "ability_targets": {
+        "techies_reactive_tazer": {
+          "npc_dota_hero_pangolier": 3,
+          "npc_dota_hero_techies": 29
+        }
+      },
+      "damage_targets": {
+        "techies_suicide": {
+          "npc_dota_hero_nyx_assassin": 650,
+          "npc_dota_hero_witch_doctor": 631
+        },
+        "null": {
+          "npc_dota_hero_nyx_assassin": 1027,
+          "npc_dota_hero_witch_doctor": 135
+        }
+      },
+      "hero_hits": {
+        "null": 46,
+        "techies_suicide": 35
+      },
+      "damage": {
+        "npc_dota_hero_nyx_assassin": 5154,
+        "npc_dota_hero_terrorblade": 1711
+      },
+      "damage_taken": {
+        "npc_dota_hero_nyx_assassin": 6420,
+        "npc_dota_creep_badguys_melee": 346
+      },
+      "damage_inflictor": {
+        "null": 1733,
+        "techies_suicide": 3376
+      },
+      "runes": {
+        "5": 1,
+        "8": 1
+      },
+      "killed_by": {
+        "npc_dota_hero_nyx_assassin": 3,
+        "npc_dota_hero_witch_doctor": 2
+      },
+      "kill_streaks": {},
+      "multi_kills": {},
+      "life_state": {
+        "0": 1709,
+        "1": 44
+      },
+      "healing": {
+        "npc_dota_hero_pangolier": 125,
+        "npc_dota_hero_techies": 9371
+      },
+      "damage_inflictor_received": {
+        "null": 3157,
+        "terrorblade_sunder": 1190
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "dormant_curio",
+          "time": 614,
+          "item_neutral_enhancement": "enhancement_mystical"
+        },
+        {
+          "time": 1710,
+          "item_neutral_enhancement": "enhancement_greedy"
+        }
+      ],
+      "account_id": 93817671,
+      "party_id": 0,
+      "permanent_buffs": [],
+      "party_size": 10,
+      "team_number": 0,
+      "team_slot": 3,
+      "hero_id": 105,
+      "hero_variant": 0,
+      "item_0": 231,
+      "item_1": 229,
+      "item_2": 0,
+      "item_3": 254,
+      "item_4": 36,
+      "item_5": 0,
+      "backpack_0": 218,
+      "backpack_1": 40,
+      "backpack_2": 0,
+      "item_neutral": 1599,
+      "item_neutral2": 1593,
+      "kills": 2,
+      "deaths": 11,
+      "assists": 30,
+      "leaver_status": 0,
+      "last_hits": 64,
+      "denies": 1,
+      "gold_per_min": 382,
+      "xp_per_min": 545,
+      "level": 18,
+      "net_worth": 10271,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 0,
+      "moonshard": 0,
+      "hero_damage": 15911,
+      "tower_damage": 316,
+      "hero_healing": 875,
+      "gold": 456,
+      "gold_spent": 12155,
+      "ability_upgrades_arr": [
+        5601,
+        5599
+      ],
+      "personaname": "; ]",
+      "name": "Maladych",
+      "last_login": "2025-04-29T22:16:31.297Z",
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": true,
+      "win": 1,
+      "lose": 0,
+      "total_gold": 12962,
+      "total_xp": 18493,
+      "kills_per_min": 0.05893909626719058,
+      "kda": 2.67,
+      "abandons": 0,
+      "neutral_kills": 8,
+      "tower_kills": 0,
+      "courier_kills": 0,
+      "lane_kills": 53,
+      "hero_kills": 2,
+      "observer_kills": 0,
+      "sentry_kills": 4,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 1,
+      "buyback_count": 0,
+      "observer_uses": 2,
+      "sentry_uses": 9,
+      "lane_efficiency": 0.39126919967663704,
+      "lane_efficiency_pct": 39,
+      "lane": 1,
+      "lane_role": 1,
+      "is_roaming": false,
+      "purchase_time": {
+        "branches": -178,
+        "tango": -89
+      },
+      "first_purchase_time": {
+        "branches": -89,
+        "tango": -89
+      },
+      "item_win": {
+        "branches": 1,
+        "tango": 1
+      },
+      "item_usage": {
+        "branches": 1,
+        "tango": 1
+      },
+      "purchase_ward_observer": 8,
+      "purchase_ward_sentry": 14,
+      "purchase_gem": 1,
+      "actions_per_min": 134,
+      "life_state_dead": 328,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 382,
+          "pct": 0.33950046253469013
+        },
+        "xp_per_min": {
+          "raw": 545,
+          "pct": 0.4148936170212766
+        },
+        "kills_per_min": {
+          "raw": 0.058939096267190565,
+          "pct": 0.07608695652173914
+        },
+        "deaths_per_min": {
+          "raw": 0.3241650294695481,
+          "pct": 0.2543940795559667
+        },
+        "assists_per_min": {
+          "raw": 0.8840864440078586,
+          "pct": 0.9935245143385754
+        },
+        "last_hits_per_min": {
+          "raw": 1.886051080550098,
+          "pct": 0.22987974098057354
+        },
+        "denies_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.47895467160037003
+        },
+        "hero_damage_per_min": {
+          "raw": 468.88998035363454,
+          "pct": 0.09759481961147086
+        },
+        "hero_healing_per_min": {
+          "raw": 25.785854616895875,
+          "pct": 0.9750231267345051
+        },
+        "tower_damage": {
+          "raw": 316,
+          "pct": 0.3688714153561517
+        }
+      },
+      "position_est": 5
+    },
+    {
+      "player_slot": 4,
+      "obs_placed": 6,
+      "sen_placed": 13,
+      "creeps_stacked": 33,
+      "camps_stacked": 7,
+      "rune_pickups": 7,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.63265306,
+      "towers_killed": 0,
+      "roshans_killed": 0,
+      "observers_placed": 6,
+      "stuns": 30.433105,
+      "max_hero_hit": {
+        "time": 1654,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_shadow_demon",
+        "key": "npc_dota_hero_witch_doctor",
+        "value": 313,
+        "slot": 4,
+        "player_slot": 4,
+        "inflictor": "shadow_demon_demonic_purge",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        12631
+      ],
+      "lh_t": [
+        0,
+        38
+      ],
+      "dn_t": [
+        0,
+        2
+      ],
+      "xp_t": [
+        0,
+        16150
+      ],
+      "networth_t": [
+        600,
+        10549
+      ],
+      "camps_stacked_t": [
+        0,
+        7
+      ],
+      "tower_damage_t": [
+        0,
+        1400
+      ],
+      "hero_damage_t": [
+        0,
+        12743
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [
+        {
+          "time": 378,
+          "type": "obs_log",
+          "key": "[120,146]",
+          "slot": 4,
+          "player_slot": 4,
+          "x": 120.4,
+          "y": 146.2,
+          "z": 130,
+          "entityleft": false,
+          "ehandle": 16664917
+        }
+      ],
+      "sen_log": [
+        {
+          "time": 55,
+          "type": "sen_log",
+          "key": "[98,165]",
+          "slot": 4,
+          "player_slot": 4,
+          "x": 97.6,
+          "y": 164.6,
+          "z": 129,
+          "entityleft": false,
+          "ehandle": 9979919
+        }
+      ],
+      "obs_left_log": [
+        {
+          "time": 738,
+          "type": "obs_left_log",
+          "key": "[120,146]",
+          "slot": 4,
+          "player_slot": 4,
+          "attackername": "npc_dota_hero_shadow_demon",
+          "x": 120.4,
+          "y": 146.2,
+          "z": 130,
+          "entityleft": true,
+          "ehandle": 16664917
+        }
+      ],
+      "sen_left_log": [
+        {
+          "time": 108,
+          "type": "sen_left_log",
+          "key": "[98,165]",
+          "slot": 4,
+          "player_slot": 4,
+          "attackername": "npc_dota_hero_witch_doctor",
+          "x": 97.6,
+          "y": 164.6,
+          "z": 129,
+          "entityleft": true,
+          "ehandle": 9979919
+        }
+      ],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "tango"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 176,
+          "key": "npc_dota_hero_witch_doctor"
+        },
+        {
+          "smoke": true,
+          "time": 1287,
+          "key": "npc_dota_hero_witch_doctor"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 621,
+          "time": 1174,
+          "gold_lost": 116,
+          "key": "npc_dota_hero_dragon_knight",
+          "time_dead": 37
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 485,
+          "key": "8"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "66": {
+          "135": 3,
+          "155": 1
+        },
+        "67": {
+          "134": 1,
+          "137": 1
+        }
+      },
+      "obs": {
+        "120": {
+          "146": 1
+        },
+        "123": {
+          "191": 1
+        }
+      },
+      "sen": {
+        "81": {
+          "164": 1
+        },
+        "83": {
+          "163": 1
+        }
+      },
+      "actions": {
+        "1": 9696,
+        "2": 124
+      },
+      "pings": 89,
+      "purchase": {
+        "ward_sentry": 14,
+        "void_stone": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -116
+      },
+      "xp_reasons": {
+        "0": 319,
+        "1": 11338
+      },
+      "killed": {
+        "npc_dota_hero_nyx_assassin": 3,
+        "npc_dota_creep_badguys_melee": 23
+      },
+      "item_uses": {
+        "ward_sentry": 6,
+        "tpscroll": 8
+      },
+      "ability_uses": {
+        "shadow_demon_disruption": 22,
+        "shadow_demon_demonic_cleanse": 1
+      },
+      "ability_targets": {
+        "shadow_demon_disruption": {
+          "npc_dota_hero_pangolier": 2,
+          "npc_dota_hero_witch_doctor": 3
+        },
+        "shadow_demon_demonic_cleanse": {
+          "npc_dota_hero_shadow_demon": 1
+        }
+      },
+      "damage_targets": {
+        "null": {
+          "npc_dota_hero_witch_doctor": 1019,
+          "npc_dota_hero_nyx_assassin": 789
+        },
+        "shadow_demon_disseminate": {
+          "npc_dota_hero_nyx_assassin": 918,
+          "npc_dota_hero_witch_doctor": 2472
+        }
+      },
+      "hero_hits": {
+        "null": 107,
+        "shadow_demon_disseminate": 201
+      },
+      "damage": {
+        "npc_dota_hero_nyx_assassin": 2879,
+        "npc_dota_neutral_mud_golem": 798
+      },
+      "damage_taken": {
+        "npc_dota_hero_nyx_assassin": 1232,
+        "npc_dota_neutral_mud_golem": 36
+      },
+      "damage_inflictor": {
+        "null": 3177,
+        "shadow_demon_disseminate": 5874
+      },
+      "runes": {
+        "1": 1,
+        "5": 6
+      },
+      "killed_by": {
+        "npc_dota_hero_dragon_knight": 1
+      },
+      "kill_streaks": {
+        "3": 2,
+        "4": 1
+      },
+      "multi_kills": {
+        "2": 2
+      },
+      "life_state": {
+        "0": 2000,
+        "1": 4
+      },
+      "healing": {
+        "npc_dota_hero_shadow_demon": 11332
+      },
+      "damage_inflictor_received": {
+        "null": 2844,
+        "batrider_sticky_napalm": 6
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "stonefeather_satchel",
+          "time": 601,
+          "item_neutral_enhancement": "enhancement_mystical"
+        },
+        {
+          "time": 1823,
+          "item_neutral_enhancement": "enhancement_keen_eyed"
+        }
+      ],
+      "account_id": 103735745,
+      "party_id": 0,
+      "permanent_buffs": [
+        {
+          "permanent_buff": 12,
+          "stack_count": 0,
+          "grant_time": 2883
+        }
+      ],
+      "party_size": 10,
+      "team_number": 0,
+      "team_slot": 4,
+      "hero_id": 79,
+      "hero_variant": 0,
+      "item_0": 232,
+      "item_1": 1,
+      "item_2": 36,
+      "item_3": 214,
+      "item_4": 0,
+      "item_5": 1852,
+      "backpack_0": 0,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 840,
+      "item_neutral2": 1595,
+      "kills": 9,
+      "deaths": 1,
+      "assists": 22,
+      "leaver_status": 0,
+      "last_hits": 46,
+      "denies": 2,
+      "gold_per_min": 404,
+      "xp_per_min": 591,
+      "level": 19,
+      "net_worth": 11645,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 1,
+      "moonshard": 0,
+      "hero_damage": 15793,
+      "tower_damage": 1400,
+      "hero_healing": 1681,
+      "gold": 2485,
+      "gold_spent": 11870,
+      "ability_upgrades_arr": [
+        5421,
+        5425
+      ],
+      "personaname": "lostreak chicken",
+      "name": "Saksa",
+      "last_login": null,
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": true,
+      "win": 1,
+      "lose": 0,
+      "total_gold": 13709,
+      "total_xp": 20054,
+      "kills_per_min": 0.2652259332023576,
+      "kda": 15.5,
+      "abandons": 0,
+      "neutral_kills": 6,
+      "tower_kills": 0,
+      "courier_kills": 0,
+      "lane_kills": 37,
+      "hero_kills": 9,
+      "observer_kills": 2,
+      "sentry_kills": 2,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 0,
+      "buyback_count": 0,
+      "observer_uses": 3,
+      "sentry_uses": 6,
+      "lane_efficiency": 0.3943007275666936,
+      "lane_efficiency_pct": 39,
+      "lane": 3,
+      "lane_role": 3,
+      "is_roaming": false,
+      "purchase_time": {
+        "tango": -81,
+        "blood_grenade": 1221
+      },
+      "first_purchase_time": {
+        "tango": -89,
+        "blood_grenade": -89
+      },
+      "item_win": {
+        "tango": 1,
+        "blood_grenade": 1
+      },
+      "item_usage": {
+        "tango": 1,
+        "blood_grenade": 1
+      },
+      "purchase_ward_observer": 6,
+      "purchase_ward_sentry": 14,
+      "purchase_tpscroll": 7,
+      "actions_per_min": 322,
+      "life_state_dead": 37,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 404,
+          "pct": 0.8006535947712419
+        },
+        "xp_per_min": {
+          "raw": 591,
+          "pct": 0.6535947712418301
+        },
+        "kills_per_min": {
+          "raw": 0.26522593320235754,
+          "pct": 0.8986928104575164
+        },
+        "deaths_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.9918300653594772
+        },
+        "assists_per_min": {
+          "raw": 0.6483300589390962,
+          "pct": 0.8954248366013072
+        },
+        "last_hits_per_min": {
+          "raw": 1.3555992141453832,
+          "pct": 0.4150326797385621
+        },
+        "denies_per_min": {
+          "raw": 0.058939096267190565,
+          "pct": 0.6356209150326797
+        },
+        "hero_damage_per_min": {
+          "raw": 465.4125736738703,
+          "pct": 0.6176470588235294
+        },
+        "hero_healing_per_min": {
+          "raw": 49.53831041257367,
+          "pct": 0.8921568627450981
+        },
+        "tower_damage": {
+          "raw": 1400,
+          "pct": 0.7859477124183006
+        }
+      },
+      "position_est": 4
+    },
+    {
+      "player_slot": 128,
+      "obs_placed": 6,
+      "sen_placed": 15,
+      "creeps_stacked": 13,
+      "camps_stacked": 5,
+      "rune_pickups": 1,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.625,
+      "towers_killed": 0,
+      "roshans_killed": 0,
+      "observers_placed": 6,
+      "stuns": 38.698467,
+      "max_hero_hit": {
+        "time": 1904,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_witch_doctor",
+        "key": "npc_dota_hero_viper",
+        "value": 306,
+        "slot": 5,
+        "player_slot": 128,
+        "inflictor": "witch_doctor_maledict",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        8160
+      ],
+      "lh_t": [
+        0,
+        17
+      ],
+      "dn_t": [
+        0,
+        1
+      ],
+      "xp_t": [
+        0,
+        8029
+      ],
+      "networth_t": [
+        550,
+        6630
+      ],
+      "camps_stacked_t": [
+        0,
+        5
+      ],
+      "tower_damage_t": [
+        0,
+        0
+      ],
+      "hero_damage_t": [
+        0,
+        12690
+      ],
+      "hero_healing_t": [
+        0,
+        1710
+      ],
+      "obs_log": [
+        {
+          "time": -4,
+          "type": "obs_log",
+          "key": "[115,160]",
+          "slot": 5,
+          "player_slot": 128,
+          "x": 114.8,
+          "y": 159.6,
+          "z": 130,
+          "entityleft": false,
+          "ehandle": 12469766
+        }
+      ],
+      "sen_log": [
+        {
+          "time": 15,
+          "type": "sen_log",
+          "key": "[102,167]",
+          "slot": 5,
+          "player_slot": 128,
+          "x": 101.6,
+          "y": 167.3,
+          "z": 130,
+          "entityleft": false,
+          "ehandle": 8308343
+        }
+      ],
+      "obs_left_log": [
+        {
+          "time": 356,
+          "type": "obs_left_log",
+          "key": "[115,160]",
+          "slot": 5,
+          "player_slot": 128,
+          "attackername": "npc_dota_hero_witch_doctor",
+          "x": 114.8,
+          "y": 159.6,
+          "z": 130,
+          "entityleft": true,
+          "ehandle": 12469766
+        }
+      ],
+      "sen_left_log": [
+        {
+          "time": 115,
+          "type": "sen_left_log",
+          "key": "[102,167]",
+          "slot": 5,
+          "player_slot": 128,
+          "attackername": "npc_dota_hero_shadow_demon",
+          "x": 101.6,
+          "y": 167.3,
+          "z": 130,
+          "entityleft": true,
+          "ehandle": 8308343
+        }
+      ],
+      "purchase_log": [
+        {
+          "charges": 6,
+          "time": -89,
+          "key": "tango"
+        },
+        {
+          "time": -89,
+          "key": "faerie_fire"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 310,
+          "key": "npc_dota_hero_techies"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 227,
+          "time": 176,
+          "gold_lost": 13,
+          "key": "npc_dota_hero_shadow_demon",
+          "time_dead": 15
+        },
+        {
+          "gold_fed": 0,
+          "gold_fed_shared": true,
+          "time": 697,
+          "gold_lost": 41,
+          "key": "npc_dota_hero_pangolier",
+          "time_dead": 24
+        },
+        {
+          "gold_fed": 416,
+          "time": 2020,
+          "gold_lost": 151,
+          "key": "npc_dota_hero_windrunner"
+        }
+      ],
+      "buyback_log": [
+        {
+          "time": 1998,
+          "type": "buyback_log",
+          "slot": 5,
+          "player_slot": 128
+        }
+      ],
+      "runes_log": [
+        {
+          "time": 438,
+          "key": "8"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "76": {
+          "159": 2
+        },
+        "77": {
+          "150": 1,
+          "160": 1
+        }
+      },
+      "obs": {
+        "113": {
+          "152": 1
+        },
+        "115": {
+          "160": 1
+        }
+      },
+      "sen": {
+        "99": {
+          "137": 1
+        },
+        "100": {
+          "170": 1,
+          "187": 1
+        }
+      },
+      "actions": {
+        "1": 9443,
+        "2": 169
+      },
+      "pings": 31,
+      "purchase": {
+        "ward_sentry": 14,
+        "recipe_arcane_boots": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -945
+      },
+      "xp_reasons": {
+        "0": 360,
+        "1": 1807
+      },
+      "killed": {
+        "npc_dota_creep_badguys_melee": 1,
+        "npc_dota_neutral_dark_troll": 1
+      },
+      "item_uses": {
+        "ward_sentry": 4,
+        "arcane_boots": 9
+      },
+      "ability_uses": {
+        "witch_doctor_voodoo_restoration": 29,
+        "witch_doctor_voodoo_switcheroo": 2
+      },
+      "ability_targets": {
+        "witch_doctor_paralyzing_cask": {
+          "npc_dota_hero_pangolier": 5,
+          "npc_dota_hero_techies": 3
+        }
+      },
+      "damage_targets": {
+        "null": {
+          "npc_dota_hero_pangolier": 1223,
+          "npc_dota_hero_techies": 625
+        },
+        "witch_doctor_paralyzing_cask": {
+          "npc_dota_hero_pangolier": 593,
+          "npc_dota_hero_techies": 839
+        }
+      },
+      "hero_hits": {
+        "null": 99,
+        "witch_doctor_paralyzing_cask": 46
+      },
+      "damage": {
+        "npc_dota_neutral_ogre_mauler": 67,
+        "npc_dota_creep_goodguys_flagbearer": 121
+      },
+      "damage_taken": {
+        "npc_dota_hero_pangolier": 3333,
+        "npc_dota_creep_goodguys_melee": 512
+      },
+      "damage_inflictor": {
+        "null": 5296,
+        "witch_doctor_paralyzing_cask": 3802
+      },
+      "runes": {
+        "5": 1,
+        "8": 1
+      },
+      "killed_by": {
+        "npc_dota_hero_pangolier": 2,
+        "npc_dota_hero_techies": 1
+      },
+      "kill_streaks": {},
+      "multi_kills": {},
+      "life_state": {
+        "0": 1782,
+        "1": 20
+      },
+      "healing": {
+        "npc_dota_hero_witch_doctor": 9799,
+        "npc_dota_hero_nyx_assassin": 358
+      },
+      "damage_inflictor_received": {
+        "null": 3484,
+        "windrunner_powershot": 1400
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "stonefeather_satchel",
+          "time": 570,
+          "item_neutral_enhancement": "enhancement_mystical"
+        }
+      ],
+      "account_id": 847565596,
+      "party_id": 0,
+      "permanent_buffs": [
+        {
+          "permanent_buff": 12,
+          "stack_count": 0,
+          "grant_time": 2411
+        }
+      ],
+      "party_size": 10,
+      "team_number": 1,
+      "team_slot": 0,
+      "hero_id": 30,
+      "hero_variant": 0,
+      "item_0": 1,
+      "item_1": 0,
+      "item_2": 180,
+      "item_3": 218,
+      "item_4": 36,
+      "item_5": 0,
+      "backpack_0": 0,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 1873,
+      "item_neutral2": 1593,
+      "kills": 2,
+      "deaths": 10,
+      "assists": 8,
+      "leaver_status": 1,
+      "last_hits": 18,
+      "denies": 1,
+      "gold_per_min": 253,
+      "xp_per_min": 243,
+      "level": 12,
+      "net_worth": 6281,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 1,
+      "moonshard": 0,
+      "hero_damage": 15712,
+      "tower_damage": 0,
+      "hero_healing": 3099,
+      "gold": 521,
+      "gold_spent": 7650,
+      "ability_upgrades_arr": [
+        5140,
+        5141
+      ],
+      "personaname": "rue",
+      "name": "rue",
+      "last_login": null,
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": false,
+      "win": 0,
+      "lose": 1,
+      "total_gold": 8585,
+      "total_xp": 8245,
+      "kills_per_min": 0.05893909626719058,
+      "kda": 0.91,
+      "abandons": 0,
+      "neutral_kills": 1,
+      "tower_kills": 0,
+      "courier_kills": 0,
+      "lane_kills": 12,
+      "hero_kills": 2,
+      "observer_kills": 2,
+      "sentry_kills": 4,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 0,
+      "buyback_count": 1,
+      "observer_uses": 3,
+      "sentry_uses": 4,
+      "lane_efficiency": 0.34337105901374293,
+      "lane_efficiency_pct": 34,
+      "lane": 3,
+      "lane_role": 1,
+      "is_roaming": true,
+      "purchase_time": {
+        "tango": -89,
+        "faerie_fire": -89
+      },
+      "first_purchase_time": {
+        "tango": -89,
+        "faerie_fire": -89
+      },
+      "item_win": {
+        "tango": 0,
+        "faerie_fire": 0
+      },
+      "item_usage": {
+        "tango": 1,
+        "faerie_fire": 1
+      },
+      "purchase_ward_observer": 6,
+      "purchase_ward_sentry": 14,
+      "purchase_tpscroll": 3,
+      "actions_per_min": 323,
+      "life_state_dead": 255,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 253,
+          "pct": 0.07775871926815323
+        },
+        "xp_per_min": {
+          "raw": 243,
+          "pct": 0.023632551934438726
+        },
+        "kills_per_min": {
+          "raw": 0.058939096267190565,
+          "pct": 0.05717552887364208
+        },
+        "deaths_per_min": {
+          "raw": 0.29469548133595286,
+          "pct": 0.3560129597865447
+        },
+        "assists_per_min": {
+          "raw": 0.23575638506876226,
+          "pct": 0.14770344959024204
+        },
+        "last_hits_per_min": {
+          "raw": 0.5304518664047151,
+          "pct": 0.12483323804078521
+        },
+        "denies_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.3108442919763674
+        },
+        "hero_damage_per_min": {
+          "raw": 463.02554027504914,
+          "pct": 0.3762149799885649
+        },
+        "hero_healing_per_min": {
+          "raw": 91.32612966601178,
+          "pct": 0.3558223746902992
+        },
+        "tower_damage": {
+          "raw": 0,
+          "pct": 0.20564131884886602
+        }
+      },
+      "position_est": 5
+    },
+    {
+      "player_slot": 129,
+      "obs_placed": 0,
+      "sen_placed": 0,
+      "creeps_stacked": 1,
+      "camps_stacked": 1,
+      "rune_pickups": 3,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.125,
+      "towers_killed": 0,
+      "roshans_killed": 0,
+      "observers_placed": 0,
+      "stuns": 0,
+      "max_hero_hit": {
+        "time": 1832,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_terrorblade",
+        "key": "npc_dota_hero_techies",
+        "value": 1190,
+        "slot": 6,
+        "player_slot": 129,
+        "inflictor": "terrorblade_sunder",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        15136
+      ],
+      "lh_t": [
+        0,
+        304
+      ],
+      "dn_t": [
+        0,
+        8
+      ],
+      "xp_t": [
+        0,
+        14681
+      ],
+      "networth_t": [
+        600,
+        14427
+      ],
+      "camps_stacked_t": [
+        0,
+        1
+      ],
+      "tower_damage_t": [
+        0,
+        0
+      ],
+      "hero_damage_t": [
+        0,
+        9267
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [],
+      "sen_log": [],
+      "obs_left_log": [],
+      "sen_left_log": [],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "tango"
+        }
+      ],
+      "kills_log": [
+        {
+          "smoke": true,
+          "time": 1522,
+          "key": "npc_dota_hero_techies"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 293,
+          "time": 453,
+          "gold_lost": 58,
+          "key": "npc_dota_hero_pangolier",
+          "time_dead": 21
+        },
+        {
+          "gold_fed": 628,
+          "time": 2025,
+          "gold_lost": 369,
+          "key": "npc_dota_hero_windrunner"
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 0,
+          "key": "5"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "70": {
+          "162": 1
+        },
+        "72": {
+          "161": 1
+        }
+      },
+      "obs": {},
+      "sen": {},
+      "actions": {
+        "1": 7574,
+        "2": 10
+      },
+      "pings": 20,
+      "purchase": {
+        "power_treads": 1,
+        "diadem": 1
+      },
+      "gold_reasons": {
+        "0": 615,
+        "1": -2116
+      },
+      "xp_reasons": {
+        "0": 0,
+        "1": 1176
+      },
+      "killed": {
+        "npc_dota_neutral_mud_golem": 8,
+        "npc_dota_neutral_ogre_mauler": 12
+      },
+      "item_uses": {
+        "power_treads": 163,
+        "tpscroll": 7
+      },
+      "ability_uses": {
+        "terrorblade_sunder": 2,
+        "terrorblade_metamorphosis": 10
+      },
+      "ability_targets": {
+        "terrorblade_sunder": {
+          "npc_dota_hero_techies": 1,
+          "npc_dota_hero_windrunner": 1
+        }
+      },
+      "damage_targets": {
+        "terrorblade_sunder": {
+          "npc_dota_hero_techies": 1190,
+          "npc_dota_hero_windrunner": 627
+        },
+        "null": {
+          "npc_dota_hero_pangolier": 2087,
+          "npc_dota_hero_techies": 1485
+        }
+      },
+      "hero_hits": {
+        "null": 216,
+        "terrorblade_sunder": 2
+      },
+      "damage": {
+        "npc_dota_neutral_mud_golem": 6495,
+        "npc_dota_neutral_ogre_mauler": 10276
+      },
+      "damage_taken": {
+        "npc_dota_neutral_mud_golem": 75,
+        "npc_dota_neutral_ogre_mauler": 294
+      },
+      "damage_inflictor": {
+        "null": 9172,
+        "terrorblade_sunder": 1817
+      },
+      "runes": {
+        "5": 3
+      },
+      "killed_by": {
+        "npc_dota_hero_pangolier": 4,
+        "npc_dota_hero_windrunner": 5
+      },
+      "kill_streaks": {},
+      "multi_kills": {},
+      "life_state": {
+        "0": 1710,
+        "1": 13
+      },
+      "healing": {
+        "illusion_npc_dota_hero_terrorblade": 2147,
+        "npc_dota_hero_terrorblade": 22743
+      },
+      "damage_inflictor_received": {
+        "null": 10753,
+        "windrunner_powershot": 1231
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "possessed_mask",
+          "time": 511,
+          "item_neutral_enhancement": "enhancement_alert"
+        }
+      ],
+      "account_id": 321580662,
+      "party_id": 0,
+      "permanent_buffs": [
+        {
+          "permanent_buff": 12,
+          "stack_count": 0,
+          "grant_time": 1920
+        }
+      ],
+      "party_size": 10,
+      "team_number": 1,
+      "team_slot": 1,
+      "hero_id": 109,
+      "hero_variant": 0,
+      "item_0": 7,
+      "item_1": 63,
+      "item_2": 596,
+      "item_3": 236,
+      "item_4": 147,
+      "item_5": 485,
+      "backpack_0": 20,
+      "backpack_1": 134,
+      "backpack_2": 0,
+      "item_neutral": 574,
+      "item_neutral2": 1584,
+      "kills": 1,
+      "deaths": 9,
+      "assists": 1,
+      "leaver_status": 0,
+      "last_hits": 305,
+      "denies": 8,
+      "gold_per_min": 456,
+      "xp_per_min": 460,
+      "level": 16,
+      "net_worth": 14425,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 1,
+      "moonshard": 0,
+      "hero_damage": 10093,
+      "tower_damage": 0,
+      "hero_healing": 0,
+      "gold": 895,
+      "gold_spent": 14165,
+      "ability_upgrades_arr": [
+        5620,
+        730
+      ],
+      "personaname": "\u30a8\u30c3\u30b8\u30e9\u30f3\u30ca\u30fc",
+      "name": "Yatoro",
+      "last_login": "2023-01-26T10:04:18.483Z",
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": false,
+      "win": 0,
+      "lose": 1,
+      "total_gold": 15473,
+      "total_xp": 15609,
+      "kills_per_min": 0.02946954813359529,
+      "kda": 0.2,
+      "abandons": 0,
+      "neutral_kills": 172,
+      "tower_kills": 0,
+      "courier_kills": 0,
+      "lane_kills": 134,
+      "hero_kills": 1,
+      "observer_kills": 0,
+      "sentry_kills": 1,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 8,
+      "buyback_count": 0,
+      "observer_uses": 0,
+      "sentry_uses": 0,
+      "lane_efficiency": 0.5923605497170574,
+      "lane_efficiency_pct": 59,
+      "lane": 3,
+      "lane_role": 1,
+      "is_roaming": false,
+      "purchase_time": {
+        "tango": 139,
+        "circlet": -89
+      },
+      "first_purchase_time": {
+        "tango": -89,
+        "circlet": -89
+      },
+      "item_win": {
+        "tango": 0,
+        "circlet": 0
+      },
+      "item_usage": {
+        "tango": 1,
+        "circlet": 1
+      },
+      "actions_per_min": 316,
+      "life_state_dead": 327,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 456,
+          "pct": 0.20346137610806247
+        },
+        "xp_per_min": {
+          "raw": 460,
+          "pct": 0.10510764035457999
+        },
+        "kills_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.05318699873364289
+        },
+        "deaths_per_min": {
+          "raw": 0.26522593320235754,
+          "pct": 0.18488813845504437
+        },
+        "assists_per_min": {
+          "raw": 0.029469548133595282,
+          "pct": 0.027015618404390037
+        },
+        "last_hits_per_min": {
+          "raw": 8.988212180746562,
+          "pct": 0.49936682144364714
+        },
+        "denies_per_min": {
+          "raw": 0.23575638506876226,
+          "pct": 0.688898269311946
+        },
+        "hero_damage_per_min": {
+          "raw": 297.4361493123772,
+          "pct": 0.14647530603630224
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.9387927395525538
+        },
+        "tower_damage": {
+          "raw": 0,
+          "pct": 0.08822287885183622
+        }
+      },
+      "position_est": 1
+    },
+    {
+      "player_slot": 130,
+      "obs_placed": 0,
+      "sen_placed": 0,
+      "creeps_stacked": 6,
+      "camps_stacked": 2,
+      "rune_pickups": 3,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.4375,
+      "towers_killed": 0,
+      "roshans_killed": 0,
+      "observers_placed": 0,
+      "stuns": 32.399998,
+      "max_hero_hit": {
+        "time": 874,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_dragon_knight",
+        "key": "npc_dota_hero_techies",
+        "value": 226,
+        "slot": 7,
+        "player_slot": 130,
+        "inflictor": "dragon_knight_breathe_fire",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        14317
+      ],
+      "lh_t": [
+        0,
+        246
+      ],
+      "dn_t": [
+        0,
+        6
+      ],
+      "xp_t": [
+        0,
+        18422
+      ],
+      "networth_t": [
+        600,
+        12755
+      ],
+      "camps_stacked_t": [
+        0,
+        2
+      ],
+      "tower_damage_t": [
+        0,
+        0
+      ],
+      "hero_damage_t": [
+        0,
+        10199
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [],
+      "sen_log": [],
+      "obs_left_log": [],
+      "sen_left_log": [],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "branches"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 299,
+          "key": "npc_dota_hero_viper"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 295,
+          "time": 480,
+          "gold_lost": 57,
+          "key": "npc_dota_hero_viper",
+          "time_dead": 24
+        },
+        {
+          "gold_fed": 592,
+          "time": 2026,
+          "gold_lost": 302,
+          "key": "npc_dota_hero_windrunner"
+        }
+      ],
+      "buyback_log": [
+        {
+          "time": 1990,
+          "type": "buyback_log",
+          "slot": 7,
+          "player_slot": 130
+        }
+      ],
+      "runes_log": [
+        {
+          "time": 134,
+          "key": "7"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "102": {
+          "121": 1,
+          "124": 1
+        },
+        "103": {
+          "119": 1
+        }
+      },
+      "obs": {},
+      "sen": {},
+      "actions": {
+        "1": 6999,
+        "2": 106
+      },
+      "pings": 8,
+      "purchase": {
+        "power_treads": 1,
+        "wind_lace": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -1989
+      },
+      "xp_reasons": {
+        "0": 104,
+        "1": 3746
+      },
+      "killed": {
+        "npc_dota_neutral_mud_golem": 4,
+        "npc_dota_neutral_rock_golem": 2
+      },
+      "item_uses": {
+        "power_treads": 477,
+        "tpscroll": 9
+      },
+      "ability_uses": {
+        "dragon_knight_elder_dragon_form": 14,
+        "dragon_knight_dragon_tail": 23
+      },
+      "ability_targets": {
+        "dragon_knight_dragon_tail": {
+          "npc_dota_hero_pangolier": 4,
+          "npc_dota_hero_techies": 4
+        },
+        "dragon_knight_breathe_fire": {
+          "npc_dota_hero_pangolier": 2,
+          "npc_dota_hero_techies": 2
+        }
+      },
+      "damage_targets": {
+        "dragon_knight_elder_dragon_form": {
+          "npc_dota_hero_pangolier": 50,
+          "npc_dota_hero_techies": 15
+        },
+        "searing_signet": {
+          "npc_dota_hero_pangolier": 187,
+          "npc_dota_hero_techies": 152
+        }
+      },
+      "hero_hits": {
+        "null": 22,
+        "dragon_knight_elder_dragon_form": 18
+      },
+      "damage": {
+        "npc_dota_neutral_mud_golem": 3249,
+        "npc_dota_neutral_rock_golem": 1955
+      },
+      "damage_taken": {
+        "npc_dota_neutral_mud_golem": 155,
+        "npc_dota_neutral_rock_golem": 176
+      },
+      "damage_inflictor": {
+        "null": 1307,
+        "dragon_knight_elder_dragon_form": 327
+      },
+      "runes": {
+        "5": 1,
+        "7": 2
+      },
+      "killed_by": {
+        "npc_dota_hero_pangolier": 2,
+        "npc_dota_hero_windrunner": 3
+      },
+      "kill_streaks": {},
+      "multi_kills": {},
+      "life_state": {
+        "0": 1686,
+        "1": 11
+      },
+      "healing": {
+        "npc_dota_hero_dragon_knight": 19599
+      },
+      "damage_inflictor_received": {
+        "null": 9471,
+        "viper_nethertoxin": 659
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "ash_legion_shield",
+          "time": 568,
+          "item_neutral_enhancement": "enhancement_tough"
+        },
+        {
+          "time": 1636,
+          "item_neutral_enhancement": "enhancement_tough"
+        }
+      ],
+      "account_id": 106305042,
+      "party_id": 0,
+      "permanent_buffs": [
+        {
+          "permanent_buff": 12,
+          "stack_count": 0,
+          "grant_time": 1836
+        }
+      ],
+      "party_size": 10,
+      "team_number": 1,
+      "team_slot": 2,
+      "hero_id": 49,
+      "hero_variant": 0,
+      "item_0": 36,
+      "item_1": 244,
+      "item_2": 178,
+      "item_3": 63,
+      "item_4": 1,
+      "item_5": 116,
+      "backpack_0": 0,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 1604,
+      "item_neutral2": 1586,
+      "kills": 5,
+      "deaths": 10,
+      "assists": 2,
+      "leaver_status": 0,
+      "last_hits": 251,
+      "denies": 6,
+      "gold_per_min": 446,
+      "xp_per_min": 575,
+      "level": 19,
+      "net_worth": 11803,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 1,
+      "moonshard": 0,
+      "hero_damage": 14021,
+      "tower_damage": 0,
+      "hero_healing": 0,
+      "gold": 1113,
+      "gold_spent": 13080,
+      "ability_upgrades_arr": [
+        5226,
+        5229
+      ],
+      "personaname": ".;;;:!!?&@\u2026,",
+      "name": "Larl",
+      "last_login": null,
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": false,
+      "win": 0,
+      "lose": 1,
+      "total_gold": 15134,
+      "total_xp": 19511,
+      "kills_per_min": 0.14734774066797643,
+      "kda": 0.64,
+      "abandons": 0,
+      "neutral_kills": 123,
+      "tower_kills": 0,
+      "courier_kills": 0,
+      "lane_kills": 126,
+      "hero_kills": 5,
+      "observer_kills": 1,
+      "sentry_kills": 0,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 3,
+      "buyback_count": 1,
+      "observer_uses": 1,
+      "sentry_uses": 0,
+      "lane_efficiency": 0.5167744543249798,
+      "lane_efficiency_pct": 51,
+      "lane": 2,
+      "lane_role": 2,
+      "is_roaming": false,
+      "purchase_time": {
+        "branches": 396,
+        "gauntlets": 466
+      },
+      "first_purchase_time": {
+        "branches": -89,
+        "gauntlets": -89
+      },
+      "item_win": {
+        "branches": 0,
+        "gauntlets": 0
+      },
+      "item_usage": {
+        "branches": 1,
+        "gauntlets": 1
+      },
+      "purchase_ward_observer": 1,
+      "purchase_tpscroll": 2,
+      "actions_per_min": 273,
+      "life_state_dead": 351,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 446,
+          "pct": 0.21996567505720824
+        },
+        "xp_per_min": {
+          "raw": 575,
+          "pct": 0.2048054919908467
+        },
+        "kills_per_min": {
+          "raw": 0.14734774066797643,
+          "pct": 0.3595537757437071
+        },
+        "deaths_per_min": {
+          "raw": 0.29469548133595286,
+          "pct": 0.08466819221967958
+        },
+        "assists_per_min": {
+          "raw": 0.058939096267190565,
+          "pct": 0.020881006864988557
+        },
+        "last_hits_per_min": {
+          "raw": 7.3968565815324165,
+          "pct": 0.6836384439359268
+        },
+        "denies_per_min": {
+          "raw": 0.17681728880157171,
+          "pct": 0.4525171624713959
+        },
+        "hero_damage_per_min": {
+          "raw": 413.1925343811395,
+          "pct": 0.14073226544622425
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.9548054919908466
+        },
+        "tower_damage": {
+          "raw": 0,
+          "pct": 0.06321510297482838
+        }
+      },
+      "position_est": 2
+    },
+    {
+      "player_slot": 131,
+      "obs_placed": 9,
+      "sen_placed": 13,
+      "creeps_stacked": 2,
+      "camps_stacked": 1,
+      "rune_pickups": 4,
+      "firstblood_claimed": 0,
+      "teamfight_participation": 0.875,
+      "towers_killed": 0,
+      "roshans_killed": 0,
+      "observers_placed": 9,
+      "stuns": 80.26629,
+      "max_hero_hit": {
+        "time": 1438,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_nyx_assassin",
+        "key": "npc_dota_hero_techies",
+        "value": 480,
+        "slot": 8,
+        "player_slot": 131,
+        "inflictor": "nyx_assassin_spiked_carapace",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        8133
+      ],
+      "lh_t": [
+        0,
+        18
+      ],
+      "dn_t": [
+        0,
+        3
+      ],
+      "xp_t": [
+        0,
+        9158
+      ],
+      "networth_t": [
+        600,
+        6366
+      ],
+      "camps_stacked_t": [
+        0,
+        1
+      ],
+      "tower_damage_t": [
+        0,
+        0
+      ],
+      "hero_damage_t": [
+        0,
+        12826
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [
+        {
+          "time": -8,
+          "type": "obs_log",
+          "key": "[121,138]",
+          "slot": 8,
+          "player_slot": 131,
+          "x": 120.7,
+          "y": 137.7,
+          "z": 129,
+          "entityleft": false,
+          "ehandle": 16451074
+        }
+      ],
+      "sen_log": [
+        {
+          "time": 57,
+          "type": "sen_log",
+          "key": "[163,92]",
+          "slot": 8,
+          "player_slot": 131,
+          "x": 162.5,
+          "y": 91.5,
+          "z": 129,
+          "entityleft": false,
+          "ehandle": 16058397
+        }
+      ],
+      "obs_left_log": [
+        {
+          "time": 352,
+          "type": "obs_left_log",
+          "key": "[121,138]",
+          "slot": 8,
+          "player_slot": 131,
+          "attackername": "npc_dota_hero_nyx_assassin",
+          "x": 120.7,
+          "y": 137.7,
+          "z": 129,
+          "entityleft": true,
+          "ehandle": 16451074
+        }
+      ],
+      "sen_left_log": [
+        {
+          "time": 109,
+          "type": "sen_left_log",
+          "key": "[163,92]",
+          "slot": 8,
+          "player_slot": 131,
+          "attackername": "npc_dota_hero_techies",
+          "x": 162.5,
+          "y": 91.5,
+          "z": 129,
+          "entityleft": true,
+          "ehandle": 16058397
+        }
+      ],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "tango"
+        },
+        {
+          "charges": 2,
+          "time": -89,
+          "key": "enchanted_mango"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 184,
+          "key": "npc_dota_hero_techies"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 233,
+          "time": 190,
+          "gold_lost": 21,
+          "key": "npc_dota_hero_windrunner",
+          "time_dead": 15
+        },
+        {
+          "gold_fed": 575,
+          "gold_fed_shared": true,
+          "time": 697,
+          "gold_lost": 56,
+          "key": "npc_dota_hero_shadow_demon",
+          "time_dead": 26
+        },
+        {
+          "gold_fed": 414,
+          "time": 2028,
+          "gold_lost": 146,
+          "key": "npc_dota_hero_windrunner"
+        }
+      ],
+      "buyback_log": [
+        {
+          "time": 2014,
+          "type": "buyback_log",
+          "slot": 8,
+          "player_slot": 131
+        }
+      ],
+      "runes_log": [
+        {
+          "time": 361,
+          "key": "0"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "73": {
+          "164": 1
+        },
+        "74": {
+          "151": 1,
+          "158": 1
+        }
+      },
+      "obs": {
+        "73": {
+          "185": 1
+        },
+        "86": {
+          "172": 1
+        }
+      },
+      "sen": {
+        "79": {
+          "185": 1
+        },
+        "87": {
+          "169": 1
+        }
+      },
+      "actions": {
+        "1": 9091,
+        "2": 3
+      },
+      "pings": 31,
+      "purchase": {
+        "ward_sentry": 13,
+        "wind_lace": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -1291
+      },
+      "xp_reasons": {
+        "0": 244,
+        "1": 5135
+      },
+      "killed": {
+        "npc_dota_creep_badguys_melee": 1,
+        "npc_dota_creep_goodguys_melee": 5
+      },
+      "item_uses": {
+        "ward_sentry": 4,
+        "tpscroll": 9
+      },
+      "ability_uses": {
+        "nyx_assassin_spiked_carapace": 35,
+        "twin_gate_portal_warp": 3
+      },
+      "ability_targets": {
+        "nyx_assassin_jolt": {
+          "npc_dota_hero_pangolier": 7,
+          "npc_dota_hero_techies": 6
+        }
+      },
+      "damage_targets": {
+        "null": {
+          "npc_dota_hero_pangolier": 294,
+          "npc_dota_hero_techies": 523
+        },
+        "essence_distiller": {
+          "npc_dota_hero_pangolier": 108,
+          "npc_dota_hero_techies": 197
+        }
+      },
+      "hero_hits": {
+        "null": 36,
+        "essence_distiller": 47
+      },
+      "damage": {
+        "npc_dota_hero_pangolier": 2389,
+        "npc_dota_hero_nyx_assassin": 225
+      },
+      "damage_taken": {
+        "npc_dota_hero_pangolier": 9025,
+        "npc_dota_hero_nyx_assassin": 225
+      },
+      "damage_inflictor": {
+        "null": 1492,
+        "essence_distiller": 705
+      },
+      "runes": {
+        "0": 1,
+        "5": 2
+      },
+      "killed_by": {
+        "npc_dota_hero_pangolier": 6,
+        "npc_dota_hero_windrunner": 2
+      },
+      "kill_streaks": {},
+      "multi_kills": {},
+      "life_state": {
+        "0": 1690,
+        "1": 33
+      },
+      "healing": {
+        "npc_dota_hero_nyx_assassin": 11333
+      },
+      "damage_inflictor_received": {
+        "null": 7877,
+        "windrunner_powershot": 2086
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "stonefeather_satchel",
+          "time": 561,
+          "item_neutral_enhancement": "enhancement_quickened"
+        }
+      ],
+      "account_id": 218231587,
+      "party_id": 0,
+      "permanent_buffs": [],
+      "party_size": 10,
+      "team_number": 1,
+      "team_slot": 3,
+      "hero_id": 88,
+      "hero_variant": 0,
+      "item_0": 1,
+      "item_1": 1852,
+      "item_2": 36,
+      "item_3": 188,
+      "item_4": 0,
+      "item_5": 214,
+      "backpack_0": 0,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 1859,
+      "item_neutral2": 1593,
+      "kills": 4,
+      "deaths": 13,
+      "assists": 10,
+      "leaver_status": 0,
+      "last_hits": 18,
+      "denies": 3,
+      "gold_per_min": 250,
+      "xp_per_min": 297,
+      "level": 13,
+      "net_worth": 5739,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 0,
+      "moonshard": 0,
+      "hero_damage": 14350,
+      "tower_damage": 0,
+      "hero_healing": 0,
+      "gold": 204,
+      "gold_spent": 7545,
+      "ability_upgrades_arr": [
+        5462,
+        1104
+      ],
+      "personaname": "pablo aura",
+      "name": "not_me",
+      "last_login": "2025-05-10T12:08:18.458Z",
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": false,
+      "win": 0,
+      "lose": 1,
+      "total_gold": 8483,
+      "total_xp": 10078,
+      "kills_per_min": 0.11787819253438116,
+      "kda": 1,
+      "abandons": 0,
+      "neutral_kills": 2,
+      "tower_kills": 0,
+      "courier_kills": 0,
+      "lane_kills": 17,
+      "hero_kills": 4,
+      "observer_kills": 0,
+      "sentry_kills": 2,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 0,
+      "buyback_count": 1,
+      "observer_uses": 7,
+      "sentry_uses": 4,
+      "lane_efficiency": 0.4381568310428456,
+      "lane_efficiency_pct": 43,
+      "lane": 1,
+      "lane_role": 3,
+      "is_roaming": true,
+      "purchase_time": {
+        "tango": -58,
+        "enchanted_mango": -89
+      },
+      "first_purchase_time": {
+        "tango": -89,
+        "enchanted_mango": -89
+      },
+      "item_win": {
+        "tango": 0,
+        "enchanted_mango": 0
+      },
+      "item_usage": {
+        "tango": 1,
+        "enchanted_mango": 1
+      },
+      "purchase_ward_observer": 8,
+      "purchase_ward_sentry": 13,
+      "purchase_tpscroll": 1,
+      "actions_per_min": 306,
+      "life_state_dead": 347,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 250,
+          "pct": 0.06544953496383052
+        },
+        "xp_per_min": {
+          "raw": 297,
+          "pct": 0.030313468825353084
+        },
+        "kills_per_min": {
+          "raw": 0.11787819253438113,
+          "pct": 0.23458491215983465
+        },
+        "deaths_per_min": {
+          "raw": 0.3831041257367387,
+          "pct": 0.08129521184981059
+        },
+        "assists_per_min": {
+          "raw": 0.29469548133595286,
+          "pct": 0.3196693076128143
+        },
+        "last_hits_per_min": {
+          "raw": 0.5304518664047151,
+          "pct": 0.04891491560454702
+        },
+        "denies_per_min": {
+          "raw": 0.08840864440078586,
+          "pct": 0.5783672063382708
+        },
+        "hero_damage_per_min": {
+          "raw": 422.88801571709234,
+          "pct": 0.1801584567688598
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.7292456079917327
+        },
+        "tower_damage": {
+          "raw": 0,
+          "pct": 0.29486737857388906
+        }
+      },
+      "position_est": 4
+    },
+    {
+      "player_slot": 132,
+      "obs_placed": 0,
+      "sen_placed": 0,
+      "creeps_stacked": 11,
+      "camps_stacked": 4,
+      "rune_pickups": 1,
+      "firstblood_claimed": 1,
+      "teamfight_participation": 0.6875,
+      "towers_killed": 1,
+      "roshans_killed": 0,
+      "observers_placed": 0,
+      "stuns": 40.732666,
+      "max_hero_hit": {
+        "time": 1514,
+        "type": "max_hero_hit",
+        "unit": "npc_dota_hero_batrider",
+        "key": "npc_dota_hero_windrunner",
+        "value": 64,
+        "slot": 9,
+        "player_slot": 132,
+        "inflictor": "batrider_flamebreak",
+        "max": true
+      },
+      "times": [
+        0,
+        1980
+      ],
+      "gold_t": [
+        0,
+        15105
+      ],
+      "lh_t": [
+        0,
+        215
+      ],
+      "dn_t": [
+        0,
+        3
+      ],
+      "xp_t": [
+        0,
+        15953
+      ],
+      "networth_t": [
+        600,
+        13585
+      ],
+      "camps_stacked_t": [
+        0,
+        4
+      ],
+      "tower_damage_t": [
+        0,
+        42
+      ],
+      "hero_damage_t": [
+        0,
+        12061
+      ],
+      "hero_healing_t": [
+        0,
+        0
+      ],
+      "obs_log": [],
+      "sen_log": [],
+      "obs_left_log": [],
+      "sen_left_log": [],
+      "purchase_log": [
+        {
+          "time": -89,
+          "key": "circlet"
+        }
+      ],
+      "kills_log": [
+        {
+          "time": 51,
+          "key": "npc_dota_hero_techies"
+        }
+      ],
+      "deaths_log": [
+        {
+          "gold_fed": 292,
+          "time": 402,
+          "gold_lost": 57,
+          "key": "npc_dota_hero_windrunner",
+          "time_dead": 24
+        },
+        {
+          "gold_fed": 611,
+          "time": 2019,
+          "gold_lost": 345,
+          "key": "npc_dota_hero_windrunner"
+        }
+      ],
+      "buyback_log": [],
+      "runes_log": [
+        {
+          "time": 842,
+          "key": "3"
+        }
+      ],
+      "connection_log": [],
+      "lane_pos": {
+        "136": {
+          "119": 1
+        },
+        "137": {
+          "119": 2,
+          "121": 1
+        }
+      },
+      "obs": {},
+      "sen": {},
+      "actions": {
+        "1": 9856,
+        "2": 139
+      },
+      "pings": 18,
+      "purchase": {
+        "wind_lace": 2,
+        "recipe_magic_wand": 1
+      },
+      "gold_reasons": {
+        "0": 600,
+        "1": -1668
+      },
+      "xp_reasons": {
+        "0": 0,
+        "1": 2183
+      },
+      "killed": {
+        "npc_dota_neutral_rock_golem": 4,
+        "npc_dota_neutral_mud_golem": 2
+      },
+      "item_uses": {
+        "tpscroll": 7,
+        "ancient_janggo": 6
+      },
+      "ability_uses": {
+        "batrider_sticky_napalm": 166,
+        "batrider_firefly": 38
+      },
+      "ability_targets": {
+        "batrider_flaming_lasso": {
+          "npc_dota_hero_pangolier": 1,
+          "npc_dota_hero_techies": 3
+        }
+      },
+      "damage_targets": {
+        "batrider_sticky_napalm": {
+          "npc_dota_hero_pangolier": 774,
+          "npc_dota_hero_techies": 981
+        },
+        "null": {
+          "npc_dota_hero_pangolier": 73,
+          "npc_dota_hero_techies": 389
+        }
+      },
+      "hero_hits": {
+        "null": 22,
+        "batrider_sticky_napalm": 243
+      },
+      "damage": {
+        "npc_dota_neutral_mud_golem": 1745,
+        "npc_dota_neutral_ogre_mauler": 1848
+      },
+      "damage_taken": {
+        "npc_dota_creep_goodguys_melee_upgraded": 63,
+        "npc_dota_neutral_rock_golem": 222
+      },
+      "damage_inflictor": {
+        "null": 838,
+        "batrider_sticky_napalm": 3236
+      },
+      "runes": {
+        "3": 1
+      },
+      "killed_by": {
+        "npc_dota_hero_pangolier": 1,
+        "npc_dota_hero_techies": 1
+      },
+      "kill_streaks": {},
+      "multi_kills": {},
+      "life_state": {
+        "0": 1760,
+        "1": 14
+      },
+      "healing": {
+        "npc_dota_hero_batrider": 17688
+      },
+      "damage_inflictor_received": {
+        "null": 12732,
+        "windrunner_powershot": 1229
+      },
+      "randomed": false,
+      "pred_vict": false,
+      "neutral_tokens_log": [],
+      "neutral_item_history": [
+        {
+          "item_neutral": "polliwog_charm",
+          "time": 562,
+          "item_neutral_enhancement": "enhancement_quickened"
+        }
+      ],
+      "account_id": 140835095,
+      "party_id": 0,
+      "permanent_buffs": [],
+      "party_size": 10,
+      "team_number": 1,
+      "team_slot": 4,
+      "hero_id": 65,
+      "hero_variant": 0,
+      "item_0": 116,
+      "item_1": 77,
+      "item_2": 21,
+      "item_3": 931,
+      "item_4": 1,
+      "item_5": 36,
+      "backpack_0": 4204,
+      "backpack_1": 0,
+      "backpack_2": 0,
+      "item_neutral": 585,
+      "item_neutral2": 1593,
+      "kills": 4,
+      "deaths": 7,
+      "assists": 7,
+      "leaver_status": 0,
+      "last_hits": 219,
+      "denies": 3,
+      "gold_per_min": 460,
+      "xp_per_min": 478,
+      "level": 17,
+      "net_worth": 13766,
+      "aghanims_scepter": 0,
+      "aghanims_shard": 0,
+      "moonshard": 0,
+      "hero_damage": 14585,
+      "tower_damage": 42,
+      "hero_healing": 0,
+      "gold": 1176,
+      "gold_spent": 13405,
+      "ability_upgrades_arr": [
+        5320,
+        512
+      ],
+      "personaname": "GAMBOT-PARIS",
+      "name": "Batyuk",
+      "last_login": null,
+      "rank_tier": 80,
+      "computed_mmr": null,
+      "is_subscriber": false,
+      "radiant_win": true,
+      "start_time": 1791633460,
+      "duration": 2036,
+      "cluster": 274,
+      "lobby_type": 1,
+      "game_mode": 2,
+      "is_contributor": false,
+      "patch": 60,
+      "region": 3,
+      "isRadiant": false,
+      "win": 0,
+      "lose": 1,
+      "total_gold": 15609,
+      "total_xp": 16220,
+      "kills_per_min": 0.11787819253438116,
+      "kda": 1.38,
+      "abandons": 0,
+      "neutral_kills": 101,
+      "tower_kills": 1,
+      "courier_kills": 0,
+      "lane_kills": 120,
+      "hero_kills": 4,
+      "observer_kills": 0,
+      "sentry_kills": 0,
+      "roshan_kills": 0,
+      "necronomicon_kills": 0,
+      "ancient_kills": 11,
+      "buyback_count": 0,
+      "observer_uses": 0,
+      "sentry_uses": 0,
+      "lane_efficiency": 0.6796685529506872,
+      "lane_efficiency_pct": 67,
+      "lane": 1,
+      "lane_role": 3,
+      "is_roaming": false,
+      "purchase_time": {
+        "circlet": -89,
+        "branches": -267
+      },
+      "first_purchase_time": {
+        "circlet": -89,
+        "branches": -89
+      },
+      "item_win": {
+        "circlet": 0,
+        "branches": 0
+      },
+      "item_usage": {
+        "circlet": 1,
+        "branches": 1
+      },
+      "purchase_tpscroll": 3,
+      "actions_per_min": 354,
+      "life_state_dead": 277,
+      "cosmetics": [],
+      "benchmarks": {
+        "gold_per_min": {
+          "raw": 460,
+          "pct": 0.7194805194805195
+        },
+        "xp_per_min": {
+          "raw": 478,
+          "pct": 0.33246753246753247
+        },
+        "kills_per_min": {
+          "raw": 0.11787819253438113,
+          "pct": 0.3974025974025974
+        },
+        "deaths_per_min": {
+          "raw": 0.206286836935167,
+          "pct": 0.6415584415584416
+        },
+        "assists_per_min": {
+          "raw": 0.206286836935167,
+          "pct": 0.22597402597402597
+        },
+        "last_hits_per_min": {
+          "raw": 6.453831041257367,
+          "pct": 0.922077922077922
+        },
+        "denies_per_min": {
+          "raw": 0.08840864440078586,
+          "pct": 0.638961038961039
+        },
+        "hero_damage_per_min": {
+          "raw": 429.81335952848724,
+          "pct": 0.42077922077922075
+        },
+        "hero_healing_per_min": {
+          "raw": 0,
+          "pct": 0.8415584415584415
+        },
+        "tower_damage": {
+          "raw": 42,
+          "pct": 0.23636363636363636
+        }
+      },
+      "position_est": 3
+    }
+  ],
+  "leagueid": 19102,
+  "start_time": 1791633460,
+  "duration": 2036,
+  "series_id": 1152652,
+  "series_type": 1,
+  "cluster": 274,
+  "replay_salt": 490246688,
+  "radiant_win": true,
+  "pre_game_duration": 90,
+  "match_seq_num": 7591232683,
+  "tower_status_radiant": 2047,
+  "tower_status_dire": 0,
+  "barracks_status_radiant": 63,
+  "barracks_status_dire": 0,
+  "first_blood_time": 51,
+  "lobby_type": 1,
+  "human_players": 10,
+  "game_mode": 2,
+  "flags": 5,
+  "engine": 1,
+  "radiant_score": 49,
+  "dire_score": 16,
+  "radiant_team_id": 9823272,
+  "radiant_name": "Team Yandex",
+  "radiant_logo": 17599312477106395000,
+  "radiant_team_complete": 1,
+  "dire_team_id": 7119388,
+  "dire_name": "Team Spirit",
+  "dire_logo": 1839179120711952000,
+  "dire_team_complete": 1,
+  "radiant_captain": 93817671,
+  "dire_captain": 106305042,
+  "picks_bans": [
+    {
+      "is_pick": false,
+      "hero_id": 123,
+      "team": 0,
+      "order": 0
+    }
+  ],
+  "od_data": {
+    "has_api": true,
+    "has_gcdata": true,
+    "has_parsed": true,
+    "has_archive": false
+  },
+  "league": {
+    "leagueid": 19102,
+    "ticket": null,
+    "banner": null,
+    "tier": "professional",
+    "name": "BLAST SLAM VIII"
+  },
+  "radiant_team": {
+    "team_id": 9823272,
+    "name": "Team Yandex",
+    "tag": "TY",
+    "logo_url": "https://cdn.steamusercontent.com/ugc/17599312477106395083/DEE09659361BE8BDB1438FCFE6BF03C8B62A45F9/"
+  },
+  "dire_team": {
+    "team_id": 7119388,
+    "name": "Team Spirit",
+    "tag": "TSpirit",
+    "logo_url": "https://cdn.steamusercontent.com/ugc/1839179120711951766/CD7E0885CB527334205CC7885E9C101B7BC17702/"
+  },
+  "metadata": null,
+  "replay_url": "http://replay274.valve.net/570/9037980041_490246688.dem.bz2",
+  "patch": 60,
+  "region": 3,
+  "all_word_counts": {
+    "prod": 1,
+    "pause": 1
+  },
+  "my_word_counts": {},
+  "throw": 0,
+  "loss": 33713
+}
