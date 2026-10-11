@@ -1,17 +1,16 @@
 package io.luck.AghsLabs.resource;
 
-import io.luck.AghsLabs.model.Match;
-import io.luck.AghsLabs.model.MatchChat;
-import io.luck.AghsLabs.model.MatchWards;
-import io.luck.AghsLabs.model.MatchSummary;
+import io.luck.AghsLabs.model.*;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPlayerRatio;
 import io.luck.AghsLabs.service.MatchService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class MatchResource {
@@ -51,5 +50,10 @@ public class MatchResource {
     public ResponseEntity<MatchWards> getMatchWards(@PathVariable long id) {
         MatchWards wards = this.matchService.getMatchWards(id);
         return wards != null ? ResponseEntity.ok(wards) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/matches/live")
+    public ResponseEntity<Set<LiveMatch>> getMatchLive(@RequestParam(required = false) Integer limit) {
+        return ResponseEntity.ok(matchService.getLiveMatches(limit));
     }
 }

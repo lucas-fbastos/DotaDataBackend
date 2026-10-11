@@ -17,3 +17,7 @@ Accept: application/json
 ### Get match ward logs
 GET {{baseUrl}}/match/{{matchId}}/wards
 Accept: application/json
+
+### Get live matches
+GET {{baseUrl}}/matches/live?limit=10
+Accept: application/json

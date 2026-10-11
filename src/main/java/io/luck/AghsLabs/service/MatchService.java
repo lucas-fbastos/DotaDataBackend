@@ -1,21 +1,20 @@
 package io.luck.AghsLabs.service;
 
+import io.luck.AghsLabs.model.*;
+import io.luck.AghsLabs.mapper.LiveMatchMapper;
+import io.luck.AghsLabs.providers.opendota.model.OpenDotaLiveMatch;
+import io.luck.AghsLabs.repository.HeroRepository;
 import io.luck.AghsLabs.model.entity.Hero;
 import io.luck.AghsLabs.model.entity.Item;
-import io.luck.AghsLabs.model.Match;
-import io.luck.AghsLabs.model.MatchChat;
-import io.luck.AghsLabs.model.MatchWards;
-import io.luck.AghsLabs.model.MatchSummary;
 import io.luck.AghsLabs.mapper.MatchDetailsMapper;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPlayerMatch;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPlayerRatio;
+import io.luck.AghsLabs.providers.opendota.service.OpenDotaLiveDataService;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaPlayerMatchDataService;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -23,15 +22,23 @@ import java.util.stream.Collectors;
 public class MatchService {
 
     private final HeroService heroService;
+    private final HeroRepository heroRepository;
     private final ItemService itemService;
     private final MatchDetailsMapper matchDetailsMapper;
     private final OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService;
+    private final OpenDotaLiveDataService openDotaLiveDataService;
 
-    public MatchService(HeroService heroService, ItemService itemService, MatchDetailsMapper matchDetailsMapper,
-                        OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService) {
+    public MatchService(HeroService heroService,
+                        HeroRepository heroRepository,
+                        ItemService itemService,
+                        MatchDetailsMapper matchDetailsMapper,
+                        OpenDotaPlayerMatchDataService openDotaPlayerMatchDataService,
+                        OpenDotaLiveDataService openDotaLiveDataService) {
         this.heroService = heroService;
+        this.heroRepository = heroRepository;
         this.itemService = itemService;
         this.matchDetailsMapper = matchDetailsMapper;
+        this.openDotaLiveDataService = openDotaLiveDataService;
         this.openDotaPlayerMatchDataService = openDotaPlayerMatchDataService;
     }
 
@@ -98,4 +105,19 @@ public class MatchService {
         return details == null ? null : matchDetailsMapper.convertWards(details);
     }
 
+    public Set<LiveMatch> getLiveMatches(Integer limit) {
+        var matches = openDotaLiveDataService.getLiveMatches();
+        if (matches == null || matches.isEmpty()) return Collections.emptySet();
+
+        var limitedMatches = limit == null ? matches : matches.stream().limit(limit).toList();
+        var heroIds = limitedMatches.stream()
+                .filter(match -> match.players() != null)
+                .flatMap(match -> match.players().stream())
+                .map(OpenDotaLiveMatch.OpenDotaLivePlayer::heroId)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toSet());
+
+        var matchHeroes = new HashSet<>(heroRepository.findAllById(heroIds));
+        return LiveMatchMapper.convert(limitedMatches, matchHeroes);
+    }
 }

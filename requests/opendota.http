@@ -38,3 +38,7 @@ Accept: application/json
 ### Get professional players
 GET {{baseUrl}}/proPlayers
 Accept: application/json
+
+### Get live games
+GET {{baseUrl}}/live
+Accept: application/json
