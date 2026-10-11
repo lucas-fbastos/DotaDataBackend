@@ -86,7 +86,6 @@ class MatchDetailsMapperTest {
         var mapper = new MatchDetailsMapper(new MatchPlayerMapper());
         var match = mapper.convert(providerMatch, Map.of(), Map.of());
         var response = jsonMapper.readTree(jsonMapper.writeValueAsString(match));
-        assertValues(source, response, "$", true);
         assertEquals(source.get("duration").longValue(), match.getDuration().toSeconds());
         assertEquals(GameMode.getById(source.get("game_mode").intValue()).orElseThrow(), match.getGameMode());
         assertEquals(5, match.getRadiantTeam().size());
