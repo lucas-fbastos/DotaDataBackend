@@ -5,10 +5,12 @@ import io.luck.AghsLabs.model.dtos.ComparisonDtos.DeepComparison;
 import io.luck.AghsLabs.service.ComparisonService;
 import io.luck.AghsLabs.service.DeepComparisonService;
 import org.junit.jupiter.api.Test;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,6 +19,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class ComparisonResourceTest {
+
+    @Test
+    void overviewCacheDoesNotCallDeepComparisonCacheabilityMethod() throws Exception {
+        Cacheable cacheable = ComparisonService.class
+                .getMethod("getOverview", Long.class, Long.class, int.class, int.class)
+                .getAnnotation(Cacheable.class);
+
+        assertTrue(cacheable.unless().isEmpty());
+    }
 
     @Test
     void overviewUsesDocumentedDefaultsAndStableEnvelope() throws Exception {

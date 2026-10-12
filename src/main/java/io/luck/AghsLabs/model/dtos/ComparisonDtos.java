@@ -198,8 +198,14 @@ public final class ComparisonDtos {
 
     @Builder
     public record AbilityComparison(
-            List<Integer> leftOrderIds,
-            List<Integer> rightOrderIds
+            List<AbilitySummary> leftOrder,
+            List<AbilitySummary> rightOrder
+    ) {}
+
+    @Builder
+    public record AbilitySummary(
+            String name,
+            String image
     ) {}
 
     @Builder

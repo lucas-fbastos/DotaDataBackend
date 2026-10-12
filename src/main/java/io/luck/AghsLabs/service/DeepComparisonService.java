@@ -4,12 +4,14 @@ import io.luck.AghsLabs.config.CacheConfig;
 import io.luck.AghsLabs.exception.BadRequestException;
 import io.luck.AghsLabs.exception.ResourceNotFoundException;
 import io.luck.AghsLabs.model.dtos.ComparisonDtos.*;
+import io.luck.AghsLabs.model.entity.Ability;
 import io.luck.AghsLabs.model.entity.Item;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchDetailsData.Teamfight;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchDetailsData.TeamfightPlayer;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPlayerMatchDetails;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaPlayerMatchDataService;
+import io.luck.AghsLabs.repository.AbilityRepository;
 import lombok.Builder;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -29,11 +31,14 @@ import java.util.stream.Collectors;
 public class DeepComparisonService {
     private final OpenDotaPlayerMatchDataService matchDataService;
     private final ItemService itemService;
+    private final AbilityRepository abilityRepository;
 
     public DeepComparisonService(OpenDotaPlayerMatchDataService matchDataService,
-                                 ItemService itemService) {
+                                 ItemService itemService,
+                                 AbilityRepository abilityRepository) {
         this.matchDataService = matchDataService;
         this.itemService = itemService;
+        this.abilityRepository = abilityRepository;
     }
 
     @Cacheable(cacheNames = CacheConfig.DEEP_COMPARISONS,
@@ -102,6 +107,16 @@ public class DeepComparisonService {
         Map<Long, Item> itemsById = itemIds.isEmpty() ? Map.of() : itemService.getAllById(itemIds).stream()
                 .collect(Collectors.toMap(Item::getItemId, Function.identity()));
 
+        Set<Long> abilityIds = java.util.stream.Stream.concat(
+                        copyOrEmpty(left.player().abilityUpgradesArr()).stream(),
+                        copyOrEmpty(right.player().abilityUpgradesArr()).stream())
+                .filter(Objects::nonNull)
+                .map(Integer::longValue)
+                .collect(Collectors.toSet());
+        Map<Long, Ability> abilitiesById = abilityIds.isEmpty() ? Map.of()
+                : abilityRepository.findAllById(abilityIds).stream()
+                        .collect(Collectors.toMap(Ability::getId, Function.identity()));
+
         boolean completeData = leftParsed && rightParsed
                 && leftFarmAvailable && rightFarmAvailable && !farmCheckpoints.isEmpty()
                 && leftPurchasesAvailable && rightPurchasesAvailable
@@ -120,8 +135,8 @@ public class DeepComparisonService {
                 .farmCheckpoints(farmCheckpoints)
                 .itemComparison(itemComparison(left.player(), right.player(), itemsById))
                 .abilityComparison(AbilityComparison.builder()
-                        .leftOrderIds(copyOrEmpty(left.player().abilityUpgradesArr()))
-                        .rightOrderIds(copyOrEmpty(right.player().abilityUpgradesArr()))
+                        .leftOrder(abilityOrder(left.player().abilityUpgradesArr(), abilitiesById))
+                        .rightOrder(abilityOrder(right.player().abilityUpgradesArr(), abilitiesById))
                         .build())
                 .teamfightComparison(TeamFightComparison.builder()
                         .left(leftTeamFights.aggregate())
@@ -132,6 +147,15 @@ public class DeepComparisonService {
                         .build())
                 .availabilityWarnings(List.copyOf(warnings))
                 .build();
+    }
+
+    private List<AbilitySummary> abilityOrder(List<Integer> abilityIds, Map<Long, Ability> abilitiesById) {
+        return copyOrEmpty(abilityIds).stream()
+                .map(id -> id == null ? null : abilitiesById.get(id.longValue()))
+                .map(ability -> ability == null
+                        ? new AbilitySummary(null, null)
+                        : new AbilitySummary(ability.getName(), ability.getIcon()))
+                .toList();
     }
 
     private List<String> getWarnings(

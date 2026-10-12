@@ -5,6 +5,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestClient;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
@@ -17,15 +20,24 @@ class OpenDotaAbilityDataServiceTest {
         MockRestServiceServer server = MockRestServiceServer.bindTo(builder).build();
         server.expect(requestTo("https://api.opendota.test/api/constants/ability_ids"))
                 .andRespond(withSuccess("""
-                        {"5003":"antimage_mana_break"}
+                        {
+                          "5003":"antimage_mana_break",
+                          "3060,1617":"templar_assassin_hidden_gates"
+                        }
                         """, MediaType.APPLICATION_JSON));
         var service = new OpenDotaAbilityDataService(builder.build());
 
         var result = service.getIds();
 
-        assertEquals(1, result.size());
-        assertEquals(5003L, result.getFirst().id());
-        assertEquals("antimage_mana_break", result.getFirst().name());
+        Map<Long, String> idsByName = result.stream().collect(Collectors.toMap(
+                ability -> ability.id(),
+                ability -> ability.name()
+        ));
+        assertEquals(Map.of(
+                5003L, "antimage_mana_break",
+                3060L, "templar_assassin_hidden_gates",
+                1617L, "templar_assassin_hidden_gates"
+        ), idsByName);
         server.verify();
     }
 

@@ -8,6 +8,7 @@ import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 @Service
 public class OpenDotaAbilityDataService {
@@ -19,7 +20,7 @@ public class OpenDotaAbilityDataService {
     }
 
     public List<OpenDotaAbilityId> getIds() {
-        Map<Long, String> abilityIds = restClient.get()
+        Map<String, String> abilityIds = restClient.get()
                 .uri("/constants/ability_ids")
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
@@ -29,7 +30,10 @@ public class OpenDotaAbilityDataService {
         }
 
         return abilityIds.entrySet().stream()
-                .map(entry -> new OpenDotaAbilityId(entry.getKey(), entry.getValue()))
+                .flatMap(entry -> Arrays.stream(entry.getKey().split(","))
+                        .map(String::trim)
+                        .filter(id -> !id.isEmpty())
+                        .map(id -> new OpenDotaAbilityId(Long.parseLong(id), entry.getValue())))
                 .toList();
     }
 

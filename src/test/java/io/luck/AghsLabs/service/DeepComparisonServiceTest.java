@@ -1,10 +1,12 @@
 package io.luck.AghsLabs.service;
 
 import io.luck.AghsLabs.exception.BadRequestException;
+import io.luck.AghsLabs.model.entity.Ability;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchDetailsData;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPlayerMatchDetails;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaPlayerMatchDataService;
+import io.luck.AghsLabs.repository.AbilityRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
 class DeepComparisonServiceTest {
@@ -21,7 +24,8 @@ class DeepComparisonServiceTest {
     @Test
     void unparsedMatchesReturnFocusedPartialResponseWithWarnings() {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
-        var service = new DeepComparisonService(provider, mock(ItemService.class));
+        var service = new DeepComparisonService(
+                provider, mock(ItemService.class), mock(AbilityRepository.class));
         when(provider.getMatchDetails(10L)).thenReturn(details(10L,
                 OpenDotaMatchPlayer.builder().accountId(1L).playerSlot(0).heroId(7L).build()));
         when(provider.getMatchDetails(20L)).thenReturn(details(20L,
@@ -36,13 +40,18 @@ class DeepComparisonServiceTest {
         assertTrue(result.availabilityWarnings().contains("LEFT_MATCH_NOT_PARSED"));
         assertTrue(result.availabilityWarnings().contains("RIGHT_FARM_TIMELINE_UNAVAILABLE"));
         assertTrue(result.farmCheckpoints().isEmpty());
-        assertTrue(result.abilityComparison().leftOrderIds().isEmpty());
+        assertTrue(result.abilityComparison().leftOrder().isEmpty());
     }
 
     @Test
     void parsedMatchesProduceLeftMinusRightTimelinesAndAggregates() {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
-        var service = new DeepComparisonService(provider, mock(ItemService.class));
+        var abilityRepository = mock(AbilityRepository.class);
+        when(abilityRepository.findAllById(any())).thenReturn(List.of(
+                new Ability(101L, "Mana Break", "/abilities/mana_break.png"),
+                new Ability(102L, "Blink", "/abilities/blink.png")
+        ));
+        var service = new DeepComparisonService(provider, mock(ItemService.class), abilityRepository);
         var leftPlayer = parsedPlayer(1L, 0, 7L, 100L, 10L, 5);
         var rightPlayer = parsedPlayer(2L, 128, 7L, 80L, 8L, 3);
         when(provider.getMatchDetails(10L)).thenReturn(parsedDetails(10L, leftPlayer, 1_000L));
@@ -55,7 +64,9 @@ class DeepComparisonServiceTest {
         assertEquals(2, result.summaryDelta().kills());
         assertEquals(20L, result.farmCheckpoints().getLast().delta().gold());
         assertEquals(20, result.itemComparison().purchaseTimings().getFirst().deltaSeconds());
-        assertEquals(List.of(101, 102), result.abilityComparison().leftOrderIds());
+        assertEquals("Mana Break", result.abilityComparison().leftOrder().getFirst().name());
+        assertEquals("/abilities/mana_break.png", result.abilityComparison().leftOrder().getFirst().image());
+        assertEquals("Blink", result.abilityComparison().leftOrder().get(1).name());
         assertEquals(1_000L, result.teamfightComparison().left().damage());
         assertEquals(-1_000L, result.teamfightComparison().delta().damage());
     }
@@ -63,7 +74,8 @@ class DeepComparisonServiceTest {
     @Test
     void participantMustMatchBothAccountAndSlot() {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
-        var service = new DeepComparisonService(provider, mock(ItemService.class));
+        var service = new DeepComparisonService(
+                provider, mock(ItemService.class), mock(AbilityRepository.class));
         when(provider.getMatchDetails(10L)).thenReturn(details(10L,
                 OpenDotaMatchPlayer.builder().accountId(1L).playerSlot(0).heroId(7L).build()));
         when(provider.getMatchDetails(20L)).thenReturn(details(20L,

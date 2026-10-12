@@ -50,8 +50,7 @@ public class ComparisonService {
     }
 
     @Cacheable(cacheNames = CacheConfig.COMPARISON_OVERVIEWS,
-            key = "#leftId + ':' + #rightId + ':' + #candidateLimit + ':' + #pairLimit",
-            unless = "#result == null || !#result.cacheable()")
+            key = "#leftId + ':' + #rightId + ':' + #candidateLimit + ':' + #pairLimit")
     public ComparisonOverview getOverview(Long leftId, Long rightId, int candidateLimit, int pairLimit) {
 
 
