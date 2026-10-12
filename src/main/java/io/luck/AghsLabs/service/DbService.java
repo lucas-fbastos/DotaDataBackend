@@ -6,6 +6,8 @@ import io.luck.AghsLabs.providers.opendota.model.OpenDotaHero;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaItem;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPatch;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaProPlayer;
+import io.luck.AghsLabs.providers.opendota.model.OpenDotaAbility;
+import io.luck.AghsLabs.providers.opendota.service.OpenDotaAbilityDataService;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaHeroDataService;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaItemDataService;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaPatchDataService;
@@ -13,6 +15,7 @@ import io.luck.AghsLabs.providers.opendota.service.OpenDotaProPlayerDataService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -28,6 +31,8 @@ public class DbService {
     private final ItemAttributeRepository itemAttributeRepository;
     private final ItemRepository itemRepository;
     private final PatchRepository patchRepository;
+    private final AbilityRepository abilityRepository;
+    private final OpenDotaAbilityDataService openDotaAbilityDataService;
 
     private static final String[] ROLES = {"Carry","Nuker","Initiator","Disabler","Support","Escape","Durable","Pusher"};
 
@@ -41,7 +46,9 @@ public class DbService {
             OpenDotaProPlayerDataService openDotaProPlayerDataService,
             ItemAttributeRepository itemAttributeRepository,
             ItemRepository itemRepository,
-            PatchRepository patchRepository
+            PatchRepository patchRepository,
+            AbilityRepository abilityRepository,
+            OpenDotaAbilityDataService openDotaAbilityDataService
     ) {
         this.heroRepository = heroRepository;
         this.roleRepository = roleRepository;
@@ -53,6 +60,8 @@ public class DbService {
         this.itemAttributeRepository = itemAttributeRepository;
         this.itemRepository = itemRepository;
         this.patchRepository = patchRepository;
+        this.abilityRepository = abilityRepository;
+        this.openDotaAbilityDataService = openDotaAbilityDataService;
     }
 
     public void instantiateTestDatabase(){
@@ -61,6 +70,7 @@ public class DbService {
         seedProPlayers();
         seedItems();
         seedPatch();
+        seedAbilities();
     }
 
     private void seedHeroRoles(){ for(String role : ROLES) roleRepository.save(new Role(role));}
@@ -162,5 +172,26 @@ public class DbService {
 
     private Patch toPatchEntity(OpenDotaPatch patch) {
         return new Patch(patch.id(), patch.date(), patch.name());
+    }
+
+    public void seedAbilities() {
+        Map<String, OpenDotaAbility> abilitiesByName = openDotaAbilityDataService.getAll();
+        if (abilitiesByName == null) {
+            abilitiesByName = Map.of();
+        }
+
+        Map<String, OpenDotaAbility> abilityData = abilitiesByName;
+        List<Ability> abilitiesToPersist = openDotaAbilityDataService.getIds().stream()
+                .map(abilityId -> {
+                    OpenDotaAbility ability = abilityData.get(abilityId.name());
+                    return new Ability(
+                            abilityId.id(),
+                            ability == null ? null : ability.displayName(),
+                            ability == null ? null : ability.img()
+                    );
+                })
+                .toList();
+
+        abilityRepository.saveAll(abilitiesToPersist);
     }
 }
