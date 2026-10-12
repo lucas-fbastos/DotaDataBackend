@@ -1,5 +1,6 @@
 package io.luck.AghsLabs.config;
 
+import io.luck.AghsLabs.exception.ExternalApiException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,15 +26,15 @@ public class WebClientConfig {
                     Logger.getLogger(WebClientConfig.class.getName())
                             .warning("Client error - URL: " + request.getURI() +
                                     " - Status: " + response.getStatusCode());
-                    throw new RuntimeException(
-                            "Client error calling: " + request.getURI());
+                    throw new ExternalApiException(
+                            "OpenDota rejected request with status " + response.getStatusCode());
                 })
                 .defaultStatusHandler(HttpStatusCode::is5xxServerError, (request, response) -> {
                     Logger.getLogger(WebClientConfig.class.getName())
                             .severe("Server error - URL: " + request.getURI() +
                                     " - Status: " + response.getStatusCode());
-                    throw new RuntimeException(
-                            "Server error calling: " + request.getURI()
+                    throw new ExternalApiException(
+                            "OpenDota failed with status " + response.getStatusCode()
                     );
                 })
                 .build();

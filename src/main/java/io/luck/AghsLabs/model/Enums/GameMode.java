@@ -40,9 +40,6 @@ public enum GameMode {
 
     final Integer id;
     final String description;
-    public String getDescription(){
-        return this.description;
-    }
 
     public static Optional<GameMode> getById(Integer id){
         return Arrays.stream(GameMode.values()).filter( gameMode ->

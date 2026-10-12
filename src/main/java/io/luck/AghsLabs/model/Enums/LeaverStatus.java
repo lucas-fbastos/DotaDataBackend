@@ -8,11 +8,9 @@ public enum LeaverStatus {
     UNKNOWN(-1, "No data");
 
     private final int value;
-    private final String description;
 
     LeaverStatus(int value, String description) {
         this.value = value;
-        this.description = description;
     }
 
     public static LeaverStatus fromValue(int value) {
@@ -25,7 +23,4 @@ public enum LeaverStatus {
         return UNKNOWN;
     }
 
-    public String getDescription() {
-        return description;
-    }
 }

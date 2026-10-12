@@ -10,6 +10,8 @@ import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchPlayer;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaMatchDetailsData;
 import io.luck.AghsLabs.providers.opendota.model.OpenDotaPlayerMatchDetails;
 import io.luck.AghsLabs.providers.opendota.service.OpenDotaPlayerMatchDataService;
+import io.luck.AghsLabs.providers.opendota.service.OpenDotaLiveDataService;
+import io.luck.AghsLabs.repository.HeroRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -31,8 +33,8 @@ class MatchServiceTest {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
         var heroes = mock(HeroService.class);
         var items = mock(ItemService.class);
-        var service = new MatchService(heroes, items,
-                new MatchDetailsMapper(new MatchPlayerMapper()), provider);
+        var service = new MatchService(heroes, mock(HeroRepository.class), items,
+                new MatchDetailsMapper(new MatchPlayerMapper()), provider, mock(OpenDotaLiveDataService.class));
         var player = OpenDotaMatchPlayer.builder()
                 .playerSlot(128).heroId(7L)
                 .obsLog(List.of()).senLog(List.of()).obsLeftLog(List.of()).senLeftLog(List.of())
@@ -49,8 +51,8 @@ class MatchServiceTest {
     @Test
     void matchWithoutPlayerDataReturnsEmptyWards() {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
-        var service = new MatchService(mock(HeroService.class), mock(ItemService.class),
-                new MatchDetailsMapper(new MatchPlayerMapper()), provider);
+        var service = new MatchService(mock(HeroService.class), mock(HeroRepository.class), mock(ItemService.class),
+                new MatchDetailsMapper(new MatchPlayerMapper()), provider, mock(OpenDotaLiveDataService.class));
         when(provider.getMatchDetails(123L)).thenReturn(OpenDotaPlayerMatchDetails.builder().matchId(123L).build());
 
         assertEquals(new MatchWards(List.of()), service.getMatchWards(123L));
@@ -59,8 +61,8 @@ class MatchServiceTest {
     @Test
     void missingMatchHasNoWards() {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
-        var service = new MatchService(mock(HeroService.class), mock(ItemService.class),
-                new MatchDetailsMapper(new MatchPlayerMapper()), provider);
+        var service = new MatchService(mock(HeroService.class), mock(HeroRepository.class), mock(ItemService.class),
+                new MatchDetailsMapper(new MatchPlayerMapper()), provider, mock(OpenDotaLiveDataService.class));
 
         assertNull(service.getMatchWards(123L));
         verify(provider).getMatchDetails(123L);
@@ -71,8 +73,8 @@ class MatchServiceTest {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
         var heroes = mock(HeroService.class);
         var items = mock(ItemService.class);
-        var service = new MatchService(heroes, items,
-                new MatchDetailsMapper(new MatchPlayerMapper()), provider);
+        var service = new MatchService(heroes, mock(HeroRepository.class), items,
+                new MatchDetailsMapper(new MatchPlayerMapper()), provider, mock(OpenDotaLiveDataService.class));
         var details = OpenDotaPlayerMatchDetails.builder()
                 .matchId(123L)
                 .chat(List.of(new OpenDotaMatchDetailsData.Chat(60, "chat", "gg", 0, 0)))
@@ -91,8 +93,8 @@ class MatchServiceTest {
     @Test
     void missingMatchHasNoChat() {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
-        var service = new MatchService(mock(HeroService.class), mock(ItemService.class),
-                new MatchDetailsMapper(new MatchPlayerMapper()), provider);
+        var service = new MatchService(mock(HeroService.class), mock(HeroRepository.class), mock(ItemService.class),
+                new MatchDetailsMapper(new MatchPlayerMapper()), provider, mock(OpenDotaLiveDataService.class));
 
         assertNull(service.getMatchChat(123L));
         verify(provider).getMatchDetails(123L);
@@ -103,8 +105,8 @@ class MatchServiceTest {
         var provider = mock(OpenDotaPlayerMatchDataService.class);
         var heroes = mock(HeroService.class);
         var items = mock(ItemService.class);
-        var service = new MatchService(heroes, items,
-                new MatchDetailsMapper(new MatchPlayerMapper()), provider);
+        var service = new MatchService(heroes, mock(HeroRepository.class), items,
+                new MatchDetailsMapper(new MatchPlayerMapper()), provider, mock(OpenDotaLiveDataService.class));
 
         var player = OpenDotaMatchPlayer.builder()
                 .kills(4).assists(8).deaths(2).denies(0).lastHits(120)

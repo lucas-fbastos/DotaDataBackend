@@ -5,7 +5,10 @@ import io.luck.AghsLabs.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemService {
@@ -16,11 +19,14 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public Item getById(Long itemId){
-         return this.itemRepository.findById(itemId).orElseThrow();
-    }
-
     public List<Item> getAllById(Set<Long> ids){
         return itemRepository.findAllById(ids);
+    }
+
+    public Map<Long, Item> getByIds(Set<Long> ids) {
+        if (ids == null || ids.isEmpty()) return Map.of();
+
+        return itemRepository.findAllById(ids).stream()
+                .collect(Collectors.toUnmodifiableMap(Item::getItemId, Function.identity()));
     }
 }
